@@ -21,6 +21,7 @@ dependencies = [
     { name = "langchain" },
     { name = "langchain-groq" },
     { name = "langchain-ollama" },
+    { name = "langchain-openai" },
     { name = "llama-index" },
     { name = "llama-index-llms-groq" },
     { name = "llama-index-llms-ollama" },
@@ -52,6 +53,7 @@ requires-dist = [
     { name = "langchain", specifier = ">=0.3.25" },
     { name = "langchain-groq", specifier = ">=0.3.2" },
     { name = "langchain-ollama", specifier = ">=0.3.2" },
+    { name = "langchain-openai", specifier = ">=0.3.17" },
     { name = "llama-index", specifier = ">=0.12.36" },
     { name = "llama-index-llms-groq", specifier = ">=0.3.1" },
     { name = "llama-index-llms-ollama", specifier = ">=0.5.4" },
@@ -1060,6 +1062,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/21/99/f548adc83e9f4d06805cc2fc530a94fca321318919c27ec8d5ad9fab51ab/langchain_ollama-0.3.2.tar.gz", hash = "sha256:9e747e7bda1b55cdfa344433814b035be3f06d1bae32b1ffb696ccfc12cfa8ae", size = 21147, upload-time = "2025-04-16T13:18:27.396Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/3a/a7/d0fff871a353e6f602fe94912576219b47639db5a08ad454ea914cc11c8d/langchain_ollama-0.3.2-py3-none-any.whl", hash = "sha256:f7516f2f22d912dba1286d644bff00c287799e758d7e465a1439244a1bb02820", size = 20702, upload-time = "2025-04-16T13:18:26.439Z" },
+]
+
+[[package]]
+name = "langchain-openai"
+version = "0.3.17"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "openai" },
+    { name = "tiktoken" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/81/85/4c5f34d177a442a48273688c52b8e2d285e6fa77329ef3de62ca8cdaecfb/langchain_openai-0.3.17.tar.gz", hash = "sha256:10bcdfac3edb3dea4a8aabb12f01566e5ff8756634cc52aa169c62e4c4b73801", size = 271556, upload-time = "2025-05-15T13:35:04.162Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a9/60/886dc53c91031e26542f7ac1ea4062b7ebe542d22970996acaee59aa1cab/langchain_openai-0.3.17-py3-none-any.whl", hash = "sha256:d4d9cf945e2453ee5895ccd12fd8a3ea9131a0f6130dcc21427c77cc2206b1c0", size = 62891, upload-time = "2025-05-15T13:35:02.817Z" },
 ]
 
 [[package]]
