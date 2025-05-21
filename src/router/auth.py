@@ -24,6 +24,39 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 router = APIRouter()
 
+from fastapi.security import OAuth2PasswordRequestForm
+from fastapi import Depends, HTTPException
+from sqlalchemy.orm import Session
+
+
+class OAuth2PasswordRequestFormEmail(OAuth2PasswordRequestForm):
+    def __init__(self, grant_type: str = None, email: str = None, password: str = None, scope: str = "", client_id: str = None, client_secret: str = None):
+        super().__init__(grant_type, email, password, scope, client_id, client_secret)
+        self.email = email
+
+
+@router.post("/login")
+async def login(form_data: OAuth2PasswordRequestFormEmail = Depends(), db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.email == form_data.email).first()
+    if not user or not pwd_context.verify(form_data.password, user.hashed_password):
+        raise HTTPException(status_code=422, detail="Invalid email or password")
+
+    if not pwd_context.verify(form_data.password, user.hpassword):
+        return JSONResponse(content={"detail": "Invalid credentials"}, status_code=401)
+
+    # Create tokens
+    access_token, refresh_token = create_tokens({"sub": user.email})
+
+    # Store refresh token
+    db_token = RefreshToken(
+        email=user.email,
+        token=refresh_token,
+        expiry_date=datetime.datetime.utcnow() + datetime.timedelta(days=REFRESH_TOKEN_EXPIRY_DAYS)
+    )
+    db.add(db_token)
+    db.commit()
+
+    return Token(access=access_token, refresh=refresh_token)
 
 class UserPayload(BaseModel):
     username: str
@@ -108,28 +141,7 @@ def register(user: UserPayload, db: Session = Depends(get_db)):
         )
 
 
-@router.post("/login", response_model=Token)
-def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.email == form_data.username).first()
-    if not user:
-        return JSONResponse(content={"detail": "Invalid credentials"}, status_code=401)
 
-    if not pwd_context.verify(form_data.password, user.hpassword):
-        return JSONResponse(content={"detail": "Invalid credentials"}, status_code=401)
-
-    # Create tokens
-    access_token, refresh_token = create_tokens({"sub": user.email})
-
-    # Store refresh token
-    db_token = RefreshToken(
-        email=user.email,
-        token=refresh_token,
-        expiry_date=datetime.datetime.utcnow() + datetime.timedelta(days=REFRESH_TOKEN_EXPIRY_DAYS)
-    )
-    db.add(db_token)
-    db.commit()
-
-    return Token(access=access_token, refresh=refresh_token)
 
 
 @router.post("/refresh", response_model=Token)

@@ -39,7 +39,7 @@ class User(SQLModel, table=True):
     username: str = Field(index=True)
     email: EmailStr = Field(index=True)
     hpassword: str
-    created_at: datetime = Field(default_factory=datetime.now())
+    created_at: datetime = Field(default_factory=datetime.now)
 
 class Session(SQLModel, table=True):
     __tablename__ = "sessions"
@@ -47,7 +47,7 @@ class Session(SQLModel, table=True):
     user_id: uuid.UUID = Field(foreign_key="users.userid", index=True)
     title: str
     model: str
-    created_at: datetime = Field(default_factory=datetime.now())
+    created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 from enum import Enum
