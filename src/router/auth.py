@@ -1,31 +1,41 @@
 import datetime
 import jwt
-from fastapi import Depends, APIRouter
-from fastapi.security import OAuth2PasswordRequestForm
+import os
+from fastapi import Depends, APIRouter, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from fastapi.responses import JSONResponse
 from passlib.context import CryptContext
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
+from dotenv import load_dotenv
 from src.db.dbs import get_db
-from src.models import User, RefreshToken
+from src.models.schema import User, RefreshToken
+
+# Load environment variables
+load_dotenv()
+
+# Authentication settings from environment variables
+SECRET_KEY = os.getenv("SECRET_KEY", "YOUR_SECRET_KEY")
+ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+ACCESS_TOKEN_EXPIRY_MIN = int(os.getenv("ACCESS_TOKEN_EXPIRY_MIN", "15"))
+REFRESH_TOKEN_EXPIRY_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRY_DAYS", "30"))
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 router = APIRouter()
 
-SECRET_KEY = "YOUR_SECRET_KEY"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRY_MIN = 15
-REFRESH_TOKEN_EXPIRY_DAYS = 30
 
 class UserPayload(BaseModel):
     username: str
     email: str
     password: str
 
+
 class Token(BaseModel):
     access: str
     refresh: str
     type: str = "bearer"
+
 
 def create_tokens(data: dict):
     now = datetime.datetime.utcnow()
@@ -36,6 +46,28 @@ def create_tokens(data: dict):
     access_token = jwt.encode(access_payload, SECRET_KEY, algorithm=ALGORITHM)
     refresh_token = jwt.encode(refresh_payload, SECRET_KEY, algorithm=ALGORITHM)
     return access_token, refresh_token
+
+
+async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=401,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            raise credentials_exception
+    except jwt.PyJWTError:
+        raise credentials_exception
+
+    user = db.query(User).filter(User.email == email).first()
+    if user is None:
+        raise credentials_exception
+    return user
+
 
 @router.post("/register", response_model=Token)
 def register(user: UserPayload, db: Session = Depends(get_db)):
@@ -75,7 +107,8 @@ def register(user: UserPayload, db: Session = Depends(get_db)):
             status_code=500
         )
 
-@router.post("/login")
+
+@router.post("/login", response_model=Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = db.query(User).filter(User.email == form_data.username).first()
     if not user:
@@ -98,6 +131,37 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
     return Token(access=access_token, refresh=refresh_token)
 
+
+@router.post("/refresh", response_model=Token)
+def refresh_token(refresh: str, db: Session = Depends(get_db)):
+    try:
+        payload = jwt.decode(refresh, SECRET_KEY, algorithms=[ALGORITHM])
+        email = payload.get("sub")
+        if not email:
+            raise HTTPException(status_code=401, detail="Invalid refresh token")
+
+        # Verify refresh token exists in database
+        db_token = db.query(RefreshToken).filter(RefreshToken.token == refresh).first()
+        if not db_token:
+            raise HTTPException(status_code=401, detail="Refresh token not found")
+
+        # Create new tokens
+        access_token, new_refresh_token = create_tokens({"sub": email})
+
+        # Update token in database
+        db_token.token = new_refresh_token
+        db_token.expiry_date = datetime.datetime.utcnow() + datetime.timedelta(days=REFRESH_TOKEN_EXPIRY_DAYS)
+        db.commit()
+
+        return Token(access=access_token, refresh=new_refresh_token)
+    except jwt.PyJWTError:
+        raise HTTPException(status_code=401, detail="Invalid refresh token")
+
+
 @router.get("/me")
-def me():
-    return {"user": "authenticated", "message": "User authenticated"}
+def me(current_user: User = Depends(get_current_user)):
+    return {
+        "user_id": str(current_user.userid),
+        "username": current_user.username,
+        "email": current_user.email
+    }
