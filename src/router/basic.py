@@ -2,7 +2,7 @@
 import os
 from fastapi import HTTPException, Query, APIRouter
 from fastapi.responses import JSONResponse, StreamingResponse
-from src.app.application import app
+from src.app import app  # Import from centralized location
 from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 
@@ -70,3 +70,4 @@ def streamMsg(query: str):
         for chunk in app.state.llm_instance.astream(query):
             yield chunk
     return StreamingResponse(event_stream(), media_type="text/plain")
+

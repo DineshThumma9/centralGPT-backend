@@ -4,30 +4,27 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from fastapi import FastAPI
-from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from fastapi import HTTPException, Query, APIRouter
+from fastapi import Query
 from fastapi.responses import JSONResponse, StreamingResponse
 from src.app.application import app
 from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 import datetime
 import jwt
-from fastapi import Depends, HTTPException,APIRouter
+from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from src.app.db.dbs import get_db
-from sqlalchemy import Enum as SQLEnum
-from typing import Optional, List, Dict, Literal, Any
+from typing import Optional, List, Dict, Literal
 import uuid
 from datetime import datetime
 from pydantic import BaseModel, EmailStr
-from sqlmodel import SQLModel, Field, JSON
+from sqlmodel import SQLModel, Field
 from sqlalchemy.ext.declarative import declarative_base
 
-from src.app.models.schema import RefreshToken, User
+from src.models import RefreshToken, User
 
 DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/postgres"
 engine = create_engine(DATABASE_URL)
