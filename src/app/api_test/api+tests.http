@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:8000
+@access_token =
+@refresh_token =
+
+### Auth - Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "email": "test@example.com",
+    "password": "securepassword123"
+}
+
+
+
+#### Auth - Login
+##  login
+#POST {{baseUrl}}/auth/login
+#Content-Type: application/x-www-form-urlencoded
+#
+#username=test@example.com&password=securepassword123
+#
+#### Save tokens from login response
+#{% if response.body.access %}
+#@access_token = {{response.body.access}}
+#@refresh_token = {{response.body.refresh}}
+#{% endif %}
+#
+#### Auth - Get user info
+#GET {{baseUrl}}/auth/me
+#Authorization: Bearer {{access_token}}
