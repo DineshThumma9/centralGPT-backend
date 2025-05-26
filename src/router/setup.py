@@ -9,6 +9,8 @@ from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
 
 
+from pydantic import BaseModel
+
 logger = logging.getLogger("basic_router")
 load_dotenv()
 router = APIRouter()
@@ -20,7 +22,7 @@ llm_providers = {
 }
 
 api_providers = {
-    " GROQ",
+    "GROQ",
     "OPENAI",
     "ANTROPHIC",
     "GROK",
@@ -31,11 +33,16 @@ api_providers = {
 
 }
 
+class API_KEY_REQUEST(BaseModel):
+    api_providers:str
+    api_key : str
 
-@router.post("api/{api_provider}/{api_key}")
+
+
+@router.post("/api/{api_provider}/{api_key}")
 def set_api_provider(api_provider: str, api_key: str):
     if api_provider not in api_providers:
-        return HTTPResponse(status_code=404, detail="API Provider is Not Valid")
+        raise HTTPException(status_code=404, detail="API Provider is Not Valid")
     else:
         os.environ[f"${api_provider}_API_KEY"] = api_key
         logger.info("API KEY SET")
@@ -46,9 +53,10 @@ def set_api_provider(api_provider: str, api_key: str):
 def get_llm_providers():
     logger.info("LLM providers requested")
     return JSONResponse(
-        content={"providers": llm_providers.items()},
+        content={"providers": list(llm_providers.keys())},
         status_code=200
     )
+
 
 
 @router.post("/providers/{llm_prov}")
@@ -58,12 +66,8 @@ async def choose_llm_provider(llm_prov: str, request: Request):
         logger.warning(f"Invalid LLM provider requested: {llm_prov}")
         raise HTTPException(status_code=404, detail=f"LLM provider '{llm_prov}' not found")
 
-    try:
-        llm_instance = llm_providers[llm_prov]
-        logger.info("LLM has inansatiated")
-    except:
-
-        raise HTTPException(status_code=404, detail="Error chosing llm prov")
+    request.app.state.llm_class = llm_providers[llm_prov]
+    logger.info(f"LLM provider '{llm_prov}' set successfully")
 
     return JSONResponse(
         content={"message": f"LLM provider '{llm_prov}' selected successfully"},
@@ -89,7 +93,7 @@ async def choose_model(model: str, request: Request):
         else:
             logger.info(f"Using existing instance for {instance_key}")
         request.app.state.llm_instance = llm_instances[instance_key]
-        request.app.state.current_model = model
+        request.app.state.current_model = llm_class(model= model)
     except Exception as e:
         logger.error(f"Failed to instantiate model {model}: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to instantiate model: {str(e)}")

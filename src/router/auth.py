@@ -1,8 +1,10 @@
 import datetime
+import json
 import logging
 import os
-
 import jwt
+
+
 from dotenv import load_dotenv
 from fastapi import Depends, APIRouter, HTTPException, Form
 from fastapi.responses import JSONResponse
@@ -14,18 +16,25 @@ from sqlalchemy.orm import Session
 from src.db.dbs import get_db
 from src.models.schema import User, RefreshToken
 
-load_dotenv()
-logger = logging.getLogger("authLogger")
-logger.info("In Auth")
+from loguru import  logger
 
+load_dotenv()
+logger.info("In Auth")
 SECRET_KEY = os.getenv("SECRET_KEY", "YOUR_SECRET_KEY")
 ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRY_MIN = int(os.getenv("ACCESS_TOKEN_EXPIRY_MIN", "15"))
 REFRESH_TOKEN_EXPIRY_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRY_DAYS", "30"))
 
+
+
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 router = APIRouter()
+
+
+
+
 
 
 class UserPayload(BaseModel):
@@ -37,7 +46,9 @@ class UserPayload(BaseModel):
 class Token(BaseModel):
     access: str
     refresh: str
-    type: str = "bearer"
+
+
+
 
 
 def create_tokens(data: dict, db: Session):
@@ -59,13 +70,26 @@ def create_tokens(data: dict, db: Session):
     db.add(db_token)
     db.commit()
 
-    return Token(access=access_token, refresh=refresh_token)
+
+    tokens = Token(access=access_token, refresh=refresh_token)
+    return JSONResponse(
+            content=tokens.model_dump(),
+            status_code=200
+        )
 
 
-logger.info("Accessiong register")
+
+
+
+
+
+
 @router.post("/register", response_model=Token)
 def register(user: UserPayload, db: Session = Depends(get_db)):
 
+
+
+    logger.info("Accessiong register")
     logger.info(user)
     existing_user = db.query(User).filter(User.email == user.email).first()
     if existing_user:
@@ -83,7 +107,12 @@ def register(user: UserPayload, db: Session = Depends(get_db)):
         db.rollback()
         return JSONResponse(content={"detail": f"Registration failed: {str(e)}"}, status_code=500)
 
-    logger.info("Over")
+
+
+
+
+
+
 
 
 @router.post("/login", response_model=Token)
@@ -93,6 +122,9 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
     return create_tokens({"sub": user.email}, db)
+
+
+
 
 
 @router.post("/refresh", response_model=Token)
@@ -112,7 +144,11 @@ def refresh_token(refresh: str = Form(...), db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid refresh token")
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+
+
+
+
+async def get_current_user(token:str = Depends(OAuth2PasswordBearer(tokenUrl="token")), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=401,
         detail="Could not validate credentials",
@@ -131,6 +167,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = De
     if user is None:
         raise credentials_exception
     return user
+
+
+
 
 
 @router.get("/me")

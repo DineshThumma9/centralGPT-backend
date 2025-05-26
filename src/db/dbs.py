@@ -1,9 +1,11 @@
 import logging
 import os
+from typing import Generator
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 from sqlmodel import SQLModel
 
 logger = logging.getLogger("database")
@@ -30,7 +32,7 @@ except Exception as e:
     SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
 
 
-def get_db():
+def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
         logger.debug("Database session created")

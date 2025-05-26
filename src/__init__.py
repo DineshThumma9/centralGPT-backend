@@ -1,21 +1,4 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI(
-    title="FastAPI App",
-    description="Simple FastAPI Application",
-    version="1.0.0"
-)
-
-# CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
+from src.main import app
 
 app.state.llm_class = None
 app.state.llm_instance = None
