@@ -2,7 +2,8 @@ import datetime
 import json
 import os
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List, Dict
+from urllib import request
 from uuid import UUID
 from uuid import uuid4
 
@@ -14,7 +15,6 @@ from loguru import logger
 from pydantic import BaseModel
 from sqlmodel import select
 from sqlmodel import Session as DBSession
-
 
 from src.db.dbs import get_db
 from src.db.redis_client import redis
@@ -139,54 +139,275 @@ async def get_chat_history(
         raise HTTPException(status_code=500, detail="Failed to fetch chat history")
 
 
+
+class qdrant_convert(BaseModel):
+    point_id:str
+    vector:List[float]
+    payload:Dict
+    collection_name:str
+
+
+from sentence_transformers import SentenceTransformer
+
+
+
+def conversion_for_qdrant(msg: MessageInfo, collection_name:str):
+    msg_id = msg.message_id  # str, not tuple
+
+    embed_model =  SentenceTransformer("all-MiniLM-L6-v2")
+    vector = embed_model.encode(msg.content)
+    payload = {
+        "content": msg.content,
+        "sender": msg.sender,
+        "timestamp": msg.timestamp
+    }
+
+    return qdrant_convert(point_id=msg_id, vector=vector, payload=payload,collection_name=collection_name)
+
+
+
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationChain
+from langchain.memory.chat_message_histories.redis import RedisChatMessageHistory
+from langchain.schema import HumanMessage
+from fastapi import APIRouter, Request, Body, Depends, HTTPException
+from uuid import uuid4
+from datetime import datetime
+
+
+# Get all sessions for a user
+@router.get("/sessions/{user_id}")
+async def get_user_sessions(user_id: str, db: DBSession = Depends(get_db)):
+    """Get all chat sessions for a user"""
+    sessions = db.query(Message.session_id).filter(
+        Message.session_id.like(f"{user_id}_%")
+    ).distinct().all()
+
+    session_list = []
+    for session in sessions:
+        session_id = session[0]
+        # Get first message for preview
+        first_msg = db.query(Message).filter(
+            Message.session_id == session_id,
+            Message.sender == SenderRole.USER
+        ).order_by(Message.timestamp).first()
+
+        # Get last activity
+        last_msg = db.query(Message).filter(
+            Message.session_id == session_id
+        ).order_by(Message.timestamp.desc()).first()
+
+        session_list.append({
+            "session_id": session_id,
+            "preview": first_msg.content[:50] + "..." if first_msg else "New Chat",
+            "last_activity": last_msg.timestamp if last_msg else None
+        })
+
+    return sorted(session_list, key=lambda x: x["last_activity"] or datetime.min, reverse=True)
+
+
+# Get chat history for a specific session
+@router.get("/chat/{session_id}")
+async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
+    """Get all messages in a chat session"""
+    messages = db.query(Message).filter(
+        Message.session_id == session_id
+    ).order_by(Message.timestamp).all()
+    return messages
+
+
+# Create new session
+@router.post("/session/new")
+async def create_new_session(
+        user_id: str = Body(...),
+        db: DBSession = Depends(get_db)
+):
+    """Create a new chat session"""
+    session_id = f"{user_id}_{uuid4()}"
+
+    # Optional: Store in Redis for quick access
+    redis.sadd(f"user_sessions:{user_id}", session_id)
+
+    return {"session_id": session_id}
+
+
 @router.post("/simple/{msg}")
-async def message(msg: str, request: Request,db:DBSession=Depends(get_db) ,body:dict=Body(...)):
-
+async def message(
+        msg: str,
+        request: Request,
+        db: DBSession = Depends(get_db),
+        body: dict = Body(...)
+):
     current_model = getattr(request.app.state, "current_model", None)
+    if not (current_model and hasattr(current_model, "invoke")):
+        raise HTTPException(status_code=401, detail="No valid model found")
 
+    session_id = body.get("current_session_id")
+    if not session_id:
+        raise HTTPException(status_code=422, detail="Missing current_session_id in request body")
 
+    # ✅ CRITICAL: Ensure unique Redis keys
+    redis_key_prefix = f"chat_session:{session_id}"
 
-    logger.info(f"For request.app.state.llm_instance  {request.app.state.llm_instance} ")
-    logger.info(f"For request.app.state.current_model  {request.app.state.current_model} ")
-    logger.info(f"For request.app.state.llm_class  {request.app.state.llm_class}")
-    logger.info(f"Type of llm_instance: {type(request.app.state.llm_instance)}")
-    logger.info(f"Type of current_model: {type(request.app.state.current_model)}")
-
-    if current_model and hasattr(current_model, "invoke"):
-
-        session_id = body.get("current_session_id")
-
-        if not session_id:
-            raise HTTPException(status_code=422, detail="Missing current_session_id in request body")
-
-        response = current_model.invoke(msg)  # or await
-
-        msg = MessageInfo(
-            message_id = str(uuid4()),
-            session_id = session_id,
-            content= response.content,
-            sender=SenderRole.ASSISTANT,
-            timestamp=str(datetime.now())
+    try:
+        # --- Setup isolated memory with unique Redis keys ---
+        chat_history = RedisChatMessageHistory(
+            session_id=redis_key_prefix,  # Use prefixed key
+            url="redis://localhost:6379",
+            key_prefix="langchain:chat_history:",  # Additional prefix
+            ttl=3600  # Optional: expire after 1 hour
         )
 
-        db_msg = Message.model_validate(msg)
-        db.add(db_msg)
+        # ✅ Create fresh memory instance for each request
+        memory = ConversationBufferMemory(
+            chat_memory=chat_history,
+            return_messages=True,
+            memory_key="history"  # Explicit memory key
+        )
+
+        # --- Log current session for debugging ---
+        logger.info(f"Processing message for session: {session_id}")
+        logger.info(f"Redis key: {redis_key_prefix}")
+
+        # --- Store user message ---
+        user_msg = Message(
+            session_id=session_id,
+            message_id=uuid4(),
+            content=msg,
+            sender=SenderRole.USER,
+            timestamp=datetime.now()
+        )
+        db.add(user_msg)
         db.commit()
-        db.refresh(db_msg)
+        db.refresh(user_msg)
+
+        # Store in Redis with unique key
+        redis.rpush(f"{redis_key_prefix}:messages", json.dumps(user_msg.model_dump()))
+
+        # ✅ Create fresh conversation chain for each request
+        chain = ConversationChain(
+            llm=current_model,
+            memory=memory,
+            verbose=True  # Enable for debugging
+        )
+
+        # ✅ Clear any potential model state (Groq specific)
+        # Force fresh context by explicitly providing input
+        response = chain.invoke({
+            "input": msg,
+            "history": memory.chat_memory.messages  # Explicit history
+        })
+
+        response_text = response.get('response', str(response)) if isinstance(response, dict) else str(response)
+        logger.info(f"Generated response for session {session_id}: {response_text[:100]}...")
+
+        # --- Store assistant response ---
+        assistant_msg = Message(
+            session_id=session_id,
+            message_id=uuid4(),
+            content=response_text,
+            sender=SenderRole.ASSISTANT,
+            timestamp=datetime.now()
+        )
+        db.add(assistant_msg)
+        db.commit()
+        db.refresh(assistant_msg)
+
+        # Store in Redis
+        assistant_msg_info = MessageInfo(
+            message_id=str(assistant_msg.message_id),
+            session_id=session_id,
+            content=response_text,
+            sender=SenderRole.ASSISTANT,
+            timestamp=str(assistant_msg.timestamp)
+        )
+        redis.rpush(f"{redis_key_prefix}:messages", json.dumps(assistant_msg_info.model_dump()))
+
+        # --- Optional: Clear memory after response (prevents bleeding) ---
+        # Uncomment if you want to clear memory after each response
+        # memory.clear()
+
+        return assistant_msg_info
+
+    except Exception as e:
+        logger.error(f"Error in message processing for session {session_id}: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-        logger.info(f"Response: {response!r}")
+# ✅ Add endpoint to clear session memory (for testing)
+@router.delete("/session/{session_id}/clear")
+async def clear_session_memory(session_id: str):
+    """Clear memory for a specific session"""
+    redis_key_prefix = f"chat_session:{session_id}"
 
-        if response is None:
-            logger.info("Response is empty")
+    # Clear Redis chat history
+    redis.delete(f"langchain:chat_history:{redis_key_prefix}")
+    redis.delete(f"{redis_key_prefix}:messages")
 
-        return msg
+    return {"message": f"Cleared memory for session {session_id}"}
 
-    else:
-        logger.info(f"Has attr  checking  {hasattr(current_model, 'invoke')}")
-        logger.info("Failed here")
-        raise HTTPException(status_code=401, detail="Failed Response")
 
+# ✅ Add endpoint to check session state (for debugging)
+@router.get("/session/{session_id}/debug")
+async def debug_session(session_id: str):
+    """Debug session state"""
+    redis_key_prefix = f"chat_session:{session_id}"
+
+    # Check Redis keys
+    chat_history_key = f"langchain:chat_history:{redis_key_prefix}"
+    messages_key = f"{redis_key_prefix}:messages"
+
+    chat_history = redis.lrange(chat_history_key, 0, -1)
+    messages = redis.lrange(messages_key, 0, -1)
+
+    return {
+        "session_id": session_id,
+        "redis_prefix": redis_key_prefix,
+        "chat_history_count": len(chat_history),
+        "messages_count": len(messages),
+        "chat_history": [json.loads(msg) if msg else None for msg in chat_history[:5]],  # First 5
+        "messages": [json.loads(msg) if msg else None for msg in messages[:5]]  # First 5
+    }
+# Alternative: Get messages from Redis (faster)
+@router.get("/chat/{session_id}/redis")
+async def get_chat_from_redis(session_id: str):
+    """Get chat history from Redis (faster but less reliable)"""
+    messages = redis.lrange(f"{session_id}:messages", 0, -1)
+    return [json.loads(msg) for msg in messages]
+
+
+# Hybrid approach: Redis first, fallback to DB
+@router.get("/chat/{session_id}/hybrid")
+async def get_chat_hybrid(session_id: str, db: DBSession = Depends(get_db)):
+    """Get chat history - try Redis first, fallback to database"""
+    try:
+        # Try Redis first (faster)
+        redis_messages = redis.lrange(f"{session_id}:messages", 0, -1)
+        if redis_messages:
+            return [json.loads(msg) for msg in redis_messages]
+    except Exception as e:
+        logger.warning(f"Redis error, falling back to DB: {e}")
+
+    # Fallback to database
+    messages = db.query(Message).filter(
+        Message.session_id == session_id
+    ).order_by(Message.timestamp).all()
+
+    # Populate Redis for next time
+    try:
+        for msg in messages:
+            msg_info = MessageInfo(
+                message_id=str(msg.message_id),
+                session_id=msg.session_id,
+                content=msg.content,
+                sender=msg.sender,
+                timestamp=str(msg.timestamp)
+            )
+            redis.rpush(f"{session_id}:messages", json.dumps(msg_info.model_dump()))
+    except Exception as e:
+        logger.warning(f"Failed to populate Redis: {e}")
+
+    return messages
 
 # Assume these are imported:
 # SessionModel, Message, TitleUpdateRequest, TitleResponse, get_db, redis
@@ -260,28 +481,33 @@ async def delete_session(session_id: str, db: DBSession = Depends(get_db)):
     return {"message": "Session deleted successfully"}
 
 
-
 @router.get("/getAll")
-async def get_all_sessions(db: DBSession = Depends(get_db)):
-    """Get all sessions for the user"""
+async def get_all_sessions(
+    db: DBSession = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """Get all sessions for the current user"""
     try:
-        session_query = select(SessionModel).order_by(SessionModel.updated_at.date())
+        session_query = (
+            select(SessionModel)
+            .where(SessionModel.user_id == user.userid)
+            .order_by(SessionModel.updated_at)
+        )
         sessions = db.execute(session_query).scalars().all()
 
-        formatted_sessions = []
-        for session in sessions:
-            formatted_sessions.append({
+        return [
+            {
                 "id": str(session.session_id),
                 "session_id": str(session.session_id),
                 "title": session.title,
                 "created_at": session.created_at.isoformat(),
                 "updated_at": session.updated_at.isoformat() if session.updated_at else None
-            })
-
-        return formatted_sessions
+            }
+            for session in sessions
+        ]
 
     except Exception as e:
-        logger.error(f"Error fetching all sessions: {str(e)}")
+        logger.error(f"Error fetching sessions for user {user.userid}: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch sessions")
 
 

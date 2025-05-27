@@ -53,3 +53,5 @@ def create_all_tables():
     except Exception as e:
         logger.error(f"Error creating tables: {str(e)}")
         raise
+
+

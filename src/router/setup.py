@@ -1,9 +1,10 @@
 import logging
 import os
 from http.client import HTTPResponse
+from typing import Dict
 
 from dotenv import load_dotenv
-from fastapi import HTTPException, APIRouter, Request
+from fastapi import HTTPException, APIRouter, Request,Body
 from fastapi.responses import JSONResponse
 from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
@@ -58,9 +59,12 @@ def get_llm_providers():
     )
 
 
+from typing import Dict
+from fastapi import Body, Request, HTTPException
 
-@router.post("/providers/{llm_prov}")
-async def choose_llm_provider(llm_prov: str, request: Request):
+@router.post("/providers", response_model=None)
+async def choose_llm_provider(request: Request, body: Dict = Body(...)):
+    llm_prov = body.get("llm_class")
     logger.info(f"Setting LLM provider: {llm_prov}")
     if llm_prov not in llm_providers:
         logger.warning(f"Invalid LLM provider requested: {llm_prov}")
@@ -75,8 +79,9 @@ async def choose_llm_provider(llm_prov: str, request: Request):
     )
 
 
-@router.post("/models/{model}")
-async def choose_model(model: str, request: Request):
+@router.post("/models", response_model=None)
+async def choose_model(request: Request, body: Dict = Body(...)):
+    model = body.get("model")
     logger.info(f"Setting model: {model}")
 
     llm_class = getattr(request.app.state, "llm_class", None)
@@ -86,14 +91,13 @@ async def choose_model(model: str, request: Request):
 
     try:
         instance_key = f"{llm_class.__name__}_{model}"
-        logger.debug(f"Creating model instance with key: {instance_key}")
         if instance_key not in llm_instances:
             llm_instances[instance_key] = llm_class(model=model)
             logger.info(f"Created new instance for {instance_key}")
         else:
             logger.info(f"Using existing instance for {instance_key}")
         request.app.state.llm_instance = llm_instances[instance_key]
-        request.app.state.current_model = llm_class(model= model)
+        request.app.state.current_model = llm_instances[instance_key]
     except Exception as e:
         logger.error(f"Failed to instantiate model {model}: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to instantiate model: {str(e)}")

@@ -1,5 +1,6 @@
 import contextlib
 import os
+from urllib import request
 
 import uvicorn
 from fastapi import FastAPI
@@ -55,15 +56,17 @@ async def root():
 
 
 app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
-app.include_router(basic_router, prefix="/api", tags=["Chat API"])
+app.include_router(basic_router, prefix="/setup", tags=["Chat API"])
 app.include_router(session_router, prefix="/sessions", tags=["Session"])
 
 
+from sentence_transformers import SentenceTransformer
 @contextlib.asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting up...")
     try:
         create_all_tables()
+        app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
         logger.info("Database tables created successfully")
     except Exception as e:
         logger.error(f"Database init error: {str(e)}")
