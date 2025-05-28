@@ -16,7 +16,7 @@ from pydantic import BaseModel
 from sqlmodel import select
 from sqlmodel import Session as DBSession
 
-from src.db.dbs import get_db
+from src.db.dbs import get_db, add_msg_to_dbs
 from src.db.redis_client import redis
 from src.models.schema import Message, SenderRole
 from src.models.schema import Session as SessionModel
@@ -96,47 +96,6 @@ async def create_new_session(user: User = Depends(get_current_user), db: DBSessi
             status_code=500,
             detail=f"Session creation failed: {str(e)}"
         )
-
-
-@router.get("/history/{session_id}")
-async def get_chat_history(
-        session_id: str,
-        limit: Optional[int] = Query(50, ge=1, le=100),
-        db: DBSession = Depends(get_db)
-):
-    """Get chat history for a session"""
-    try:
-
-        session_query = select(SessionModel).where(SessionModel.session_id == UUID(session_id))
-        session = db.execute(session_query).scalars().all()
-
-        if not session:
-            raise HTTPException(status_code=404, detail="Session not found")
-
-        message_query = select(Message).where(
-            Message.session_id == UUID(session_id)
-        ).order_by(Message.timestamp).limit(limit)
-
-        messages = db.execute(message_query).scalars().all()
-
-        # Format messages to match frontend expectations
-        formatted_messages = []
-        for msg in messages:
-            formatted_messages.append({
-                "message_id": str(msg.message_id),
-                "session_id": str(msg.session_id),
-                "content": msg.content,
-                "role": msg.sender.value,
-                "created_at": msg.timestamp.isoformat()
-            })
-
-        return formatted_messages
-
-    except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid session ID format")
-    except Exception as e:
-        logger.error(f"Error fetching history for session {session_id}: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to fetch chat history")
 
 
 
@@ -231,120 +190,88 @@ async def create_new_session(
     return {"session_id": session_id}
 
 
-@router.post("/simple/{msg}")
+class MsgRequest(BaseModel):
+    session_id : str
+    msg : str
+
+@router.post("/simple")
 async def message(
-        msg: str,
-        request: Request,
-        db: DBSession = Depends(get_db),
-        body: dict = Body(...)
+    request: Request,
+    db: DBSession = Depends(get_db),
+    body: MsgRequest = Body(...)
 ):
+
+
+
+
     current_model = getattr(request.app.state, "current_model", None)
     if not (current_model and hasattr(current_model, "invoke")):
         raise HTTPException(status_code=401, detail="No valid model found")
 
-    session_id = body.get("current_session_id")
+    session_id = body.session_id
     if not session_id:
         raise HTTPException(status_code=422, detail="Missing current_session_id in request body")
 
-    # ✅ CRITICAL: Ensure unique Redis keys
     redis_key_prefix = f"chat_session:{session_id}"
 
+
+
     try:
-        # --- Setup isolated memory with unique Redis keys ---
         chat_history = RedisChatMessageHistory(
-            session_id=redis_key_prefix,  # Use prefixed key
+            session_id=redis_key_prefix,
             url="redis://localhost:6379",
-            key_prefix="langchain:chat_history:",  # Additional prefix
-            ttl=3600  # Optional: expire after 1 hour
+            key_prefix="langchain:chat_history:",
+            ttl=3600
         )
 
-        # ✅ Create fresh memory instance for each request
         memory = ConversationBufferMemory(
             chat_memory=chat_history,
             return_messages=True,
-            memory_key="history"  # Explicit memory key
+            memory_key="history"
         )
 
-        # --- Log current session for debugging ---
-        logger.info(f"Processing message for session: {session_id}")
-        logger.info(f"Redis key: {redis_key_prefix}")
+        from src.db.dbs import add_msg_to_dbs
 
-        # --- Store user message ---
-        user_msg = Message(
-            session_id=session_id,
-            message_id=uuid4(),
-            content=msg,
-            sender=SenderRole.USER,
-            timestamp=datetime.now()
-        )
-        db.add(user_msg)
-        db.commit()
-        db.refresh(user_msg)
+        add_msg_to_dbs(body.msg,session_id,db)
 
-        # Store in Redis with unique key
-        redis.rpush(f"{redis_key_prefix}:messages", json.dumps(user_msg.model_dump()))
 
-        # ✅ Create fresh conversation chain for each request
         chain = ConversationChain(
             llm=current_model,
             memory=memory,
-            verbose=True  # Enable for debugging
+            verbose=True
         )
 
-        # ✅ Clear any potential model state (Groq specific)
-        # Force fresh context by explicitly providing input
         response = chain.invoke({
-            "input": msg,
-            "history": memory.chat_memory.messages  # Explicit history
+            "input": body.msg,
+            "history": memory.chat_memory.messages
         })
 
         response_text = response.get('response', str(response)) if isinstance(response, dict) else str(response)
-        logger.info(f"Generated response for session {session_id}: {response_text[:100]}...")
 
-        # --- Store assistant response ---
-        assistant_msg = Message(
-            session_id=session_id,
-            message_id=uuid4(),
-            content=response_text,
-            sender=SenderRole.ASSISTANT,
-            timestamp=datetime.now()
-        )
-        db.add(assistant_msg)
-        db.commit()
-        db.refresh(assistant_msg)
 
-        # Store in Redis
-        assistant_msg_info = MessageInfo(
-            message_id=str(assistant_msg.message_id),
-            session_id=session_id,
-            content=response_text,
-            sender=SenderRole.ASSISTANT,
-            timestamp=str(assistant_msg.timestamp)
-        )
-        redis.rpush(f"{redis_key_prefix}:messages", json.dumps(assistant_msg_info.model_dump()))
 
-        # --- Optional: Clear memory after response (prevents bleeding) ---
-        # Uncomment if you want to clear memory after each response
-        # memory.clear()
+        assistant_msg_info = add_msg_to_dbs(response_text,session_id,db,False)
 
         return assistant_msg_info
 
     except Exception as e:
         logger.error(f"Error in message processing for session {session_id}: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Internal server error")
 
 
-# ✅ Add endpoint to clear session memory (for testing)
-@router.delete("/session/{session_id}/clear")
-async def clear_session_memory(session_id: str):
-    """Clear memory for a specific session"""
-    redis_key_prefix = f"chat_session:{session_id}"
 
-    # Clear Redis chat history
-    redis.delete(f"langchain:chat_history:{redis_key_prefix}")
-    redis.delete(f"{redis_key_prefix}:messages")
-
-    return {"message": f"Cleared memory for session {session_id}"}
+#
+# # ✅ Add endpoint to clear session memory (for testing)
+# @router.delete("/session/{session_id}/clear")
+# async def clear_session_memory(session_id: str):
+#     """Clear memory for a specific session"""
+#     redis_key_prefix = f"chat_session:{session_id}"
+#
+#     # Clear Redis chat history
+#     redis.delete(f"langchain:chat_history:{redis_key_prefix}")
+#     redis.delete(f"{redis_key_prefix}:messages")
+#
+#     return {"message": f"Cleared memory for session {session_id}"}
 
 
 # ✅ Add endpoint to check session state (for debugging)
@@ -369,11 +296,11 @@ async def debug_session(session_id: str):
         "messages": [json.loads(msg) if msg else None for msg in messages[:5]]  # First 5
     }
 # Alternative: Get messages from Redis (faster)
-@router.get("/chat/{session_id}/redis")
-async def get_chat_from_redis(session_id: str):
-    """Get chat history from Redis (faster but less reliable)"""
-    messages = redis.lrange(f"{session_id}:messages", 0, -1)
-    return [json.loads(msg) for msg in messages]
+# @router.get("/chat/{session_id}/redis")
+# async def get_chat_from_redis(session_id: str):
+#     """Get chat history from Redis (faster but less reliable)"""
+#     messages = redis.lrange(f"{session_id}:messages", 0, -1)
+#     return [json.loads(msg) for msg in messages]
 
 
 # Hybrid approach: Redis first, fallback to DB
@@ -616,5 +543,4 @@ async def stream_chat_response(
     except Exception as e:
         logger.error(f"Error in stream chat: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to process chat message")
-
 

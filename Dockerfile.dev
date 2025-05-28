@@ -1,0 +1,24 @@
+# Dockerfile.genai - Add GenAI tools on top of heavy base
+FROM your-project-heavy:latest as genai
+
+WORKDIR /app
+
+# Install GenAI dependencies
+COPY requirements-genai.txt .
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --no-cache-dir -r requirements-genai.txt
+
+# Dockerfile.dev - Final development image
+FROM genai
+
+WORKDIR /app
+
+# Install API dependencies with cache mount
+COPY requirements-api.txt .
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --no-cache-dir -r requirements-api.txt
+
+# Set Python path for module imports
+ENV PYTHONPATH=/app
+
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

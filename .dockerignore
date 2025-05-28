@@ -10,3 +10,11 @@ dist/
 *.db
 .ollama
 ./logs
+.git
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+docker-compose.yml
+.venv/
+logs/

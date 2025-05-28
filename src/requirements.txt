@@ -13,3 +13,4 @@ SQLAlchemy==2.0.38
 sqlmodel==0.0.24
 starlette==0.46.2
 uvicorn==0.34.2
+langchain-community==0.3.24

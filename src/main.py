@@ -50,7 +50,7 @@ async def log_requests(request: Request, call_next):
 
 
 @app.get("/")
-@app.get("/home")
+@app.get("/health")
 async def root():
     return {"message": "API is running"}
 
