@@ -13,6 +13,7 @@ from fastapi import Query, Request
 from fastapi.responses import StreamingResponse
 from loguru import logger
 from pydantic import BaseModel
+from sqlalchemy.sql.functions import current_user
 from sqlmodel import select
 from sqlmodel import Session as DBSession
 
@@ -33,14 +34,12 @@ router = APIRouter()
 load_dotenv()
 
 
-class SessionResponse(BaseModel):
-    session_id: str
-    message: str
-
 
 class SessionInfo(BaseModel):
     session_id: str
-    title: str
+    user_id : str
+    model:Optional[str]
+    title: str = "New Chat"
     created_at: str
     updated_at: Optional[str] = None
 
@@ -62,6 +61,10 @@ class TitleResponse(BaseModel):
     title: str
 
 
+class SessionResponse(BaseModel):
+    session_id : str
+
+
 @router.post("/new", response_model=SessionResponse)
 async def create_new_session(user: User = Depends(get_current_user), db: DBSession = Depends(get_db)):
     try:
@@ -80,8 +83,7 @@ async def create_new_session(user: User = Depends(get_current_user), db: DBSessi
         db.refresh(new_session)
 
         return SessionResponse(
-            session_id=str(new_session.session_id),
-            message="Session created successfully"
+            session_id=str(new_session.session_id)
         )
 
     except HTTPException:
@@ -134,38 +136,6 @@ from uuid import uuid4
 from datetime import datetime
 
 
-# Get all sessions for a user
-@router.get("/sessions/{user_id}")
-async def get_user_sessions(user_id: str, db: DBSession = Depends(get_db)):
-    """Get all chat sessions for a user"""
-    sessions = db.query(Message.session_id).filter(
-        Message.session_id.like(f"{user_id}_%")
-    ).distinct().all()
-
-    session_list = []
-    for session in sessions:
-        session_id = session[0]
-        # Get first message for preview
-        first_msg = db.query(Message).filter(
-            Message.session_id == session_id,
-            Message.sender == SenderRole.USER
-        ).order_by(Message.timestamp).first()
-
-        # Get last activity
-        last_msg = db.query(Message).filter(
-            Message.session_id == session_id
-        ).order_by(Message.timestamp.desc()).first()
-
-        session_list.append({
-            "session_id": session_id,
-            "preview": first_msg.content[:50] + "..." if first_msg else "New Chat",
-            "last_activity": last_msg.timestamp if last_msg else None
-        })
-
-    return sorted(session_list, key=lambda x: x["last_activity"] or datetime.min, reverse=True)
-
-
-# Get chat history for a specific session
 @router.get("/chat/{session_id}")
 async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     """Get all messages in a chat session"""
@@ -175,19 +145,6 @@ async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     return messages
 
 
-# Create new session
-@router.post("/session/new")
-async def create_new_session(
-        user_id: str = Body(...),
-        db: DBSession = Depends(get_db)
-):
-    """Create a new chat session"""
-    session_id = f"{user_id}_{uuid4()}"
-
-    # Optional: Store in Redis for quick access
-    redis.sadd(f"user_sessions:{user_id}", session_id)
-
-    return {"session_id": session_id}
 
 
 class MsgRequest(BaseModel):
@@ -260,84 +217,6 @@ async def message(
 
 
 
-#
-# # ✅ Add endpoint to clear session memory (for testing)
-# @router.delete("/session/{session_id}/clear")
-# async def clear_session_memory(session_id: str):
-#     """Clear memory for a specific session"""
-#     redis_key_prefix = f"chat_session:{session_id}"
-#
-#     # Clear Redis chat history
-#     redis.delete(f"langchain:chat_history:{redis_key_prefix}")
-#     redis.delete(f"{redis_key_prefix}:messages")
-#
-#     return {"message": f"Cleared memory for session {session_id}"}
-
-
-# ✅ Add endpoint to check session state (for debugging)
-@router.get("/session/{session_id}/debug")
-async def debug_session(session_id: str):
-    """Debug session state"""
-    redis_key_prefix = f"chat_session:{session_id}"
-
-    # Check Redis keys
-    chat_history_key = f"langchain:chat_history:{redis_key_prefix}"
-    messages_key = f"{redis_key_prefix}:messages"
-
-    chat_history = redis.lrange(chat_history_key, 0, -1)
-    messages = redis.lrange(messages_key, 0, -1)
-
-    return {
-        "session_id": session_id,
-        "redis_prefix": redis_key_prefix,
-        "chat_history_count": len(chat_history),
-        "messages_count": len(messages),
-        "chat_history": [json.loads(msg) if msg else None for msg in chat_history[:5]],  # First 5
-        "messages": [json.loads(msg) if msg else None for msg in messages[:5]]  # First 5
-    }
-# Alternative: Get messages from Redis (faster)
-# @router.get("/chat/{session_id}/redis")
-# async def get_chat_from_redis(session_id: str):
-#     """Get chat history from Redis (faster but less reliable)"""
-#     messages = redis.lrange(f"{session_id}:messages", 0, -1)
-#     return [json.loads(msg) for msg in messages]
-
-
-# Hybrid approach: Redis first, fallback to DB
-@router.get("/chat/{session_id}/hybrid")
-async def get_chat_hybrid(session_id: str, db: DBSession = Depends(get_db)):
-    """Get chat history - try Redis first, fallback to database"""
-    try:
-        # Try Redis first (faster)
-        redis_messages = redis.lrange(f"{session_id}:messages", 0, -1)
-        if redis_messages:
-            return [json.loads(msg) for msg in redis_messages]
-    except Exception as e:
-        logger.warning(f"Redis error, falling back to DB: {e}")
-
-    # Fallback to database
-    messages = db.query(Message).filter(
-        Message.session_id == session_id
-    ).order_by(Message.timestamp).all()
-
-    # Populate Redis for next time
-    try:
-        for msg in messages:
-            msg_info = MessageInfo(
-                message_id=str(msg.message_id),
-                session_id=msg.session_id,
-                content=msg.content,
-                sender=msg.sender,
-                timestamp=str(msg.timestamp)
-            )
-            redis.rpush(f"{session_id}:messages", json.dumps(msg_info.model_dump()))
-    except Exception as e:
-        logger.warning(f"Failed to populate Redis: {e}")
-
-    return messages
-
-# Assume these are imported:
-# SessionModel, Message, TitleUpdateRequest, TitleResponse, get_db, redis
 
 @router.patch("/{session_id}/title", response_model=TitleResponse)
 async def update_session_title(
@@ -387,7 +266,7 @@ async def delete_session(session_id: str, db: DBSession = Depends(get_db)):
         raise HTTPException(404, "Session not found")
 
     # 3. (Optional) Authorization check here:
-    #    if session_row.user_id != current_user.id: raise HTTPException(403)
+    if session_row.user_id != current_user.id: raise HTTPException(403)
 
     # 4. Delete all Messages linked to it
     msg_stmt = select(Message).where(Message.session_id == sid)
@@ -405,7 +284,7 @@ async def delete_session(session_id: str, db: DBSession = Depends(get_db)):
     except:
         pass
 
-    return {"message": "Session deleted successfully"}
+    return True
 
 
 @router.get("/getAll")
