@@ -19,7 +19,7 @@ from src.models.schema import Message, SenderRole
 
 logger = logging.getLogger("database")
 load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:yourpassword@localhost:5432/postgres")
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:password@localhost:5432/postgres")
 
 try:
     logger.info(f"Creating database connection to {DATABASE_URL.split('@')[-1]}")

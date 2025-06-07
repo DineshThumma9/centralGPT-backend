@@ -136,7 +136,7 @@ from uuid import uuid4
 from datetime import datetime
 
 
-@router.get("/chat/{session_id}")
+@router.get("/history/{session_id}")
 async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     """Get all messages in a chat session"""
     messages = db.query(Message).filter(
@@ -251,7 +251,7 @@ async def update_session_title(
 
 
 @router.delete("/{session_id}")
-async def delete_session(session_id: str, db: DBSession = Depends(get_db)):
+async def delete_session(session_id: str, db: DBSession = Depends(get_db),user = Depends(get_current_user)):
     # 1. Parse & validate UUID
     try:
         sid = UUID(session_id)
@@ -266,7 +266,7 @@ async def delete_session(session_id: str, db: DBSession = Depends(get_db)):
         raise HTTPException(404, "Session not found")
 
     # 3. (Optional) Authorization check here:
-    if session_row.user_id != current_user.id: raise HTTPException(403)
+    if session_row.user_id != user.userid: raise HTTPException(403)
 
     # 4. Delete all Messages linked to it
     msg_stmt = select(Message).where(Message.session_id == sid)

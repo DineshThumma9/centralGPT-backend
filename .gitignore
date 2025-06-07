@@ -13,3 +13,4 @@ wheels/
 frontend/
 .hopevenv
 logs/
+src/data

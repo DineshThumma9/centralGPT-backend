@@ -6,10 +6,11 @@ from typing import Dict
 from dotenv import load_dotenv
 from fastapi import HTTPException, APIRouter, Request,Body
 from fastapi.responses import JSONResponse
+from langchain_community.chat_models import ChatDeepInfra
 from langchain_groq import ChatGroq
 from langchain_ollama import ChatOllama
-
-
+from langchain_together import ChatTogether
+from langchain_mistralai import ChatMistralAI
 from pydantic import BaseModel
 
 logger = logging.getLogger("basic_router")
@@ -19,17 +20,21 @@ llm_instances = {}
 
 llm_providers = {
     "ollama": ChatOllama,
-    "groq": ChatGroq
+    "groq": ChatGroq,
+    "mistral":ChatMistralAI,
+    "deepinfra":ChatDeepInfra,
+    "together":ChatTogether,
+
 }
+
 
 api_providers = {
     "GROQ",
     "OPENAI",
-    "ANTROPHIC",
     "GROK",
     "TOGETHER",
     "DEEPSEEK",
-    "EDEN",
+    "DEEPINFRA"
     "OPENROUTER"
 
 }

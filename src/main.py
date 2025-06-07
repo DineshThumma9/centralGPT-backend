@@ -25,9 +25,12 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+       "http://127.0.0.1:55000",
+        "http://localhost:55000"
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:5176",
+        "http://localhost:55000",
 
     ],
     allow_credentials=True,
@@ -61,6 +64,8 @@ app.include_router(session_router, prefix="/sessions", tags=["Session"])
 
 
 from sentence_transformers import SentenceTransformer
+
+
 @contextlib.asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting up...")
