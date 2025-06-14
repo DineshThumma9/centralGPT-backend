@@ -18,3 +18,5 @@ Dockerfile
 docker-compose.yml
 .venv/
 logs/
+later/
+frontend/

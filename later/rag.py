@@ -13,10 +13,10 @@ from llama_index.core.chat_engine import CondenseQuestionChatEngine
 from llama_index.core.memory import ChatMemoryBuffer
 
 # === CONFIG ===
-qdrant_dir = "./qdrant_db"
-llama_metadata_dir = "./storage"
+qdrant_dir = "../src/router/qdrant_db"
+llama_metadata_dir = "../src/router/storage"
 collection_name = "rag"
-data_dir = "C:/Users/dines/Projects/adc_def/abc/src/data"
+data_dir = "/src/data"
 
 # === ENV & MODELS ===
 load_dotenv()

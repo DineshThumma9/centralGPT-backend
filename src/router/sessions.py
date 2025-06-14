@@ -1,29 +1,34 @@
 import datetime
 import json
-import os
-from datetime import datetime
 from typing import Optional, List, Dict
-from urllib import request
 from uuid import UUID
-from uuid import uuid4
 
 from dotenv import load_dotenv
-from fastapi import APIRouter, Depends, HTTPException,Body
-from fastapi import Query, Request
-from fastapi.responses import StreamingResponse
+from fastapi import APIRouter, Depends
+from fastapi import Query
 from loguru import logger
 from pydantic import BaseModel
-from sqlalchemy.sql.functions import current_user
-from sqlmodel import select
 from sqlmodel import Session as DBSession
+from sqlmodel import select
 
-from src.db.dbs import get_db, add_msg_to_dbs
+from src.db.dbs import get_db
 from src.db.redis_client import redis
 from src.models.schema import Message, SenderRole
 from src.models.schema import Session as SessionModel
 from src.models.schema import User
 from src.router.auth import get_current_user
 from src.router.setup import llm_instances
+
+
+from fastapi.responses import StreamingResponse
+from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import LLMChain
+from langchain.memory.chat_message_histories import RedisChatMessageHistory
+
+import asyncio
+
+
 
 logger.add("logs/api.log", rotation="1 MB", retention="10 days", level="INFO")
 
@@ -34,11 +39,10 @@ router = APIRouter()
 load_dotenv()
 
 
-
 class SessionInfo(BaseModel):
     session_id: str
-    user_id : str
-    model:Optional[str]
+    user_id: str
+    model: Optional[str]
     title: str = "New Chat"
     created_at: str
     updated_at: Optional[str] = None
@@ -49,8 +53,7 @@ class MessageInfo(BaseModel):
     session_id: str
     content: str
     sender: str
-    timestamp:str
-
+    timestamp: str
 
 
 class TitleUpdateRequest(BaseModel):
@@ -62,7 +65,7 @@ class TitleResponse(BaseModel):
 
 
 class SessionResponse(BaseModel):
-    session_id : str
+    session_id: str
 
 
 @router.post("/new", response_model=SessionResponse)
@@ -100,22 +103,20 @@ async def create_new_session(user: User = Depends(get_current_user), db: DBSessi
         )
 
 
-
 class qdrant_convert(BaseModel):
-    point_id:str
-    vector:List[float]
-    payload:Dict
-    collection_name:str
+    point_id: str
+    vector: List[float]
+    payload: Dict
+    collection_name: str
 
 
 from sentence_transformers import SentenceTransformer
 
 
-
-def conversion_for_qdrant(msg: MessageInfo, collection_name:str):
+def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
     msg_id = msg.message_id  # str, not tuple
 
-    embed_model =  SentenceTransformer("all-MiniLM-L6-v2")
+    embed_model = SentenceTransformer("all-MiniLM-L6-v2")
     vector = embed_model.encode(msg.content)
     payload = {
         "content": msg.content,
@@ -123,15 +124,10 @@ def conversion_for_qdrant(msg: MessageInfo, collection_name:str):
         "timestamp": msg.timestamp
     }
 
-    return qdrant_convert(point_id=msg_id, vector=vector, payload=payload,collection_name=collection_name)
+    return qdrant_convert(point_id=msg_id, vector=vector, payload=payload, collection_name=collection_name)
 
 
-
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationChain
-from langchain.memory.chat_message_histories.redis import RedisChatMessageHistory
-from langchain.schema import HumanMessage
-from fastapi import APIRouter, Request, Body, Depends, HTTPException
+from fastapi import Request, Body, Depends, HTTPException
 from uuid import uuid4
 from datetime import datetime
 
@@ -145,22 +141,17 @@ async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     return messages
 
 
-
-
 class MsgRequest(BaseModel):
-    session_id : str
-    msg : str
+    session_id: str
+    msg: str
+
 
 @router.post("/simple")
 async def message(
-    request: Request,
-    db: DBSession = Depends(get_db),
-    body: MsgRequest = Body(...)
+        request: Request,
+        db: DBSession = Depends(get_db),
+        body: MsgRequest = Body(...)
 ):
-
-
-
-
     current_model = getattr(request.app.state, "current_model", None)
     if not (current_model and hasattr(current_model, "invoke")):
         raise HTTPException(status_code=401, detail="No valid model found")
@@ -170,8 +161,6 @@ async def message(
         raise HTTPException(status_code=422, detail="Missing current_session_id in request body")
 
     redis_key_prefix = f"chat_session:{session_id}"
-
-
 
     try:
         chat_history = RedisChatMessageHistory(
@@ -189,25 +178,45 @@ async def message(
 
         from src.db.dbs import add_msg_to_dbs
 
-        add_msg_to_dbs(body.msg,session_id,db)
+        add_msg_to_dbs(body.msg, session_id, db)
 
+        from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+        from langchain.chains import LLMChain
 
-        chain = ConversationChain(
+        # Define system prompt (markdown-safe)
+        system_prompt = """You are a Markdown generator.
+
+        Every response must be formatted in valid Markdown.
+
+        - Use `#`, `##`, etc., for headings.
+        - Use fenced code blocks for all multiline code: ```python
+        - Never compress words together.
+        - Include line breaks (`\\n\\n`) between paragraphs.
+        - Avoid special characters unless they are part of valid markdown.
+        """
+
+        # Prompt template setup
+        prompt = ChatPromptTemplate.from_messages([
+            SystemMessagePromptTemplate.from_template(system_prompt),
+            HumanMessagePromptTemplate.from_template("{input}")
+        ])
+
+        # LLM chain with prompt
+        chain = LLMChain(
             llm=current_model,
+            prompt=prompt,
             memory=memory,
-            verbose=True
+            verbose=True,
         )
 
+        # Invoke chain with user input
         response = chain.invoke({
-            "input": body.msg,
-            "history": memory.chat_memory.messages
+            "input": body.msg
         })
 
         response_text = response.get('response', str(response)) if isinstance(response, dict) else str(response)
 
-
-
-        assistant_msg_info = add_msg_to_dbs(response_text,session_id,db,False)
+        assistant_msg_info = add_msg_to_dbs(response_text, session_id, db, False)
 
         return assistant_msg_info
 
@@ -216,6 +225,87 @@ async def message(
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
+
+
+
+@router.post("/simple-stream")
+async def message_stream(
+        request: Request,
+        db: DBSession = Depends(get_db),
+        body: MsgRequest = Body(...)
+):
+    current_model = getattr(request.app.state, "current_model", None)
+    if not current_model:
+        raise HTTPException(status_code=401, detail="No model found")
+
+    session_id = body.session_id
+    if not session_id:
+        raise HTTPException(status_code=422, detail="Missing session_id")
+
+    redis_key_prefix = f"chat_session:{session_id}"
+
+    try:
+        # Initialize memory and history
+        chat_history = RedisChatMessageHistory(
+            session_id=redis_key_prefix,
+            url="redis://localhost:6379",
+            key_prefix="langchain:chat_history:",
+            ttl=3600
+        )
+
+        memory = ConversationBufferMemory(
+            chat_memory=chat_history,
+            return_messages=True,
+            memory_key="history"
+        )
+
+        # Save user message to DB
+        from src.db.dbs import add_msg_to_dbs
+        add_msg_to_dbs(body.msg, session_id, db)
+
+        # SYSTEM PROMPT
+        system_prompt = """You are a helpful assistant who always replies using clean Markdown formatting.
+- Use ```language for code blocks.
+- Do not compress or concatenate text.
+- Use readable line breaks and spacing.
+- Preserve indentation, especially for code.
+- NEVER send long single-line outputs.
+"""
+
+        # Construct prompt with history
+        prompt = ChatPromptTemplate.from_messages([
+            SystemMessagePromptTemplate.from_template(system_prompt),
+            HumanMessagePromptTemplate.from_template("{input}")
+        ])
+
+        chain = LLMChain(
+            llm=current_model,
+            prompt=prompt,
+            memory=memory,
+            verbose=True
+        )
+
+        async def stream_response():
+            full_response = ""
+            formatted_messages = prompt.format_messages(input=body.msg)
+
+            async for chunk in current_model.astream(formatted_messages):
+                if hasattr(chunk, "content") and chunk.content:
+                    token = chunk.content
+                    full_response += token
+                    yield f"data: {token}\n\n"
+                    await asyncio.sleep(0.01)
+
+
+            memory.chat_memory.add_user_message(body.msg)
+            memory.chat_memory.add_ai_message(full_response)
+            add_msg_to_dbs(full_response, session_id, db, isUser=False)
+
+        return StreamingResponse(stream_response(), media_type="text/event-stream")
+
+    except Exception as e:
+        logger.error(f"Streaming error: {e}")
+        raise HTTPException(status_code=500, detail="Streaming failed")
 
 
 @router.patch("/{session_id}/title", response_model=TitleResponse)
@@ -238,7 +328,6 @@ async def update_session_title(
 
     session.title = request.title
 
-
     session.updated_at = datetime.utcnow()
 
     db.add(session)
@@ -249,9 +338,8 @@ async def update_session_title(
     return TitleResponse(title=session.title)
 
 
-
 @router.delete("/{session_id}")
-async def delete_session(session_id: str, db: DBSession = Depends(get_db),user = Depends(get_current_user)):
+async def delete_session(session_id: str, db: DBSession = Depends(get_db), user=Depends(get_current_user)):
     # 1. Parse & validate UUID
     try:
         sid = UUID(session_id)
@@ -289,8 +377,8 @@ async def delete_session(session_id: str, db: DBSession = Depends(get_db),user =
 
 @router.get("/getAll")
 async def get_all_sessions(
-    db: DBSession = Depends(get_db),
-    user: User = Depends(get_current_user)
+        db: DBSession = Depends(get_db),
+        user: User = Depends(get_current_user)
 ):
     """Get all sessions for the current user"""
     try:
@@ -315,111 +403,4 @@ async def get_all_sessions(
     except Exception as e:
         logger.error(f"Error fetching sessions for user {user.userid}: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch sessions")
-
-
-@router.get("/message/stream")
-async def stream_chat_response(
-        sessionId: str = Query(...),
-        message: str = Query(...),
-        db: DBSession = Depends(get_db)
-):
-    """Stream chat response using Server-Sent Events"""
-    try:
-        # Validate session exists
-        session_query = select(SessionModel).where(SessionModel.session_id == UUID(sessionId))
-        session = db.execute(session_query).first()
-
-        if not session:
-            raise HTTPException(status_code=404, detail="Session not found")
-
-        # Save user message
-        user_msg_id = str(uuid4())
-        user_message = Message(
-            message_id=UUID(user_msg_id),
-            session_id=UUID(sessionId),
-            sender=SenderRole.USER,
-            content=message,
-            timestamp=datetime.now()
-        )
-
-        db.add(user_message)
-        db.commit()
-
-        # Cache in Redis
-        redis_key = f"chat:{sessionId}"
-        user_msg_data = {
-            "message_id": user_msg_id,
-            "session_id": sessionId,
-            "content": message,
-            "sender": SenderRole.USER.value,
-            "timestamp": user_message.timestamp.isoformat()
-        }
-        redis.rpush(redis_key, json.dumps(user_msg_data))
-
-        # Get conversation history
-        raw_history = redis.lrange(redis_key, -20, -1)
-        history = [json.loads(item) for item in raw_history]
-
-        async def generate_sse():
-            try:
-                assistant_msg_id = str(uuid4())
-                full_response = ""
-
-                # Send initial message with assistant message ID
-                yield f"data: {json.dumps({'type': 'start', 'message_id': assistant_msg_id})}\n\n"
-
-                # Stream LLM response
-                async for chunk in llm_instances.ainvoke(history):
-                    full_response += chunk
-                    yield f"data: {json.dumps({'type': 'content', 'message_id': assistant_msg_id, 'content': chunk})}\n\n"
-
-                # Save complete assistant message
-                assistant_message = Message(
-                    message_id=UUID(assistant_msg_id),
-                    session_id=UUID(sessionId),
-                    sender=SenderRole.ASSISTANT,
-                    content=full_response,
-                    timestamp=datetime.now()
-                )
-
-                db.add(assistant_message)
-
-
-
-
-                db.commit()
-
-                # Cache in Redis
-                assistant_msg_data = {
-                    "message_id": assistant_msg_id,
-                    "session_id": sessionId,
-                    "content": full_response,
-                    "sender": SenderRole.ASSISTANT.value,
-                    "timestamp": assistant_message.timestamp.isoformat()
-                }
-                redis.rpush(redis_key, json.dumps(assistant_msg_data))
-
-                # Send completion signal
-                yield f"data: {json.dumps({'type': 'complete', 'message_id': assistant_msg_id})}\n\n"
-
-            except Exception as e:
-                logger.error(f"Error in stream generation: {str(e)}")
-                yield f"data: {json.dumps({'type': 'error', 'error': str(e)})}\n\n"
-
-        return StreamingResponse(
-            generate_sse(),
-            media_type="text/event-stream",
-            headers={
-                "Cache-Control": "no-cache",
-                "Connection": "keep-alive",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Cache-Control"
-            }
-        )
-
-    except ValueError:
-        raise HTTPException(status_code=400, detail="Invalid session ID format")
-    except Exception as e:
-        logger.error(f"Error in stream chat: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to process chat message")
 
