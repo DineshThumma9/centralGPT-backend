@@ -6,6 +6,7 @@ from uuid import UUID
 from dotenv import load_dotenv
 from fastapi import APIRouter, Depends
 from fastapi import Query
+from langchain_groq import ChatGroq
 from loguru import logger
 from pydantic import BaseModel
 from sqlmodel import Session as DBSession
@@ -37,6 +38,13 @@ logger.info("Server started")
 router = APIRouter()
 
 load_dotenv()
+
+
+class MsgRequest(BaseModel):
+    session_id: str
+    isFirst : bool = False
+    msg: str
+
 
 
 class SessionInfo(BaseModel):
@@ -141,10 +149,6 @@ async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     return messages
 
 
-class MsgRequest(BaseModel):
-    session_id: str
-    msg: str
-
 
 @router.post("/simple")
 async def message(
@@ -177,6 +181,10 @@ async def message(
         )
 
         from src.db.dbs import add_msg_to_dbs
+
+        if body.isFirst:
+            title = session_title_gen(body.msg)
+
 
         add_msg_to_dbs(body.msg, session_id, db)
 
@@ -227,6 +235,14 @@ async def message(
         - Break long responses into clear paragraphs
         - Use examples when explaining concepts
         - Always proofread for proper spacing and formatting
+        
+        dont forget to ask or suggest follow up question user can ask about the topic
+        like asked what is ollama 
+        at last  ask 
+        would you like to set up ollama
+        wanna learn more about local models
+        
+        feel free to ask questions
 
         Remember: Consistent, readable formatting is as important as the content itself."""
 
@@ -261,8 +277,25 @@ async def message(
 
 
 
+class SessionTitle(BaseModel):
+    title:str
 
 
+async def session_title_gen(query):
+    try:
+        title_gen = ChatGroq(model_name="compound-beta")
+        session_title = await title_gen.ainvoke(
+            f"You are a llm which help to generate meaningful session title for a chatgpt like app so here is title and generate a session title in one line for query:{query}")
+
+        # Ensure we return a string
+        result = session_title.content if hasattr(session_title, 'content') else str(session_title)
+        print(f"Session title result: {result}, type: {type(result)}")
+        return str(result)  # Force string conversion
+    except Exception as e:
+        print(f"Error in session_title_gen: {e}")
+        return "New Chat00000"
+
+        # Return a fallback title
 @router.post("/simple-stream")
 async def message_stream(
         request: Request,
@@ -298,53 +331,72 @@ async def message_stream(
         from src.db.dbs import add_msg_to_dbs
         add_msg_to_dbs(body.msg, session_id, db)
 
+        # Generate title BEFORE the streaming function
+        title = ""
+        if body.isFirst:
+            try:
+                title_result = await session_title_gen(body.msg)
+                print(f"Title result type: {type(title_result)}")
+                print(f"Title result: {title_result}")
+
+                # Ensure it's a string
+                if hasattr(title_result, 'content'):
+                    title = str(title_result.content)
+                else:
+                    title = str(title_result)
+
+                logger.info(f"Final title: {title}")
+            except Exception as e:
+                logger.error(f"Title generation error: {e}")
+                title = "New Chat"  # Fallback title
+
+
+
         system_prompt = """You are a professional AI assistant that MUST follow these strict formatting rules:
 
-                ## TEXT FORMATTING:
-                - Always use proper spacing between words and sentences
-                - End sentences with periods followed by ONE space
-                - Use double line breaks (\\n\\n) between paragraphs
-                - Never compress words together or create run-on sentences
+        ## TEXT FORMATTING:
+        - Always use proper spacing between words and sentences
+        - End sentences with periods followed by ONE space
+        - Use double line breaks (\\n\\n) between paragraphs
+        - Never compress words together or create run-on sentences
 
-                ## CODE FORMATTING:
-                - ALWAYS wrap code in proper fenced code blocks with language specification:
-                  ```python
-                  # Your code here
-                  ```
-                - For inline code, use single backticks: `code`
-                - Never mix inline code with code blocks
-                - Always include the language name after the opening ```
+        ## CODE FORMATTING:
+        - ALWAYS wrap code in proper fenced code blocks with language specification:
+          ```python
+          # Your code here
+          ```
+        - For inline code, use single backticks: `code`
+        - Never mix inline code with code blocks
+        - Always include the language name after the opening ```
 
-                ## LIST FORMATTING:
-                - Use proper markdown lists with consistent spacing:
-                  - Bullet point 1
-                  - Bullet point 2
+        ## LIST FORMATTING:
+        - Use proper markdown lists with consistent spacing:
+          - Bullet point 1
+          - Bullet point 2
 
-                  Or numbered:
-                  1. First item
-                  2. Second item
+          Or numbered:
+          1. First item
+          2. Second item
 
-                - Always put ONE space after the bullet/number
-                - Each list item on its own line
-                - Add empty line before and after lists
+        - Always put ONE space after the bullet/number
+        - Each list item on its own line
+        - Add empty line before and after lists
 
-                ## STRUCTURE REQUIREMENTS:
-                - Use proper headers: # ## ### 
-                - like for Main Topic #
-                - for subtopics ## 
-                - Add empty lines before and after headers
-                - Use **bold** and *italic* correctly use bold for keywords etc
-                - For tables, use proper markdown table format
+        ## STRUCTURE REQUIREMENTS:
+        - Use proper headers: # ## ### 
+        - like for Main Topic #
+        - for subtopics ## 
+        - Add empty lines before and after headers
+        - Use **bold** and *italic* correctly use bold for keywords etc
+        - For tables, use proper markdown table format
 
-                ## RESPONSE QUALITY:
-                - Be conversational but well-structured
-                - Break long responses into clear paragraphs
-                - Use examples when explaining concepts
-                - Always proofread for proper spacing and formatting
-                
-                
+        ## RESPONSE QUALITY:
+        - Be conversational but well-structured
+        - Break long responses into clear paragraphs
+        - Use examples when explaining concepts
+        - Always proofread for proper spacing and formatting
 
-                Remember: Consistent, readable formatting is as important as the content itself."""
+        Remember: Consistent, readable formatting is as important as the content itself."""
 
         # Construct prompt with history
         prompt = ChatPromptTemplate.from_messages([
@@ -359,29 +411,67 @@ async def message_stream(
             verbose=True
         )
 
+
+
+
         async def stream_response():
             full_response = ""
-            formatted_messages = prompt.format_messages(input=body.msg)
-
-            async for chunk in current_model.astream(formatted_messages):
-                if hasattr(chunk, "content") and chunk.content:
-                    token = chunk.content
-                    full_response += token
-                    yield f"data: {token}\n\n"
-                    await asyncio.sleep(0.01)
+            buffer = ""  # Buffer for word-boundary streaming
 
 
-            memory.chat_memory.add_user_message(body.msg)
-            memory.chat_memory.add_ai_message(full_response)
-            add_msg_to_dbs(full_response, session_id, db, isUser=False)
+            try:
+                # Send start signal
+                yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-        return StreamingResponse(stream_response(), media_type="text/event-stream")
+                formatted_messages = prompt.format_messages(input=body.msg)
+
+                async for chunk in current_model.astream(formatted_messages):
+                    if hasattr(chunk, "content") and chunk.content:
+                        token = chunk.content
+                        full_response += token
+                        buffer += token
+
+                        # Send tokens in word boundaries for better UX
+                        if ' ' in buffer or '\n' in buffer:
+                            yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
+                            buffer = ""
+
+                        # Small delay to prevent overwhelming the client
+                        await asyncio.sleep(0.01)
+
+                # Send any remaining buffered content
+                if buffer:
+                    yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
+
+                # Send completion signal
+                yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
+
+
+                yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
+
+
+                # Update memory and save to DB
+                memory.chat_memory.add_user_message(body.msg)
+                memory.chat_memory.add_ai_message(full_response)
+                add_msg_to_dbs(full_response, session_id, db, isUser=False)
+
+            except Exception as e:
+                logger.error(f"Streaming error: {e}")
+                yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+
+        return StreamingResponse(
+            stream_response(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+                "X-Accel-Buffering": "no",  # Disable nginx buffering
+            }
+        )
 
     except Exception as e:
-        logger.error(f"Streaming error: {e}")
+        logger.error(f"Streaming setup error: {e}")
         raise HTTPException(status_code=500, detail="Streaming failed")
-
-
 @router.patch("/{session_id}/title", response_model=TitleResponse)
 async def update_session_title(
         session_id: str,
