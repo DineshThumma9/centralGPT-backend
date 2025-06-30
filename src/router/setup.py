@@ -1,10 +1,10 @@
 import logging
-import os
 from typing import Dict
-from fastapi import Request, Depends
+
+from cryptography.fernet import Fernet;
 from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException, Body
-from fastapi.responses import JSONResponse
+from fastapi import Depends
 from langchain_community.chat_models import ChatDeepInfra
 from langchain_groq import ChatGroq
 from langchain_mistralai import ChatMistralAI
@@ -14,10 +14,7 @@ from pydantic import BaseModel
 
 from src.db import get_db
 from src.models.schema import APIKEYS, UserLLMConfig
-from src.router.auth import get_all_api_keys, get_current_user
-from cryptography.fernet import Fernet;
-
-
+from src.router.auth import get_current_user
 
 logger = logging.getLogger("basic_router")
 load_dotenv()

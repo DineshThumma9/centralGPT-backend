@@ -25,14 +25,17 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 router = APIRouter()
 
+
 class UserPayload(BaseModel):
     username: str
     email: EmailStr
     password: str
 
+
 class Token(BaseModel):
     access: str
     refresh: str
+
 
 def create_tokens(data: dict, db: Session):
     now = datetime.datetime.utcnow()
@@ -69,6 +72,7 @@ def create_tokens(data: dict, db: Session):
     tokens = Token(access=access_token, refresh=refresh_token)
     return JSONResponse(content=tokens.model_dump(), status_code=200)
 
+
 @router.post("/register", response_model=Token)
 def register(user: UserPayload, db: Session = Depends(get_db)):
     logger.info("Accessing register")
@@ -89,6 +93,7 @@ def register(user: UserPayload, db: Session = Depends(get_db)):
         logger.exception("User registration failed")
         return JSONResponse(content={"detail": f"Registration failed: {str(e)}"}, status_code=500)
 
+
 @router.post("/login", response_model=Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == form_data.username).first()
@@ -96,7 +101,6 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
         raise HTTPException(status_code=401, detail="Invalid username or password")
 
     return create_tokens({"sub": user.email}, db)
-
 
 
 @router.post("/refresh", response_model=Token)
@@ -118,7 +122,6 @@ def refresh_token(refresh: str = Form(...), db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid token")
 
 
-
 async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=401,
@@ -138,6 +141,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = De
         raise credentials_exception
     return user
 
+
 @router.get("/me")
 def me(current_user: User = Depends(get_current_user)):
     return {
@@ -147,7 +151,6 @@ def me(current_user: User = Depends(get_current_user)):
     }
 
 
-def get_all_api_keys(user=Depends(get_current_user),db=Depends(get_db)):
-    api_val_keys =  db.query(APIKEYS).filter(APIKEYS.user_id == user.userid).all()
-    return {entry.provider:entry.encrypted_key for entry in api_val_keys}
-
+def get_all_api_keys(user=Depends(get_current_user), db=Depends(get_db)):
+    api_val_keys = db.query(APIKEYS).filter(APIKEYS.user_id == user.userid).all()
+    return {entry.provider: entry.encrypted_key for entry in api_val_keys}

@@ -9,8 +9,6 @@ from starlette.requests import Request
 
 from src.db.dbs import create_all_tables
 from src.router import auth_router, basic_router, session_router,message_router
-from sentence_transformers import SentenceTransformer
-
 app = FastAPI(
     title="FastAPI App",
     description="Simple FastAPI Application",

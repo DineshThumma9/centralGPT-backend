@@ -2,8 +2,8 @@ import asyncio
 import json
 from typing import Dict, List
 
+from fastapi import APIRouter
 from fastapi import Depends, HTTPException, Body
-from fastapi import Request, APIRouter
 from fastapi.responses import StreamingResponse
 from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
@@ -12,7 +12,6 @@ from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTempla
 from langchain_groq import ChatGroq
 from loguru import logger
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
 from sqlmodel import Session as DBSession
 
 from src.db.dbs import get_db
@@ -92,7 +91,6 @@ class qdrant_convert(BaseModel):
 def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
     msg_id = msg.message_id  # str, not tuple
 
-
     vector = msg.content
     payload = {
         "content": msg.content,
@@ -118,17 +116,16 @@ async def session_title_gen(query):
         return "New Chat00000"
 
 
-
 @router.post("/simple-stream")
 async def message_stream(
-      body: MsgRequest = Body(...),
+        body: MsgRequest = Body(...),
         db: DBSession = Depends(get_db),
         user=Depends(get_current_user)
 
 ):
     current_model = get_llm_instance(
-         db= db,
-          user=user
+        db=db,
+        user=user
     )
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
@@ -154,10 +151,8 @@ async def message_stream(
             memory_key="history"
         )
 
-
         from src.db.dbs import add_msg_to_dbs
         add_msg_to_dbs(body.msg, session_id, db)
-
 
         title = ""
         if body.isFirst:
@@ -165,7 +160,6 @@ async def message_stream(
                 title_result = await session_title_gen(body.msg)
                 print(f"Title result type: {type(title_result)}")
                 print(f"Title result: {title_result}")
-
 
                 if hasattr(title_result, 'content'):
                     title = str(title_result.content)
@@ -176,7 +170,6 @@ async def message_stream(
             except Exception as e:
                 logger.error(f"Title generation error: {e}")
                 title = "New Chat000"
-
 
         prompt = ChatPromptTemplate.from_messages([
             SystemMessagePromptTemplate.from_template(system_prompt),
@@ -206,23 +199,18 @@ async def message_stream(
                         full_response += token
                         buffer += token
 
-
                         if ' ' in buffer or '\n' in buffer:
                             yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
                             buffer = ""
 
-
                         await asyncio.sleep(0.01)
-
 
                 if buffer:
                     yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
 
-
                 yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
 
                 yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
-
 
                 memory.chat_memory.add_user_message(body.msg)
                 memory.chat_memory.add_ai_message(full_response)
