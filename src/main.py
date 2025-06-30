@@ -74,7 +74,6 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up...")
     try:
         create_all_tables()
-        app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
         logger.info("Database tables created successfully")
     except Exception as e:
         logger.error(f"Database init error: {str(e)}")

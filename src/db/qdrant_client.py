@@ -1,28 +1,28 @@
 import os
 
 from qdrant_client import QdrantClient
-from qdrant_client.models import PointStruct, VectorParams, Distance
 
 
 class QdrantWrapper:
-    def __init__(self, host, port):
-        self.client = QdrantClient(host=host, port=port)
-
-
-
-    def create_collection(self, session_id):
-        if not self.client.collection_exists(session_id):
-            self.client.create_collection(
-                collection_name=session_id,
-                vectors_config=VectorParams(size=384, distance=Distance.COSINE)
-            )
-
-    def insert_point(self, point_id, vector, collection_name, payload):
-        self.client.upsert(
-            collection_name=collection_name,
-            points=[PointStruct(vector=vector, id=point_id, payload=payload)]
+    def __init__(self):
+        self.client = QdrantClient(
+            url=os.getenv("QDRANT_URL"),
+            api_key=os.getenv("QDRANT_API_KEY")
         )
 
-qdrant = QdrantWrapper(host="localhost", port=os.getenv("QDRANT_PORT"))
+    def create_collection(self, session_id: str):
+        # Not strictly needed—.add() auto-creates
+        if not self.client.collection_exists(session_id):
+            self.client.create_collection(session_id)
+
+    def insert_point(self, point_id: str, collection_name: str, payload: dict):
+        self.client.add(
+            collection_name=collection_name,
+            documents=[payload["content"]],
+            metadata=[payload],
+            ids=[point_id]
+        )
 
 
+# Singleton instance
+qdrant = QdrantWrapper()

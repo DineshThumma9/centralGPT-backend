@@ -92,8 +92,8 @@ class qdrant_convert(BaseModel):
 def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
     msg_id = msg.message_id  # str, not tuple
 
-    embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-    vector = embed_model.encode(msg.content)
+
+    vector = msg.content
     payload = {
         "content": msg.content,
         "sender": msg.sender,
