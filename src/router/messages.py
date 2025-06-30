@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 from typing import Dict, List
 
 from fastapi import APIRouter
@@ -103,7 +104,7 @@ def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
 
 async def session_title_gen(query):
     try:
-        title_gen = ChatGroq(model_name="compound-beta")
+        title_gen = ChatGroq(model_name="compound-beta",api_key=os.getenv("GROQ_API_KEY"))
         session_title = await title_gen.ainvoke(
             f"You are a llm which help to generate meaningful session title for a chatgpt like app so here is title and generate a session title in one line for query:{query}")
 
