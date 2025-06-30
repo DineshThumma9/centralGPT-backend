@@ -26,7 +26,7 @@ app.add_middleware(
        "http://127.0.0.1:55000",
         "http://localhost:55000",
         os.getenv("API_URL"),
-        "http://localhost:55001"
+        "http://localhost:55001",
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:5176",
@@ -40,16 +40,16 @@ app.add_middleware(
 
 
 
+import time
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
+    start = time.time()
     logger.info(f"Incoming request: {request.method} {request.url.path}")
-    try:
-        response = await call_next(request)
-    except Exception as e:
-        logger.error(f"Exception during handling {request.method} {request.url.path}: {e}", exc_info=True)
-        raise
-    logger.info(f"Response: {response.status_code} for {request.method} {request.url.path}")
+    response = await call_next(request)
+    duration = round((time.time() - start) * 1000, 2)
+    logger.info(f"{request.method} {request.url.path} → {response.status_code} ({duration}ms)")
     return response
+
 
 
 @app.get("/")
@@ -87,4 +87,4 @@ app.router.lifespan_context = lifespan
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
     logger.info(f"Starting server on port {port}")
-    uvicorn.run("src.main:app", port=port, reload=True, log_level="debug")
+    uvicorn.run("src.main:app", port=port, reload=True, log_level="info")

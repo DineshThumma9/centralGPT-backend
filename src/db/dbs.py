@@ -33,9 +33,9 @@ try:
     logger.info("Database connection established")
 
 except Exception as e:
-    logger.error(f"Failed to connect to database: {str(e)}")
-    engine = create_engine("sqlite:///:memory:")
-    SessionLocal = sessionmaker(autoflush=False, autocommit=False, bind=engine)
+    logger.critical(f"Failed to connect to database: {str(e)}")
+    raise SystemExit("Database connection failed")
+
 
 
 def get_db() -> Generator[Session, None, None]:
