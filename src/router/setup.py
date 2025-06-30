@@ -1,17 +1,23 @@
 import logging
 import os
-from http.client import HTTPResponse
 from typing import Dict
-
+from fastapi import Request, Depends
 from dotenv import load_dotenv
-from fastapi import HTTPException, APIRouter, Request,Body
+from fastapi import APIRouter, HTTPException, Body
 from fastapi.responses import JSONResponse
 from langchain_community.chat_models import ChatDeepInfra
 from langchain_groq import ChatGroq
+from langchain_mistralai import ChatMistralAI
 from langchain_ollama import ChatOllama
 from langchain_together import ChatTogether
-from langchain_mistralai import ChatMistralAI
 from pydantic import BaseModel
+
+from src.db import get_db
+from src.models.schema import APIKEYS, UserLLMConfig
+from src.router.auth import get_all_api_keys, get_current_user
+from cryptography.fernet import Fernet;
+
+
 
 logger = logging.getLogger("basic_router")
 load_dotenv()
@@ -21,12 +27,11 @@ llm_instances = {}
 llm_providers = {
     "ollama": ChatOllama,
     "groq": ChatGroq,
-    "mistral":ChatMistralAI,
-    "deepinfra":ChatDeepInfra,
-    "together":ChatTogether,
+    "mistral": ChatMistralAI,
+    "deepinfra": ChatDeepInfra,
+    "together": ChatTogether,
 
 }
-
 
 api_providers = {
     "GROQ",
@@ -35,79 +40,180 @@ api_providers = {
     "TOGETHER",
     "DEEPSEEK",
     "DEEPINFRA"
-    "OPENROUTER"
+    "OPENROUTER",
+    "MISTRAL"
+    "DEEPINFRA",
+    "TOGETHERAI"
 
 }
 
+
 class API_KEY_REQUEST(BaseModel):
-    api_providers:str
-    api_key : str
+    api_prov: str
+    api_key: str
 
 
 
-@router.post("/api/{api_provider}/{api_key}")
-def set_api_provider(api_provider: str, api_key: str):
+
+fernet = Fernet("d3FVcotBFzBnqZ4BE0zlgji_YYZiK5hkDO3EzX9H7fs=")
+
+def encrypt(key:str) -> str:
+    return fernet.encrypt(key.encode()).decode()
+
+def decrypt(key:str)->str:
+    return fernet.decrypt(key.encode()).decode()
+
+
+# Fix for the set_api_provider function
+@router.post("/init/")
+def set_api_provider(
+        req: API_KEY_REQUEST,
+        current_user=Depends(get_current_user),
+        db=Depends(get_db)
+):
+    api_provider = req.api_prov.upper().strip()
+    api_key = req.api_key.strip()
+
     if api_provider not in api_providers:
-        raise HTTPException(status_code=404, detail="API Provider is Not Valid")
+        raise HTTPException(status_code=404, detail="api provider doesnt exists")
+
+    encrypted_key = encrypt(api_key)
+
+    # FIXED: Use filter_by with keyword arguments only
+    existing = (
+        db.query(APIKEYS).filter_by(user_id=current_user.userid, provider=api_provider).first()
+    )
+
+    if existing:
+        existing.encrypted_key = encrypted_key
+        logger.info("Saved / Updated new key", encrypted_key)
     else:
-        os.environ[f"${api_provider}_API_KEY"] = api_key
-        logger.info("API KEY SET")
-        return HTTPException(status_code=200, detail="API KEY IS SET OK RESPONSE")
+        new_key = APIKEYS(
+            user_id=current_user.userid,
+            provider=api_provider,
+            encrypted_key=encrypted_key
+        )
+
+        db.add(new_key)
+        logger.info("Added new key  new_key")
+    db.commit()
+    return {
+        "message": "Succesfully key added",
+        "status_code": 200
+    }
 
 
-@router.get("/providers")
-def get_llm_providers():
-    logger.info("LLM providers requested")
-    return JSONResponse(
-        content={"providers": list(llm_providers.keys())},
-        status_code=200
-    )
+# You also have the same issue in other places. Here are the other fixes:
+
+def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user)):
+    # FIXED: Use filter_by with keyword arguments
+    api_key = db.query(APIKEYS).filter_by(user_id=user.userid, provider=provider).first()
+    if not api_key:
+        raise HTTPException(status_code=404, detail="API KEY NOT FOUND")
+    return decrypt(api_key.encrypted_key)
 
 
-from typing import Dict
-from fastapi import Body, Request, HTTPException
+def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
+    # FIXED: Use filter_by with keyword arguments
+    config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
 
-@router.post("/providers", response_model=None)
-async def choose_llm_provider(request: Request, body: Dict = Body(...)):
-    llm_prov = body.get("llm_class")
-    logger.info(f"Setting LLM provider: {llm_prov}")
-    if llm_prov not in llm_providers:
-        logger.warning(f"Invalid LLM provider requested: {llm_prov}")
-        raise HTTPException(status_code=404, detail=f"LLM provider '{llm_prov}' not found")
+    logger.info(config)
+    if not config:
+        raise HTTPException(status_code=404, detail="Config insnt Setup")
 
-    request.app.state.llm_class = llm_providers[llm_prov]
-    logger.info(f"LLM provider '{llm_prov}' set successfully")
+    # FIXED: Use filter_by with keyword arguments
+    api_record = db.query(APIKEYS).filter_by(user_id=user.userid, provider=config.provider.upper()).first()
 
-    return JSONResponse(
-        content={"message": f"LLM provider '{llm_prov}' selected successfully"},
-        status_code=200
-    )
+    if not api_record:
+        raise HTTPException(status_code=404, detail="API KEY ISNT SET")
+
+    decrypted_key = decrypt(api_record.encrypted_key)
+
+    logger.info(f"API RECORD IS  {api_record}")
+    logger.info(f"DECRPTED KEY  , {decrypted_key}")
+
+    llm_class = llm_providers.get(config.provider.lower())
+
+    logger.info(f"llms class not found {llm_class}")
+    logger.info(f"llm decropedt key is   {decrypted_key}")
+
+    if not llm_class:
+        raise HTTPException(status_code=404, detail="NOT AN LLM CLass found")
+
+    if not decrypted_key:
+        raise HTTPException(status_code=404, detail="DECRPYTED KEY DOESNT EXIST")
+
+    return llm_class(model=config.model, api_key=decrypted_key)
 
 
-@router.post("/models", response_model=None)
-async def choose_model(request: Request, body: Dict = Body(...)):
+@router.post("/providers")
+async def choose_llm_provider(
+        body: Dict = Body(...),
+        db=Depends(get_db),
+        user=Depends(get_current_user)
+):
+    provider = body.get("provider")
+
+    # Check if provider is None or empty
+
+    logger.info(f"provider is {provider}")
+    if not provider:
+        raise HTTPException(status_code=400, detail="Provider is required")
+
+    # Strip whitespace and convert to lowercase
+    provider = provider.strip()
+    if not provider:
+        raise HTTPException(status_code=400, detail="Provider cannot be empty")
+
+    if provider.lower() not in llm_providers:
+        raise HTTPException(status_code=404, detail="Provider not supported")
+
+    # FIXED: Use filter_by with keyword arguments
+    config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
+
+    if config:
+        config.provider = provider.lower()
+    else:
+        config = UserLLMConfig(
+            user_id=user.userid,
+            provider=provider,
+            model=""
+        )
+
+        db.add(config)
+    db.commit()
+
+    return {
+        "message": f"provider choosed success fully {config}"
+    }
+
+
+@router.post("/models")
+async def choose_model(
+        body: Dict = Body(...),
+        db=Depends(get_db),
+        user=Depends(get_current_user)
+):
     model = body.get("model")
-    logger.info(f"Setting model: {model}")
 
-    llm_class = getattr(request.app.state, "llm_class", None)
-    if llm_class is None:
-        logger.warning("No LLM provider selected before requesting model")
-        raise HTTPException(status_code=400, detail="No LLM provider selected")
+    # Check if model is None or empty
+    if not model:
+        raise HTTPException(status_code=400, detail="Model is required")
 
-    try:
-        instance_key = f"{llm_class.__name__}_{model}"
-        if instance_key not in llm_instances:
-            llm_instances[instance_key] = llm_class(model=model)
-            logger.info(f"Created new instance for {instance_key}")
-        else:
-            logger.info(f"Using existing instance for {instance_key}")
-        request.app.state.llm_instance = llm_instances[instance_key]
-        request.app.state.current_model = llm_instances[instance_key]
-    except Exception as e:
-        logger.error(f"Failed to instantiate model {model}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Failed to instantiate model: {str(e)}")
+    # Strip whitespace
+    model = model.strip()
+    if not model:
+        raise HTTPException(status_code=400, detail="Model cannot be empty")
 
-    return JSONResponse(
-        content={"message": f"Model '{model}' instantiated successfully"},
-        status_code=200
-    )
+    # FIXED: Use filter_by with keyword arguments
+    config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
+
+    if not config:
+        raise HTTPException(status_code=404, detail=f"Config not found {config}")
+
+    config.model = model
+    db.commit()
+
+    return {
+        "message": f"Model has been set to {model}"
+    }

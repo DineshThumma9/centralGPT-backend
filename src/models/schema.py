@@ -78,3 +78,22 @@ class RefreshToken(SQLModel, table=True):
     token: str = Field(primary_key=True)
     email: EmailStr
     expiry_date: datetime
+
+class APIKEYS(SQLModel, table=True):
+    __tablename__ = "api_keys"
+    user_id: UUID = Field(foreign_key="users.userid", primary_key=True)
+    provider: str = Field(primary_key=True, index=True)
+    encrypted_key: str
+
+
+class UserLLMConfig(SQLModel,table=True):
+    __tablename__ = "config"
+    user_id :UUID = Field(foreign_key="users.userid",primary_key=True)
+    provider:str=Field(primary_key=True,index=True)
+    model:str
+
+
+
+class API_KEY_REQUEST(BaseModel):
+    api_prov: str
+    api_key: str

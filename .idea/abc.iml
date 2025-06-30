@@ -9,7 +9,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv/.venv1" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12 (abc) (4)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 virtualenv at C:\Users\dines\Projects\adc_def\abc\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="removeUnused" value="true" />
   </component>
 </module>

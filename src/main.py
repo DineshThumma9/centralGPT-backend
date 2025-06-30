@@ -1,6 +1,5 @@
 import contextlib
 import os
-from urllib import request
 
 import uvicorn
 from fastapi import FastAPI
@@ -9,7 +8,8 @@ from loguru import logger
 from starlette.requests import Request
 
 from src.db.dbs import create_all_tables
-from src.router import auth_router, basic_router, session_router
+from src.router import auth_router, basic_router, session_router,message_router
+from sentence_transformers import SentenceTransformer
 
 app = FastAPI(
     title="FastAPI App",
@@ -26,7 +26,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
        "http://127.0.0.1:55000",
-        "http://localhost:55000"
+        "http://localhost:55000",
+        os.getenv("API_URL"),
         "http://localhost:55001"
         "http://localhost:5174",
         "http://localhost:5175",
@@ -62,9 +63,10 @@ async def root():
 app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 app.include_router(basic_router, prefix="/setup", tags=["Chat API"])
 app.include_router(session_router, prefix="/sessions", tags=["Session"])
+app.include_router(message_router, prefix="/messages", tags=["Message"])
 
 
-from sentence_transformers import SentenceTransformer
+
 
 
 @contextlib.asynccontextmanager

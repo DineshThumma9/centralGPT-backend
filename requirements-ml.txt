@@ -1,0 +1,9 @@
+transformers==4.52.3
+torch==2.7.1
+numpy==1.24.3  # Add version pin
+scipy==1.11.4
+scikit-learn==1.7.0
+sentence-transformers==4.1.0
+safetensors==0.5.3
+tokenizers==0.21.2
+huggingface-hub==0.32.2

@@ -6,15 +6,12 @@ from typing import Generator
 from uuid import UUID, uuid4
 
 from dotenv import load_dotenv
-from fastapi import Depends
-from pydantic import UUID4
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 from sqlmodel import SQLModel
 
 from src.db.redis_client import redis
-from src.models import ModelInfo
 from src.models.schema import Message, SenderRole
 
 logger = logging.getLogger("database")
@@ -64,30 +61,27 @@ def create_all_tables():
         raise
 
 
-
 from pydantic import BaseModel
+
 
 class MessageInfo(BaseModel):
     message_id: str
     session_id: str
     content: str
     sender: str
-    timestamp:str
+    timestamp: str
 
 
-
-def add_msg_to_dbs(msg:str,session_id:str,db:Session,isUser:bool = True):
-
+def add_msg_to_dbs(msg: str, session_id: str, db: Session, isUser: bool = True):
     message = Message(
-        message_id = uuid4(),
-        session_id = UUID(session_id),
-        content = msg,
-        sender = SenderRole.USER if isUser else SenderRole.ASSISTANT,
-        timestamp = datetime.now()
+        message_id=uuid4(),
+        session_id=UUID(session_id),
+        content=msg,
+        sender=SenderRole.USER if isUser else SenderRole.ASSISTANT,
+        timestamp=datetime.now()
     )
 
     redis_key_prefix = f"chat_session:{session_id}"
-
 
     db.add(message)
     db.commit()
@@ -99,4 +93,3 @@ def add_msg_to_dbs(msg:str,session_id:str,db:Session,isUser:bool = True):
 
     if not isUser:
         return message.model_dump(mode="json")
-

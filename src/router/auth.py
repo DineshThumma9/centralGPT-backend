@@ -1,23 +1,19 @@
 import datetime
-import json
-import logging
 import os
-
-from jose import jwt
-from jose.exceptions import JWTError, ExpiredSignatureError
 
 from dotenv import load_dotenv
 from fastapi import Depends, APIRouter, HTTPException, Form
 from fastapi.responses import JSONResponse
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from jose import jwt
+from jose.exceptions import JWTError, ExpiredSignatureError
+from loguru import logger
 from passlib.context import CryptContext
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
 from src.db.dbs import get_db
-from src.models.schema import User, RefreshToken
-
-from loguru import logger
+from src.models.schema import User, RefreshToken, APIKEYS
 
 load_dotenv()
 logger.info("In Auth")
@@ -101,6 +97,8 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
 
     return create_tokens({"sub": user.email}, db)
 
+
+
 @router.post("/refresh", response_model=Token)
 def refresh_token(refresh: str = Form(...), db: Session = Depends(get_db)):
     try:
@@ -147,3 +145,9 @@ def me(current_user: User = Depends(get_current_user)):
         "username": current_user.username,
         "email": current_user.email
     }
+
+
+def get_all_api_keys(user=Depends(get_current_user),db=Depends(get_db)):
+    api_val_keys =  db.query(APIKEYS).filter(APIKEYS.user_id == user.userid).all()
+    return {entry.provider:entry.encrypted_key for entry in api_val_keys}
+
