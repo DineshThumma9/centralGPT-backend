@@ -141,7 +141,7 @@ async def message_stream(
 
         chat_history = RedisChatMessageHistory(
             session_id=redis_key_prefix,
-            url="redis://localhost:6379",
+            url=os.getenv("REDIS_URL"),
             key_prefix="langchain:chat_history:",
             ttl=3600
         )
