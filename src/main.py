@@ -26,7 +26,6 @@ app.add_middleware(
         "http://127.0.0.1:55000",
         "http://localhost:55000",
         "https://central-gpt-frontend.vercel.app",
-        "central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
         "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
         "http://localhost:55001",
         "http://localhost:5174",
