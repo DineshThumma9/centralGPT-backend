@@ -61,7 +61,7 @@ def decrypt(key:str)->str:
     return fernet.decrypt(key.encode()).decode()
 
 
-# Fix for the set_api_provider function
+
 @router.post("/init/")
 def set_api_provider(
         req: API_KEY_REQUEST,
@@ -71,12 +71,16 @@ def set_api_provider(
     api_provider = req.api_prov.upper().strip()
     api_key = req.api_key.strip()
 
+
+    logger.info(f"API KEY AND PROVIDER ARE : {api_provider} & {api_key}")
+
+
     if api_provider not in api_providers:
         raise HTTPException(status_code=404, detail="api provider doesnt exists")
 
     encrypted_key = encrypt(api_key)
 
-    # FIXED: Use filter_by with keyword arguments only
+
     existing = (
         db.query(APIKEYS).filter_by(user_id=current_user.userid, provider=api_provider).first()
     )
@@ -92,7 +96,7 @@ def set_api_provider(
         )
 
         db.add(new_key)
-        logger.info("Added new key  new_key")
+        logger.info(f"Added new key  {new_key}")
     db.commit()
     return {
         "message": "Succesfully key added",
@@ -100,25 +104,27 @@ def set_api_provider(
     }
 
 
-# You also have the same issue in other places. Here are the other fixes:
+
 
 def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user)):
-    # FIXED: Use filter_by with keyword arguments
+
     api_key = db.query(APIKEYS).filter_by(user_id=user.userid, provider=provider).first()
     if not api_key:
         raise HTTPException(status_code=404, detail="API KEY NOT FOUND")
     return decrypt(api_key.encrypted_key)
 
 
+
+
 def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
-    # FIXED: Use filter_by with keyword arguments
     config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
 
     logger.info(config)
-    if not config:
-        raise HTTPException(status_code=404, detail="Config insnt Setup")
 
-    # FIXED: Use filter_by with keyword arguments
+    if not config:
+        raise HTTPException(status_code=404, detail="Config is'nt Setup")
+
+
     api_record = db.query(APIKEYS).filter_by(user_id=user.userid, provider=config.provider.upper()).first()
 
     if not api_record:
@@ -127,9 +133,9 @@ def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
     decrypted_key = decrypt(api_record.encrypted_key)
 
     logger.info(f"API RECORD IS  {api_record}")
-    logger.info(f"DECRPTED KEY  , {decrypted_key}")
+    logger.info(f"DECRYPTED KEY  , {decrypted_key}")
 
-    llm_class = llm_providers.get(config.provider.lower())
+    llm_class = llm_providers.get(config.provider.upper())
 
     logger.info(f"llms class not found {llm_class}")
     logger.info(f"llm decropedt key is   {decrypted_key}")
@@ -165,7 +171,7 @@ async def choose_llm_provider(
     if provider.lower() not in llm_providers:
         raise HTTPException(status_code=404, detail="Provider not supported")
 
-    # FIXED: Use filter_by with keyword arguments
+
     config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
 
     if config:
