@@ -194,7 +194,7 @@ async def message_stream(
 
                 formatted_messages = prompt.format_messages(input=body.msg)
 
-                async for chunk in current_model.astream(formatted_messages):
+                async for chunk in chain.astream(formatted_messages):
                     if hasattr(chunk, "content") and chunk.content:
                         token = chunk.content
                         full_response += token
