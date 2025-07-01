@@ -192,9 +192,7 @@ async def message_stream(
 
                 yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-                formatted_messages = prompt.format_messages(input=body.msg)
-
-                async for chunk in chain.astream(formatted_messages):
+                async for chunk in chain.astream({"input": body.msg}):
                     if hasattr(chunk, "content") and chunk.content:
                         token = chunk.content
                         full_response += token
