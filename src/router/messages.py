@@ -15,7 +15,7 @@ from loguru import logger
 from pydantic import BaseModel
 from sqlmodel import Session as DBSession
 
-from src.db.dbs import get_db
+from src.db.dbs import get_db, add_msg_to_dbs
 from src.router.auth import get_current_user
 from src.router.setup import get_llm_instance
 
@@ -104,17 +104,34 @@ def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
 
 async def session_title_gen(query):
     try:
-        title_gen = ChatGroq(model_name="compound-beta",api_key=os.getenv("GROQ_API_KEY"))
-        session_title = await title_gen.ainvoke(
-            f"You are a llm which help to generate meaningful session title for a chatgpt like app so here is title and generate a session title in one line for query:{query}")
+        title_gen = ChatGroq(model_name="compound-beta", api_key=os.getenv("GROQ_API_KEY"))
+
+        prompt = f"""Generate a concise, descriptive title (maximum 6 words) for a chat session based on this first message: "{query}"
+
+Rules:
+- Maximum 6 words
+- No quotes or special characters
+- Describe the main topic or question
+- Be specific but concise
+
+Title:"""
+
+        session_title = await title_gen.ainvoke(prompt)
 
         result = session_title.content if hasattr(session_title, 'content') else str(session_title)
-        print(f"Session title result: {result}, type: {type(result)}")
-        logger.info(f"Session title result: {result}, type: {type(result)}")
-        return str(result)
+
+        # Clean and validate the result
+        if result:
+            # Remove quotes and clean up
+            cleaned_title = result.strip().strip('"').strip("'")
+            if cleaned_title and len(cleaned_title) > 0:
+                return cleaned_title
+
+        return "New Chat"
+
     except Exception as e:
-        print(f"Error in session_title_gen: {e}")
-        return "New Chat00000"
+        logger.error(f"Error in session_title_gen: {e}")
+        return "New Chat"
 
 
 @router.post("/simple-stream")
@@ -122,23 +139,16 @@ async def message_stream(
         body: MsgRequest = Body(...),
         db: DBSession = Depends(get_db),
         user=Depends(get_current_user)
-
 ):
-    current_model = get_llm_instance(
-        db=db,
-        user=user
-    )
+    current_model = get_llm_instance(db=db, user=user)
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
 
     session_id = body.session_id
-    if not session_id:
-        raise HTTPException(status_code=422, detail="Missing session_id")
-
     redis_key_prefix = f"chat_session:{session_id}"
 
     try:
-
+        # Set up memory for context
         chat_history = RedisChatMessageHistory(
             session_id=redis_key_prefix,
             url=os.getenv("REDIS_URL"),
@@ -152,65 +162,56 @@ async def message_stream(
             memory_key="history"
         )
 
-        from src.db.dbs import add_msg_to_dbs
+        # Get conversation history
+        history_messages = memory.chat_memory.messages
+
+        # Build full conversation for the model
+        messages = []
+        messages.append({"role": "system", "content": system_prompt})
+
+        # Add history
+        for msg in history_messages:
+            if hasattr(msg, 'type'):
+                role = "user" if msg.type == "human" else "assistant"
+                messages.append({"role": role, "content": msg.content})
+
+        # Add current message
+        messages.append({"role": "user", "content": body.msg})
+
         add_msg_to_dbs(body.msg, session_id, db)
 
+        # Generate title if first message
         title = ""
         if body.isFirst:
             try:
-                title_result = await session_title_gen(body.msg)
-                print(f"Title result type: {type(title_result)}")
-                print(f"Title result: {title_result}")
-
-                if hasattr(title_result, 'content'):
-                    title = str(title_result.content)
-                else:
-                    title = str(title_result)
-
-                logger.info(f"Final title: {title}")
+                title = await session_title_gen(body.msg)
+                if not title or title.strip() == "":
+                    title = "New Chat"
             except Exception as e:
                 logger.error(f"Title generation error: {e}")
-                title = "New Chat000"
-
-        prompt = ChatPromptTemplate.from_messages([
-            SystemMessagePromptTemplate.from_template(system_prompt),
-            HumanMessagePromptTemplate.from_template("{input}")
-        ])
-
-        chain = LLMChain(
-            llm=current_model,
-            prompt=prompt,
-            memory=memory,
-            verbose=True
-        )
+                title = "New Chat"
 
         async def stream_response():
             full_response = ""
-            buffer = ""
 
             try:
-
                 yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-                async for chunk in chain.astream({"input": body.msg}):
+                # Stream directly from model
+                async for chunk in current_model.astream(messages):
                     if hasattr(chunk, "content") and chunk.content:
                         token = chunk.content
                         full_response += token
-                        buffer += token
-
-                        if ' ' in buffer or '\n' in buffer:
-                            yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
-                            buffer = ""
-
+                        yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
                         await asyncio.sleep(0.01)
-
-                if buffer:
-                    yield f"data: {json.dumps({'type': 'token', 'content': buffer})}\n\n"
 
                 yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
 
-                yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
+                # Send title after completion
+                if title:
+                    yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
+                # Save to memory and database
                 memory.chat_memory.add_user_message(body.msg)
                 memory.chat_memory.add_ai_message(full_response)
                 add_msg_to_dbs(full_response, session_id, db, isUser=False)
@@ -225,7 +226,7 @@ async def message_stream(
             headers={
                 "Cache-Control": "no-cache",
                 "Connection": "keep-alive",
-                "X-Accel-Buffering": "no",  # Disable nginx buffering
+                "X-Accel-Buffering": "no",
             }
         )
 
