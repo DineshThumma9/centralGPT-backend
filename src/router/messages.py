@@ -1,137 +1,109 @@
 import asyncio
 import json
-import os
-from typing import Dict, List
 
 from fastapi import APIRouter
 from fastapi import Depends, HTTPException, Body
 from fastapi.responses import StreamingResponse
-from langchain.chains import LLMChain
-from langchain.memory import ConversationBufferMemory
-from langchain.memory.chat_message_histories import RedisChatMessageHistory
-from langchain.prompts.chat import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
-from langchain_groq import ChatGroq
+from llama_index.core.memory import ChatMemoryBuffer
+from llama_index.storage.chat_store.redis import RedisChatStore
+from llama_index.vector_stores.qdrant import QdrantVectorStore
 from loguru import logger
-from pydantic import BaseModel
 from sqlmodel import Session as DBSession
 
 from src.db.dbs import get_db, add_msg_to_dbs
+from src.db.qdrant_client import qdrant_client
+from src.db.redis_client import redis_client
+from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
-from src.router.setup import get_llm_instance
-
-system_prompt = """You are a professional AI assistant that MUST follow these strict formatting rules:
-
-    ## TEXT FORMATTING:
-    - Always use proper spacing between words and sentences
-    - End sentences with periods followed by ONE space
-    - Use double line breaks (\\n\\n) between paragraphs
-    - Never compress words together or create run-on sentences
-
-    ## CODE FORMATTING:
-    - ALWAYS wrap code in proper fenced code blocks with language specification:
-      ```python
-      # Your code here
-      ```
-    - For inline code, use single backticks: `code`
-    - Never mix inline code with code blocks
-    - Always include the language name after the opening ```
-
-    ## LIST FORMATTING:
-    - Use proper markdown lists with consistent spacing:
-      - Bullet point 1
-      - Bullet point 2
-
-      Or numbered:
-      1. First item
-      2. Second item
-
-    - Always put ONE space after the bullet/number
-    - Each list item on its own line
-    - Add empty line before and after lists
-
-    ## STRUCTURE REQUIREMENTS:
-    - Use proper headers: # ## ### 
-    - like for Main Topic #
-    - for subtopics ## 
-    - Add empty lines before and after headers
-    - Use **bold** and *italic* correctly use bold for keywords etc
-    - For tables, use proper markdown table format
-
-    ## RESPONSE QUALITY:
-    - Be conversational but well-structured
-    - Break long responses into clear paragraphs
-    - Use examples when explaining concepts
-    - Always proofread for proper spacing and formatting
-
-    Remember: Consistent, readable formatting is as important as the content itself."""
+from src.service.message_service import session_title_gen
+from src.service.rag_service import chat_engine
+from src.service.set_up_service import get_llm_instance
 
 router = APIRouter()
 
-
-class MsgRequest(BaseModel):
-    session_id: str
-    isFirst: bool = False
-    msg: str
-
-
-class MessageInfo(BaseModel):
-    message_id: str
-    session_id: str
-    content: str
-    sender: str
-    timestamp: str
+chat_store = RedisChatStore(
+    redis_client=redis_client,
+    ttl=3600
+)
 
 
-class qdrant_convert(BaseModel):
-    point_id: str
-    vector: List[float]
-    payload: Dict
-    collection_name: str
 
 
-def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
-    msg_id = msg.message_id  # str, not tuple
 
-    vector = msg.content
-    payload = {
-        "content": msg.content,
-        "sender": msg.sender,
-        "timestamp": msg.timestamp
-    }
+async def stream_response(engine, session_id, db, title, message):
+    full_response = ""
 
-    return qdrant_convert(point_id=msg_id, vector=vector, payload=payload, collection_name=collection_name)
-
-
-async def session_title_gen(query):
     try:
-        title_gen = ChatGroq(model_name="compound-beta", api_key=os.getenv("GROQ_API_KEY"))
+        yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-        prompt = f"""Generate a concise, descriptive title (maximum 6 words) for a chat session based on this first message: "{query}"
+        response = engine.stream_chat(message)
+        for token in response.response_gen:
+            if token:
+                full_response += token
+                yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
+                await asyncio.sleep(0.01)
 
-Rules:
-- Maximum 6 words
-- No quotes or special characters
-- Describe the main topic or question
-- Be specific but concise
+        yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
 
-Title:"""
+        if title:
+            yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
-        session_title = await title_gen.ainvoke(prompt)
-
-        result = session_title.content if hasattr(session_title, 'content') else str(session_title)
-
-        # Clean and validate the result
-        if result:
-            # Remove quotes and clean up
-            cleaned_title = result.strip().strip('"').strip("'")
-            if cleaned_title and len(cleaned_title) > 0:
-                return cleaned_title
-
-        return "New Chat"
+        handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response)
 
     except Exception as e:
-        logger.error(f"Error in session_title_gen: {e}")
-        return "New Chat"
+        logger.error(f"Streaming error: {e}")
+        yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+
+
+def handling_save_db(session_id, db, full_response, user_msg):
+    add_msg_to_dbs(user_msg, session_id, db)
+    add_msg_to_dbs(full_response, session_id, db, isUser=False)
+
+
+# class CurrentState:
+#
+#     def __init__(self,current_session,current_llm):
+#         self.current_session = current_session,
+#         self.current_llm = current_llm
+#         self.engine = None
+#
+#
+#     def get_current_session(self):
+#         return self.current_session
+#
+#     def set_current_session(self,current_session):
+#         self.current_session = current_session
+#
+#
+#     def get_current_llm(self):
+#         return self.current_llm
+#
+#     def set_current_llm(self):
+#         self.current_llm = get_llm_instance()
+#
+#     def set_engine(self,curr_engine):
+#         self.engine = curr_engine
+#
+#     def get_engine(self):
+#         return self.engine
+
+
+def get_memory(session_id):
+    memory = ChatMemoryBuffer.from_defaults(
+        chat_store=chat_store,
+        chat_store_key=session_id
+
+    )
+
+    return memory
+
+
+# curr_engine = SimpleChatEngine.from_defaults(
+#     llm=current_model,
+#     memory=memory,
+#     system_prompt=system_prompt
+#
+# )
 
 
 @router.post("/simple-stream")
@@ -144,84 +116,16 @@ async def message_stream(
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
 
-    session_id = body.session_id
-    redis_key_prefix = f"chat_session:{session_id}"
-
     try:
-        # Set up memory for context
-        chat_history = RedisChatMessageHistory(
-            session_id=redis_key_prefix,
-            url=os.getenv("REDIS_URL"),
-            key_prefix="langchain:chat_history:",
-            ttl=3600
-        )
+        engine_curr = chat_engine.get_engine(session_id=body.session_id, context_id=body.context_id,
+                                             context_type=body.context_type)
 
-        memory = ConversationBufferMemory(
-            chat_memory=chat_history,
-            return_messages=True,
-            memory_key="history"
-        )
-
-        # Get conversation history
-        history_messages = memory.chat_memory.messages
-
-        # Build full conversation for the model
-        messages = []
-        messages.append({"role": "system", "content": system_prompt})
-
-        # Add history
-        for msg in history_messages:
-            if hasattr(msg, 'type'):
-                role = "user" if msg.type == "human" else "assistant"
-                messages.append({"role": role, "content": msg.content})
-
-        # Add current message
-        messages.append({"role": "user", "content": body.msg})
-
-        add_msg_to_dbs(body.msg, session_id, db)
-
-        # Generate title if first message
         title = ""
         if body.isFirst:
-            try:
-                title = await session_title_gen(body.msg)
-                if not title or title.strip() == "":
-                    title = "New Chat"
-            except Exception as e:
-                logger.error(f"Title generation error: {e}")
-                title = "New Chat"
-
-        async def stream_response():
-            full_response = ""
-
-            try:
-                yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
-
-                # Stream directly from model
-                async for chunk in current_model.astream(messages):
-                    if hasattr(chunk, "content") and chunk.content:
-                        token = chunk.content
-                        full_response += token
-                        yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
-                        await asyncio.sleep(0.01)
-
-                yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
-
-                # Send title after completion
-                if title:
-                    yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
-
-                # Save to memory and database
-                memory.chat_memory.add_user_message(body.msg)
-                memory.chat_memory.add_ai_message(full_response)
-                add_msg_to_dbs(full_response, session_id, db, isUser=False)
-
-            except Exception as e:
-                logger.error(f"Streaming error: {e}")
-                yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+            title = await session_title_gen(body.msg)
 
         return StreamingResponse(
-            stream_response(),
+            stream_response(engine_curr, title=title, session_id=body.session_id, db=db, message=body.msg),
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",

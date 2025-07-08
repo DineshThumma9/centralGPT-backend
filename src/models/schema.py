@@ -22,6 +22,15 @@ class ChatMessage(BaseModel):
     timestamp: Optional[datetime] = None
 
 
+class MessageInfo(BaseModel):
+    message_id: str
+    session_id: str
+    content: str
+    sender: str
+    timestamp: str
+
+
+
 class ToolCall(BaseModel):
     name: str
     arguments: Dict[str, str]
@@ -42,6 +51,58 @@ class ModelInfo(BaseModel):
     isFunctionCalling: bool
     token_left: float
 
+
+class MsgRequest(BaseModel):
+    session_id: str
+    isFirst: bool = False
+    msg: str
+    context_id:str
+    context_type:str
+
+
+
+
+class qdrant_convert(BaseModel):
+    point_id: str
+    vector: List[float]
+    payload: Dict
+    collection_name: str
+
+
+
+class UserPayload(BaseModel):
+    username: str
+    email: EmailStr
+    password: str
+
+
+class Token(BaseModel):
+    access: str
+    refresh: str
+
+class API_KEY_REQUEST(BaseModel):
+    api_prov: str
+    api_key: str
+
+
+class MessageInfo(BaseModel):
+    message_id: str
+    session_id: str
+    content: str
+    sender: str
+    timestamp: str
+
+
+class TitleUpdateRequest(BaseModel):
+    title: str
+
+
+class TitleResponse(BaseModel):
+    title: str
+
+
+class SessionResponse(BaseModel):
+    session_id: str
 
 # --- DB (SQLModel) ---
 class User(SQLModel, table=True):

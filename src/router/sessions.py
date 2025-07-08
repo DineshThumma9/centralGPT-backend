@@ -4,13 +4,12 @@ from uuid import UUID
 from dotenv import load_dotenv
 from fastapi import APIRouter, Depends, HTTPException
 from loguru import logger
-from pydantic import BaseModel
 from sqlmodel import Session as DBSession
 from sqlmodel import select
 
 from src.db.dbs import get_db
 from src.db.redis_client import redis
-from src.models.schema import Message
+from src.models.schema import Message, SessionResponse, TitleUpdateRequest, TitleResponse
 from src.models.schema import Session as SessionModel
 from src.models.schema import User
 from src.router.auth import get_current_user
@@ -22,26 +21,6 @@ logger.info("Server started")
 router = APIRouter()
 
 load_dotenv()
-
-
-class MessageInfo(BaseModel):
-    message_id: str
-    session_id: str
-    content: str
-    sender: str
-    timestamp: str
-
-
-class TitleUpdateRequest(BaseModel):
-    title: str
-
-
-class TitleResponse(BaseModel):
-    title: str
-
-
-class SessionResponse(BaseModel):
-    session_id: str
 
 
 @router.post("/new", response_model=SessionResponse)

@@ -61,15 +61,6 @@ def create_all_tables():
         raise
 
 
-from pydantic import BaseModel
-
-
-class MessageInfo(BaseModel):
-    message_id: str
-    session_id: str
-    content: str
-    sender: str
-    timestamp: str
 
 
 def add_msg_to_dbs(msg: str, session_id: str, db: Session, isUser: bool = True):
@@ -81,15 +72,14 @@ def add_msg_to_dbs(msg: str, session_id: str, db: Session, isUser: bool = True):
         timestamp=datetime.now()
     )
 
-    redis_key_prefix = f"chat_session:{session_id}"
 
     db.add(message)
     db.commit()
     db.refresh(message)
 
-    json_msg = json.dumps(message.model_dump(mode="json"))
 
-    redis.rpush(f"{redis_key_prefix}:messages", json_msg)
+
+
 
     if not isUser:
         return message.model_dump(mode="json")
