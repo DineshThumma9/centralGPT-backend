@@ -3,6 +3,7 @@ from enum import Enum
 from typing import Optional, List, Dict
 from uuid import UUID, uuid4
 
+from fastapi import UploadFile
 from pydantic import BaseModel, EmailStr
 from sqlalchemy import Enum as SQLEnum
 from sqlmodel import SQLModel, Field
@@ -67,6 +68,12 @@ class qdrant_convert(BaseModel):
     vector: List[float]
     payload: Dict
     collection_name: str
+
+
+class Notes(BaseModel):
+    session_id:str
+    context_id:str
+    context_type:str
 
 
 

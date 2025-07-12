@@ -2,26 +2,86 @@ import logging
 from collections import Counter
 from typing import Optional, List
 
-from fastapi import HTTPException
-from langchain_core.vectorstores import VectorStoreRetriever
-from llama_index.core import VectorStoreIndex
-from llama_index.core.chat_engine import ContextChatEngine
+from fastapi import HTTPException, UploadFile
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Document, StorageContext
+from llama_index.core.extractors import TitleExtractor, QuestionsAnsweredExtractor
 from llama_index.core.indices.vector_store import VectorIndexRetriever
-from llama_index.core.node_parser import CodeSplitter
+from llama_index.core.ingestion import IngestionPipeline
+from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.llms.groq import Groq
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 from llama_index.readers.github import GithubRepositoryReader, GithubClient
-from llama_index.vector_stores.qdrant import QdrantVectorStore
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
-from src.db.qdrant_client import qdrant_client
-from src.service.message_service import system_prompt, rag_prompt
+from src.models.schema import Notes
 
-vector_store = QdrantVectorStore(
-    client=qdrant_client,
-    collection_name="llamaIndex"
-)
+EXT_TO_LANG = {
+    # Python
+    "py": "python",
+    # JavaScript / TypeScript
+    "js": "javascript",
+    "ts": "typescript",
+    "jsx": "javascript",
+    "tsx": "typescript",
+    # HTML/CSS
+    "html": "html",
+    "css": "css",
+    # Java
+    "java": "java",
+    # C/C++
+    "c": "c",
+    "h": "c",
+    "cpp": "cpp",
+    "cc": "cpp",
+    "cxx": "cpp",
+    "hpp": "cpp",
+    # C#
+    "cs": "csharp",
+    # PHP
+    "php": "php",
+    # Ruby
+    "rb": "ruby",
+    # Go
+    "go": "go",
+    # Rust
+    "rs": "rust",
+    # Kotlin
+    "kt": "kotlin",
+    "kts": "kotlin",
+    # Swift
+    "swift": "swift",
+    # Shell / Bash
+    "sh": "bash",
+    "bash": "bash",
+    # PowerShell
+    "ps1": "powershell",
+    # Scala
+    "scala": "scala",
+    # Dart
+    "dart": "dart",
+    # R
+    "r": "r",
+    # Julia
+    "jl": "julia",
+    # SQL
+    "sql": "sql",
+    # YAML/JSON config
+    "yaml": "yaml",
+    "yml": "yaml",
+    "json": "json",
+    # Markdown / Docs
+    "md": "markdown",
+    "rst": "markdown",
+    # Text
+    "txt": "text",
+    # Docker / CI
+    "dockerfile": "docker",
+    "env": "text",
+    # Make
+    "makefile": "make",
+}
 
 
 logger = logging.getLogger("rag")
@@ -58,7 +118,7 @@ class GitRequest(BaseModel):
 
 
 
-def get_documents(req:GitRequest):
+def git_documents(req:GitRequest):
     documents = GithubRepositoryReader(
         github_client=GithubClient(verbose=True),
         owner=req.owner,
@@ -79,25 +139,60 @@ def get_documents(req:GitRequest):
     return documents
 
 
-def get_nodes(documents,laguage):
-    return CodeSplitter(
-        language=laguage
-    ).get_nodes_from_documents(documents)
+
+async def get_documents(files:List[UploadFile]):
+    dirs_bytes = [await file.read() for file in files]
+    dirs = [file.decode('utf8') for file in dirs_bytes]
+    documents = SimpleDirectoryReader(input_files=dirs).load_data()
+    return documents
 
 
 
-def get_index(nodes,embed_model):
+def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=None):
+    """Process documents into nodes"""
+    if is_code:
+        from llama_index.core.node_parser import CodeSplitter
+        splitter = CodeSplitter(
+            language=language
+        )
+        return splitter.get_nodes_from_documents(documents)
+    else:
+        embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5")
+        pipeline = IngestionPipeline(transformations=[
+            SemanticSplitterNodeParser(
+                buffer_size=1,
+                breakpoint_percentile_threshold=95,
+                embed_model=embed_model
+            ),
+            TitleExtractor(nodes=5, llm=Groq(model="llama3-8b-8192")),
+            QuestionsAnsweredExtractor(questions=3, llm=Groq(model="llama3-8b-8192")),
+        ])
+        return pipeline.run(documents=documents)
+
+
+
+
+
+
+
+
+def get_index(nodes, embed_model):
+    """Create vector index from nodes"""
+    embed_model = HuggingFaceEmbedding(
+        model_name=embed_model,
+        trust_remote_code=True
+    )
     return VectorStoreIndex(
         nodes=nodes,
-        show_progress=True,
-        embed_model=embed_model
+        embed_model=embed_model,
 
     )
 
 
-def get_embed_model():
+
+def get_embed_model(is_code:bool):
     return HuggingFaceEmbedding(
-        model_name="Qodo/Qodo-Embed-1-1.5B"
+        model_name="Qodo/Qodo-Embed-1-1.5B" if is_code else "BAAI/bge-small-en"
     )
 
 
@@ -134,8 +229,8 @@ def build_file_tree(file_entries):
 
 
 
-def git_handler(req:GitRequest,llm,memory,session_id,context_id,context_type):
-    documents = get_documents(req)
+def git_handler(req:GitRequest,session_id,context_id,context_type):
+    documents = git_documents(req)
     counter = Counter()
     files_info = []
     for dic in documents:
@@ -144,26 +239,33 @@ def git_handler(req:GitRequest,llm,memory,session_id,context_id,context_type):
     max_val = max(counter.values())
     language = max(key for key,val in counter.items() if val==max_val)
     tree = build_file_tree(files_info)
-    nodes = get_nodes(documents,laguage=language)
-    embed_model = get_embed_model()
+    nodes = get_nodes(documents,language=EXT_TO_LANG[language],is_code=True)
+    embed_model = get_embed_model(is_code=True)
     index = get_index(nodes,embed_model)
     retriever = get_retriever(index,embed_model=embed_model)
 
-    engine =  ContextChatEngine.from_defaults(
-        retriever=retriever,
-        llm=llm,
-        system_prompt=rag_prompt,
-        vector_store=vector_store,
-        memory=memory,
 
-
-    )
-
-    chat_engine.set_engine(session_id=session_id,context_type=context_type,context_id=context_id,engine=engine)
+    chat_engine.set_engine(session_id=session_id,context_type=context_type,context_id=context_id,engine=retriever)
 
     return JSONResponse(
         status_code=200,
         content="Engine has been Set"
     )
 
+
+
+async def get_handler(req:List[UploadFile],session_id,context_id,context_type):
+    documents = await get_documents(req)
+    nodes = get_nodes(documents,is_code=False)
+    embed_model = get_embed_model(is_code=False)
+    index = get_index(nodes,embed_model)
+    retriever = get_retriever(index,embed_model=embed_model)
+
+
+    chat_engine.set_engine(session_id=session_id,context_type=context_type,context_id=context_id,engine=retriever)
+
+    return JSONResponse(
+        status_code=200,
+        content="Engine has been Set For notes"
+    )
 

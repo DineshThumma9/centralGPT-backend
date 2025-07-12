@@ -2917,3 +2917,891 @@ messages
 2025-07-08 23:18:18.221 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.24ms)
 2025-07-08 23:18:18.222 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.2ms)
 2025-07-08 23:18:18.222 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.2ms)
+2025-07-09 06:15:28.895 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:16:03.013 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:16:07.998 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:16:07.998 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:16:08.023 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:16:08.023 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:16:08.179 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:16:08.179 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:16:13.125 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:16:13.125 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:16:13.127 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:16:13.127 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:16:13.127 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.98ms)
+2025-07-09 06:16:13.127 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.98ms)
+2025-07-09 06:16:13.128 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.0ms)
+2025-07-09 06:16:13.128 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.0ms)
+2025-07-09 06:16:13.443 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:13.443 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:13.467 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (24.45ms)
+2025-07-09 06:16:13.467 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (24.45ms)
+2025-07-09 06:16:13.470 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:13.470 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:13.474 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (3.74ms)
+2025-07-09 06:16:13.474 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (3.74ms)
+2025-07-09 06:16:22.832 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:16:22.832 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:16:23.562 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:16:23.562 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:16:23.566 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (733.7ms)
+2025-07-09 06:16:23.566 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (733.7ms)
+2025-07-09 06:16:23.901 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:16:23.901 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:16:23.907 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (6.98ms)
+2025-07-09 06:16:23.907 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (6.98ms)
+2025-07-09 06:16:23.922 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:16:23.922 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:16:23.975 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (53.08ms)
+2025-07-09 06:16:23.975 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (53.08ms)
+2025-07-09 06:16:24.559 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:24.559 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:24.588 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (29.97ms)
+2025-07-09 06:16:24.588 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (29.97ms)
+2025-07-09 06:16:24.595 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:24.595 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:16:24.612 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.8ms)
+2025-07-09 06:16:24.612 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.8ms)
+2025-07-09 06:16:27.921 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:16:27.921 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:16:27.922 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-09 06:16:27.922 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-09 06:16:27.928 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:16:27.928 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:16:27.961 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (34.3ms)
+2025-07-09 06:16:27.961 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (34.3ms)
+2025-07-09 06:16:29.741 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:16:29.741 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:16:29.742 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.06ms)
+2025-07-09 06:16:29.742 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.06ms)
+2025-07-09 06:16:29.747 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:16:29.747 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:16:29.766 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (20.55ms)
+2025-07-09 06:16:29.766 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (20.55ms)
+2025-07-09 06:16:32.524 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:16:32.524 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:16:32.525 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (0.9ms)
+2025-07-09 06:16:32.525 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (0.9ms)
+2025-07-09 06:16:32.530 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:16:32.530 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:16:33.009 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-09 06:16:33.009 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-09 06:16:33.019 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (488.88ms)
+2025-07-09 06:16:33.019 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (488.88ms)
+2025-07-09 06:16:33.023 | ERROR    | src.router.messages:stream_response:55 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-09 06:16:33.023 | ERROR    | src.router.messages:stream_response:55 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-09 06:17:12.484 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 06:17:12.484 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 06:17:38.607 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:19:15.937 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:19:27.148 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:19:27.148 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:19:27.176 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:19:27.176 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:19:27.230 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:19:27.230 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:43:54.857 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:43:54.857 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:43:54.859 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:43:54.859 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:43:54.862 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.01ms)
+2025-07-09 06:43:54.862 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.01ms)
+2025-07-09 06:43:54.864 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.85ms)
+2025-07-09 06:43:54.864 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.85ms)
+2025-07-09 06:43:55.178 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:43:55.178 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:43:55.221 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (43.19ms)
+2025-07-09 06:43:55.221 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (43.19ms)
+2025-07-09 06:43:55.225 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:43:55.225 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:43:55.243 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.08ms)
+2025-07-09 06:43:55.243 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.08ms)
+2025-07-09 06:44:15.018 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:44:15.018 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:44:15.019 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (0.99ms)
+2025-07-09 06:44:15.019 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (0.99ms)
+2025-07-09 06:44:15.023 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:44:15.023 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:44:15.043 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (20.03ms)
+2025-07-09 06:44:15.043 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (20.03ms)
+2025-07-09 06:44:17.510 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:44:17.510 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:44:17.511 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.05ms)
+2025-07-09 06:44:17.511 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.05ms)
+2025-07-09 06:44:17.514 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:44:17.514 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:44:17.524 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (10.93ms)
+2025-07-09 06:44:17.524 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (10.93ms)
+2025-07-09 06:44:19.451 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:44:19.451 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:44:19.453 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (2.0ms)
+2025-07-09 06:44:19.453 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (2.0ms)
+2025-07-09 06:44:19.456 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:44:19.456 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:44:19.793 | ERROR    | src.router.messages:message_stream:155 - Streaming setup error: name 'Vector' is not defined
+2025-07-09 06:44:19.793 | ERROR    | src.router.messages:message_stream:155 - Streaming setup error: name 'Vector' is not defined
+2025-07-09 06:44:19.800 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 500 (344.19ms)
+2025-07-09 06:44:19.800 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 500 (344.19ms)
+2025-07-09 06:45:26.710 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:45:33.836 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:45:33.836 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:45:33.856 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:45:33.856 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:45:33.933 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:45:33.933 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:45:52.275 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:45:52.275 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:45:52.788 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:45:52.788 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:45:52.791 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (516.4ms)
+2025-07-09 06:45:52.791 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (516.4ms)
+2025-07-09 06:45:53.116 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:45:53.116 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:45:53.117 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.47ms)
+2025-07-09 06:45:53.117 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.47ms)
+2025-07-09 06:45:53.119 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:45:53.119 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:45:53.145 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (26.24ms)
+2025-07-09 06:45:53.145 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (26.24ms)
+2025-07-09 06:45:53.560 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:45:53.560 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:45:53.570 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.33ms)
+2025-07-09 06:45:53.570 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.33ms)
+2025-07-09 06:45:53.574 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:45:53.574 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:45:53.584 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.29ms)
+2025-07-09 06:45:53.584 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.29ms)
+2025-07-09 06:45:56.175 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:45:56.175 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:45:56.187 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (12.16ms)
+2025-07-09 06:45:56.187 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (12.16ms)
+2025-07-09 06:45:58.481 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:45:58.481 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:45:58.496 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (14.37ms)
+2025-07-09 06:45:58.496 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (14.37ms)
+2025-07-09 06:46:00.379 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:46:00.379 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:46:00.390 | ERROR    | src.router.messages:message_stream:155 - Streaming setup error: name 'Vector' is not defined
+2025-07-09 06:46:00.390 | ERROR    | src.router.messages:message_stream:155 - Streaming setup error: name 'Vector' is not defined
+2025-07-09 06:46:00.393 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 500 (14.53ms)
+2025-07-09 06:46:00.393 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 500 (14.53ms)
+2025-07-09 06:49:24.285 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:49:28.853 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:49:28.853 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:49:28.876 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:49:28.876 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:49:28.967 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:49:28.967 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:49:43.438 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:49:43.438 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:49:43.439 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:49:43.439 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 06:49:43.440 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.98ms)
+2025-07-09 06:49:43.440 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.98ms)
+2025-07-09 06:49:43.442 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.5ms)
+2025-07-09 06:49:43.442 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.5ms)
+2025-07-09 06:49:43.750 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:43.750 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:43.802 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (52.82ms)
+2025-07-09 06:49:43.802 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (52.82ms)
+2025-07-09 06:49:43.805 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:43.805 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:43.817 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.04ms)
+2025-07-09 06:49:43.817 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.04ms)
+2025-07-09 06:49:44.635 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:44.635 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:44.645 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.51ms)
+2025-07-09 06:49:44.645 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.51ms)
+2025-07-09 06:49:44.648 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:44.648 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:44.659 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.88ms)
+2025-07-09 06:49:44.659 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.88ms)
+2025-07-09 06:49:55.965 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:49:55.965 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 06:49:56.426 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:49:56.426 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 06:49:56.428 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (463.08ms)
+2025-07-09 06:49:56.428 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (463.08ms)
+2025-07-09 06:49:56.774 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:49:56.774 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 06:49:56.776 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.35ms)
+2025-07-09 06:49:56.776 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.35ms)
+2025-07-09 06:49:56.781 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:49:56.781 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 06:49:56.830 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (48.84ms)
+2025-07-09 06:49:56.830 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (48.84ms)
+2025-07-09 06:49:57.288 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:57.288 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:57.301 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.28ms)
+2025-07-09 06:49:57.301 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.28ms)
+2025-07-09 06:49:57.303 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:57.303 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 06:49:57.314 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.73ms)
+2025-07-09 06:49:57.314 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.73ms)
+2025-07-09 06:50:00.165 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:50:00.165 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-09 06:50:00.167 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.51ms)
+2025-07-09 06:50:00.167 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.51ms)
+2025-07-09 06:50:00.170 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:50:00.170 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-09 06:50:00.185 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (14.63ms)
+2025-07-09 06:50:00.185 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (14.63ms)
+2025-07-09 06:50:01.448 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:50:01.448 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-09 06:50:01.450 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.77ms)
+2025-07-09 06:50:01.450 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.77ms)
+2025-07-09 06:50:01.454 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:50:01.454 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-09 06:50:01.465 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (11.19ms)
+2025-07-09 06:50:01.465 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (11.19ms)
+2025-07-09 06:50:03.934 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:50:03.934 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-09 06:50:03.935 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-09 06:50:03.935 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-09 06:50:03.941 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:50:03.941 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-09 06:50:04.303 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-09 06:50:04.303 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-09 06:50:04.306 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (365.56ms)
+2025-07-09 06:50:04.306 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (365.56ms)
+2025-07-09 06:50:23.051 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title
+2025-07-09 06:50:23.051 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title
+2025-07-09 06:50:23.053 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title → 200 (1.51ms)
+2025-07-09 06:50:23.053 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title → 200 (1.51ms)
+2025-07-09 06:50:23.360 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title
+2025-07-09 06:50:23.360 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title
+2025-07-09 06:50:23.443 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 99d35f07-3151-4c91-9624-f9dfed8a181c: New Chat
+2025-07-09 06:50:23.443 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 99d35f07-3151-4c91-9624-f9dfed8a181c: New Chat
+2025-07-09 06:50:23.451 | INFO     | src.main:log_requests:49 - PATCH /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title → 200 (90.4ms)
+2025-07-09 06:50:23.451 | INFO     | src.main:log_requests:49 - PATCH /sessions/99d35f07-3151-4c91-9624-f9dfed8a181c/title → 200 (90.4ms)
+2025-07-09 06:53:35.428 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-09 06:53:35.428 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-09 06:53:35.430 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (3.11ms)
+2025-07-09 06:53:35.430 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (3.11ms)
+2025-07-09 06:53:35.737 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-09 06:53:35.737 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-09 06:54:55.399 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 06:54:55.399 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 06:55:08.433 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:55:12.541 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:55:12.541 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:55:12.557 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:55:12.557 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:55:12.589 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:55:12.589 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:55:22.180 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 06:55:26.119 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:55:26.119 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 06:55:26.139 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:55:26.139 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 06:55:26.187 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:55:26.187 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 06:57:08.167 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-09 06:57:08.167 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-09 06:57:08.169 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.6ms)
+2025-07-09 06:57:08.169 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.6ms)
+2025-07-09 06:57:08.481 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-09 06:57:08.481 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-09 21:22:51.987 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 21:23:02.104 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 21:23:02.104 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 21:23:02.135 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 21:23:02.135 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 21:23:02.263 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 21:23:02.263 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 21:24:49.587 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 21:24:49.587 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 21:24:49.588 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 21:24:49.588 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 21:24:49.589 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-09 21:24:49.589 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-09 21:24:49.590 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-09 21:24:49.590 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-09 21:24:49.905 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:24:49.905 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:24:49.924 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (18.89ms)
+2025-07-09 21:24:49.924 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (18.89ms)
+2025-07-09 21:24:49.928 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:24:49.928 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:24:49.931 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (3.78ms)
+2025-07-09 21:24:49.931 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (3.78ms)
+2025-07-09 21:25:02.293 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 21:25:02.293 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 21:25:02.701 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 21:25:02.701 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 21:25:02.702 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (409.19ms)
+2025-07-09 21:25:02.702 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (409.19ms)
+2025-07-09 21:25:02.722 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 21:25:02.722 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 21:25:02.723 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (0.54ms)
+2025-07-09 21:25:02.723 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (0.54ms)
+2025-07-09 21:25:02.725 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 21:25:02.725 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 21:25:02.750 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (24.6ms)
+2025-07-09 21:25:02.750 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (24.6ms)
+2025-07-09 21:25:03.250 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:25:03.250 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:25:03.269 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.8ms)
+2025-07-09 21:25:03.269 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.8ms)
+2025-07-09 21:25:03.272 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:25:03.272 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 21:25:03.283 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.53ms)
+2025-07-09 21:25:03.283 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.53ms)
+2025-07-09 23:20:59.401 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 23:21:07.580 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 23:21:07.580 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 23:21:07.607 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 23:21:07.607 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 23:21:07.745 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 23:21:07.745 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 23:22:09.470 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 23:22:09.470 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-09 23:22:09.858 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 23:22:09.858 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-09 23:22:09.860 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (389.42ms)
+2025-07-09 23:22:09.860 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (389.42ms)
+2025-07-09 23:22:10.186 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 23:22:10.186 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-09 23:22:10.187 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (0.99ms)
+2025-07-09 23:22:10.187 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (0.99ms)
+2025-07-09 23:22:10.193 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 23:22:10.193 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-09 23:22:10.262 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (69.5ms)
+2025-07-09 23:22:10.262 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (69.5ms)
+2025-07-09 23:22:10.832 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:22:10.832 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:22:10.833 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:22:10.833 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:22:10.833 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.01ms)
+2025-07-09 23:22:10.833 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.01ms)
+2025-07-09 23:22:10.835 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-09 23:22:10.835 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-09 23:22:10.842 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:22:10.842 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:22:10.859 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.68ms)
+2025-07-09 23:22:10.859 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.68ms)
+2025-07-09 23:22:10.861 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:22:10.861 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:22:10.871 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.18ms)
+2025-07-09 23:22:10.871 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.18ms)
+2025-07-09 23:36:10.909 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:36:10.909 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:36:10.911 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:36:10.911 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-09 23:36:10.912 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.07ms)
+2025-07-09 23:36:10.912 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.07ms)
+2025-07-09 23:36:10.913 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.72ms)
+2025-07-09 23:36:10.913 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.72ms)
+2025-07-09 23:36:11.229 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:36:11.229 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:36:11.241 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.33ms)
+2025-07-09 23:36:11.241 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.33ms)
+2025-07-09 23:36:11.243 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:36:11.243 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:36:11.256 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.85ms)
+2025-07-09 23:36:11.256 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.85ms)
+2025-07-09 23:40:48.953 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:40:48.953 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:40:48.971 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.84ms)
+2025-07-09 23:40:48.971 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.84ms)
+2025-07-09 23:40:48.975 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:40:48.975 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-09 23:40:48.993 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.66ms)
+2025-07-09 23:40:48.993 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.66ms)
+2025-07-09 23:45:09.606 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 23:45:09.606 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 23:45:26.215 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-09 23:45:34.093 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 23:45:34.093 | INFO     | src.main:<module>:20 - Server started
+2025-07-09 23:45:34.119 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 23:45:34.119 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-09 23:45:34.211 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 23:45:34.211 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-09 23:47:41.638 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-09 23:47:41.638 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-10 06:38:40.856 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-10 06:38:46.898 | INFO     | src.main:<module>:20 - Server started
+2025-07-10 06:38:46.898 | INFO     | src.main:<module>:20 - Server started
+2025-07-10 06:38:46.924 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-10 06:38:46.924 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-10 06:38:47.109 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-10 06:38:47.109 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-10 06:38:59.810 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-10 06:38:59.810 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-10 06:38:59.812 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-10 06:38:59.812 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-10 06:38:59.813 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.83ms)
+2025-07-10 06:38:59.813 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.83ms)
+2025-07-10 06:38:59.817 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.51ms)
+2025-07-10 06:38:59.817 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.51ms)
+2025-07-10 06:39:00.139 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:00.139 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:00.163 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (23.97ms)
+2025-07-10 06:39:00.163 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (23.97ms)
+2025-07-10 06:39:00.169 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:00.169 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:00.171 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (2.51ms)
+2025-07-10 06:39:00.171 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (2.51ms)
+2025-07-10 06:39:09.842 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-10 06:39:09.842 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-10 06:39:10.383 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-10 06:39:10.383 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-10 06:39:10.385 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (542.94ms)
+2025-07-10 06:39:10.385 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (542.94ms)
+2025-07-10 06:39:10.712 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-10 06:39:10.712 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-10 06:39:10.713 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-07-10 06:39:10.713 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-07-10 06:39:10.716 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-10 06:39:10.716 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-10 06:39:10.747 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (31.77ms)
+2025-07-10 06:39:10.747 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (31.77ms)
+2025-07-10 06:39:11.296 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:11.296 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:11.313 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.36ms)
+2025-07-10 06:39:11.313 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.36ms)
+2025-07-10 06:39:11.315 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:11.315 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-10 06:39:11.326 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.04ms)
+2025-07-10 06:39:11.326 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.04ms)
+2025-07-10 06:41:21.416 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-10 06:41:21.416 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-10 06:41:21.417 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.13ms)
+2025-07-10 06:41:21.417 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.13ms)
+2025-07-10 06:41:21.726 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-10 06:41:21.726 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-10 06:41:21.754 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (27.76ms)
+2025-07-10 06:41:21.754 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (27.76ms)
+2025-07-10 06:41:22.305 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-10 06:41:22.305 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-10 06:41:22.306 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.0ms)
+2025-07-10 06:41:22.306 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.0ms)
+2025-07-10 06:41:22.311 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-10 06:41:22.311 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-10 06:41:22.330 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (18.91ms)
+2025-07-10 06:41:22.330 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (18.91ms)
+2025-07-10 06:41:41.373 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-10 06:41:41.373 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-10 06:41:41.374 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.07ms)
+2025-07-10 06:41:41.374 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.07ms)
+2025-07-10 06:41:41.377 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-10 06:41:41.377 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-10 06:42:54.605 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-10 06:42:54.605 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-10 06:43:09.607 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-10 06:43:14.828 | INFO     | src.main:<module>:20 - Server started
+2025-07-10 06:43:14.828 | INFO     | src.main:<module>:20 - Server started
+2025-07-10 06:43:14.845 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-10 06:43:14.845 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-10 06:43:14.913 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-10 06:43:14.913 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-10 06:43:22.482 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-10 06:43:22.482 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-10 06:43:22.484 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.51ms)
+2025-07-10 06:43:22.484 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.51ms)
+2025-07-10 06:43:22.789 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-10 06:43:22.789 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-11 19:44:01.814 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-11 19:46:19.771 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-11 19:46:27.915 | INFO     | src.main:<module>:20 - Server started
+2025-07-11 19:46:27.915 | INFO     | src.main:<module>:20 - Server started
+2025-07-11 19:46:27.956 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-11 19:46:27.956 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-11 19:46:28.100 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-11 19:46:28.100 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-11 19:46:49.726 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-11 19:46:49.726 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-11 19:46:50.199 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-11 19:46:50.199 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-11 19:46:50.200 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (473.56ms)
+2025-07-11 19:46:50.200 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (473.56ms)
+2025-07-11 19:46:50.546 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-11 19:46:50.546 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-11 19:46:50.548 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.02ms)
+2025-07-11 19:46:50.548 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.02ms)
+2025-07-11 19:46:50.554 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-11 19:46:50.554 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-11 19:46:50.620 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (65.87ms)
+2025-07-11 19:46:50.620 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (65.87ms)
+2025-07-11 19:46:51.116 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 19:46:51.116 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 19:46:51.117 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 19:46:51.117 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 19:46:51.118 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-11 19:46:51.118 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-07-11 19:46:51.122 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.54ms)
+2025-07-11 19:46:51.122 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (5.54ms)
+2025-07-11 19:46:51.125 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:46:51.125 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:46:51.143 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.51ms)
+2025-07-11 19:46:51.143 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.51ms)
+2025-07-11 19:46:51.145 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:46:51.145 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:46:51.157 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.1ms)
+2025-07-11 19:46:51.157 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.1ms)
+2025-07-11 19:48:52.254 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:48:52.254 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 19:48:52.260 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (6.55ms)
+2025-07-11 19:48:52.260 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (6.55ms)
+2025-07-11 19:53:11.275 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-11 19:53:11.275 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-11 19:53:11.278 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.87ms)
+2025-07-11 19:53:11.278 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.87ms)
+2025-07-11 19:53:11.585 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-11 19:53:11.585 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-11 19:53:11.631 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (46.21ms)
+2025-07-11 19:53:11.631 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (46.21ms)
+2025-07-11 19:53:12.211 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-11 19:53:12.211 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-11 19:53:12.212 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-11 19:53:12.212 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-11 19:53:12.214 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-11 19:53:12.214 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-11 19:53:12.240 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (25.81ms)
+2025-07-11 19:53:12.240 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (25.81ms)
+2025-07-11 19:53:46.094 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-11 19:53:46.094 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-11 19:53:46.095 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.0ms)
+2025-07-11 19:53:46.095 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.0ms)
+2025-07-11 19:53:46.101 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-11 19:53:46.101 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-11 21:57:44.884 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 21:57:44.884 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 21:57:44.892 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 21:57:44.892 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-11 21:57:44.895 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (15.1ms)
+2025-07-11 21:57:44.895 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (15.1ms)
+2025-07-11 21:57:44.898 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (6.36ms)
+2025-07-11 21:57:44.898 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (6.36ms)
+2025-07-11 21:57:45.223 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 21:57:45.223 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 21:57:45.432 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (208.59ms)
+2025-07-11 21:57:45.432 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (208.59ms)
+2025-07-11 21:57:45.436 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 21:57:45.436 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-11 21:57:45.460 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (24.46ms)
+2025-07-11 21:57:45.460 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (24.46ms)
+2025-07-11 22:03:40.190 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-11 22:03:40.190 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-11 22:03:58.928 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-11 22:09:30.307 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-11 22:09:36.634 | INFO     | src.main:<module>:20 - Server started
+2025-07-11 22:09:36.634 | INFO     | src.main:<module>:20 - Server started
+2025-07-11 22:09:36.659 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-11 22:09:36.659 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-11 22:09:36.733 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-11 22:09:36.733 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 18:55:49.043 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 18:56:53.334 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 18:56:57.910 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 18:56:57.910 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 18:56:57.948 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 18:56:57.948 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 18:56:58.078 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 18:56:58.078 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 18:57:26.707 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 18:57:26.707 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 18:57:26.708 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 18:57:26.708 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 18:57:26.708 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.99ms)
+2025-07-12 18:57:26.708 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.99ms)
+2025-07-12 18:57:26.709 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.92ms)
+2025-07-12 18:57:26.709 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.92ms)
+2025-07-12 18:57:27.016 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:27.016 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:27.031 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (15.84ms)
+2025-07-12 18:57:27.031 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (15.84ms)
+2025-07-12 18:57:27.036 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:27.036 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:27.042 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (6.52ms)
+2025-07-12 18:57:27.042 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 401 (6.52ms)
+2025-07-12 18:57:38.199 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-12 18:57:38.199 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-12 18:57:38.690 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-12 18:57:38.690 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-12 18:57:38.692 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (492.45ms)
+2025-07-12 18:57:38.692 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (492.45ms)
+2025-07-12 18:57:38.737 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-12 18:57:38.737 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-12 18:57:38.739 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.99ms)
+2025-07-12 18:57:38.739 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.99ms)
+2025-07-12 18:57:38.742 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-12 18:57:38.742 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-12 18:57:38.786 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (44.11ms)
+2025-07-12 18:57:38.786 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (44.11ms)
+2025-07-12 18:57:39.263 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:39.263 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:39.289 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (26.56ms)
+2025-07-12 18:57:39.289 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (26.56ms)
+2025-07-12 18:57:39.294 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:39.294 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 18:57:39.313 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.66ms)
+2025-07-12 18:57:39.313 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.66ms)
+2025-07-12 18:57:42.134 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-12 18:57:42.134 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-12 18:57:42.135 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.51ms)
+2025-07-12 18:57:42.135 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.51ms)
+2025-07-12 18:57:42.138 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-12 18:57:42.138 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-12 18:57:42.159 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (20.72ms)
+2025-07-12 18:57:42.159 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (20.72ms)
+2025-07-12 18:57:43.852 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-12 18:57:43.852 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-12 18:57:43.852 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-12 18:57:43.852 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-12 18:57:43.855 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-12 18:57:43.855 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-12 18:57:43.866 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (10.51ms)
+2025-07-12 18:57:43.866 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (10.51ms)
+2025-07-12 18:58:03.717 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 18:58:03.717 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 18:58:03.718 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.54ms)
+2025-07-12 18:58:03.718 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.54ms)
+2025-07-12 18:58:04.029 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 18:58:04.029 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 18:58:04.142 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (112.49ms)
+2025-07-12 18:58:04.142 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (112.49ms)
+2025-07-12 18:58:05.325 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-12 18:58:05.325 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-12 18:58:05.326 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-12 18:58:05.326 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-12 18:58:05.329 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-12 18:58:05.329 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-12 18:58:05.548 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-12 18:58:05.548 | ERROR    | src.service.message_service:session_title_gen:111 - Error in session_title_gen: 1 validation error for LLMChatStartEvent
+messages
+  Input should be a valid list [type=list_type, input_value='Generate a concise, desc...c but concise\n\nTitle:', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+2025-07-12 18:58:05.551 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (221.02ms)
+2025-07-12 18:58:05.551 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (221.02ms)
+2025-07-12 18:58:05.552 | ERROR    | src.router.messages:stream_response:53 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-12 18:58:05.552 | ERROR    | src.router.messages:stream_response:53 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-12 19:34:41.779 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 19:34:41.779 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 19:34:41.794 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (16.49ms)
+2025-07-12 19:34:41.794 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (16.49ms)
+2025-07-12 19:34:42.108 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:34:42.108 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:34:42.213 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (104.44ms)
+2025-07-12 19:34:42.213 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (104.44ms)
+2025-07-12 19:34:43.060 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:34:43.060 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:34:43.075 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (14.51ms)
+2025-07-12 19:34:43.075 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (14.51ms)
+2025-07-12 19:39:44.909 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 19:39:49.244 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 19:39:49.244 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 19:39:49.258 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 19:39:49.258 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 19:39:49.332 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 19:39:49.332 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 19:39:58.369 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:39:58.369 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:39:58.392 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (22.74ms)
+2025-07-12 19:39:58.392 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (22.74ms)
+2025-07-12 19:42:12.786 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-12 19:42:12.786 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-12 19:42:22.218 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 19:42:41.783 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 19:43:08.648 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 19:43:15.464 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 19:43:15.464 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 19:43:15.491 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 19:43:15.491 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 19:43:15.569 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 19:43:15.569 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 19:47:24.435 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 19:47:24.435 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 19:47:24.436 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 19:47:24.436 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 19:47:24.438 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.6ms)
+2025-07-12 19:47:24.438 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.6ms)
+2025-07-12 19:47:24.440 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.6ms)
+2025-07-12 19:47:24.440 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.6ms)
+2025-07-12 19:47:24.760 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 19:47:24.760 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 19:47:24.778 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.72ms)
+2025-07-12 19:47:24.778 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.72ms)
+2025-07-12 19:47:24.782 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 19:47:24.782 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 19:47:24.801 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.52ms)
+2025-07-12 19:47:24.801 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.52ms)
+2025-07-12 19:47:33.434 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 19:47:33.434 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 19:47:33.434 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (0.0ms)
+2025-07-12 19:47:33.434 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (0.0ms)
+2025-07-12 19:47:33.437 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:47:33.437 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:47:33.448 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (11.21ms)
+2025-07-12 19:47:33.448 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (11.21ms)
+2025-07-12 19:50:44.263 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:50:44.263 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 19:50:44.272 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (8.55ms)
+2025-07-12 19:50:44.272 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (8.55ms)
+2025-07-12 20:00:02.516 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 20:00:06.447 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:00:06.447 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:00:06.470 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:00:06.470 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:00:06.554 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:00:06.554 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:00:15.757 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:00:15.757 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:00:15.758 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:00:15.758 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:00:15.759 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.63ms)
+2025-07-12 20:00:15.759 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.63ms)
+2025-07-12 20:00:15.760 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.58ms)
+2025-07-12 20:00:15.760 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.58ms)
+
+
+2025-07-12 20:00:16.080 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:00:16.080 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:01:43.249 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:01:43.249 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:01:43.250 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:01:43.250 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:01:43.253 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (3.58ms)
+2025-07-12 20:01:43.253 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (3.58ms)
+2025-07-12 20:01:43.253 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (3.08ms)
+2025-07-12 20:01:43.253 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (3.08ms)
+2025-07-12 20:01:43.316 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:01:43.316 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:01:43.332 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (87252.71ms)
+2025-07-12 20:01:43.332 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (87252.71ms)
+2025-07-12 20:01:43.336 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.92ms)
+2025-07-12 20:01:43.336 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.92ms)
+2025-07-12 20:07:27.260 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 20:07:33.347 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:07:33.347 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:07:33.361 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:07:33.361 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:07:33.477 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:07:33.477 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:08:00.950 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-12 20:08:00.950 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-12 20:08:01.506 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-12 20:08:01.506 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-12 20:08:01.508 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (557.55ms)
+2025-07-12 20:08:01.508 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (557.55ms)
+2025-07-12 20:08:01.837 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-12 20:08:01.837 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-12 20:08:01.838 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-07-12 20:08:01.838 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-07-12 20:08:01.842 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-12 20:08:01.842 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-12 20:08:01.889 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (47.53ms)
+2025-07-12 20:08:01.889 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (47.53ms)
+2025-07-12 20:08:02.310 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:08:02.310 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:08:02.311 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:08:02.311 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:08:02.312 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-12 20:08:02.312 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-12 20:08:02.314 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.22ms)
+2025-07-12 20:08:02.314 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.22ms)
+2025-07-12 20:08:02.315 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:08:02.315 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:08:02.332 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.33ms)
+2025-07-12 20:08:02.332 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (16.33ms)
+2025-07-12 20:08:02.333 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:08:02.333 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:08:02.345 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.51ms)
+2025-07-12 20:08:02.345 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.51ms)
+2025-07-12 20:08:15.893 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-12 20:08:15.893 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-12 20:08:15.894 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.53ms)
+2025-07-12 20:08:15.894 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.53ms)
+2025-07-12 20:08:15.898 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-12 20:08:15.898 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-12 20:08:15.916 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (18.47ms)
+2025-07-12 20:08:15.916 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (18.47ms)
+2025-07-12 20:08:16.972 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-12 20:08:16.972 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-12 20:08:16.972 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-12 20:08:16.972 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-12 20:08:16.975 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-12 20:08:16.975 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-12 20:08:16.991 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (15.03ms)
+2025-07-12 20:08:16.991 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (15.03ms)
+2025-07-12 20:08:29.569 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:08:29.569 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:08:29.571 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.51ms)
+2025-07-12 20:08:29.571 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.51ms)
+2025-07-12 20:08:29.878 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:08:29.878 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:08:29.884 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (6.0ms)
+2025-07-12 20:08:29.884 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (6.0ms)
+2025-07-12 20:08:30.894 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:08:30.894 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:08:30.900 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (5.52ms)
+2025-07-12 20:08:30.900 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (5.52ms)
+2025-07-12 20:15:49.528 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-12 20:15:49.528 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-12 20:16:05.767 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 20:16:14.293 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:16:14.293 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 20:16:14.318 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:16:14.318 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 20:16:14.379 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:16:14.379 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 20:18:06.687 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:18:06.687 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 20:18:06.687 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.0ms)
+2025-07-12 20:18:06.687 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (0.0ms)
+2025-07-12 20:18:07.003 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:07.003 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:07.051 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (47.43ms)
+2025-07-12 20:18:07.051 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (47.43ms)
+2025-07-12 20:18:35.571 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:35.571 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:35.580 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (8.97ms)
+2025-07-12 20:18:35.580 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (8.97ms)
+2025-07-12 20:18:41.819 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:41.819 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:41.830 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.53ms)
+2025-07-12 20:18:41.830 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (10.53ms)
+2025-07-12 20:18:41.834 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:41.834 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:18:41.846 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (13.5ms)
+2025-07-12 20:18:41.846 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (13.5ms)
+2025-07-12 20:19:11.651 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:19:11.651 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:19:11.665 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (14.39ms)
+2025-07-12 20:19:11.665 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (14.39ms)
+2025-07-12 20:19:11.669 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:19:11.669 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:19:11.682 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.78ms)
+2025-07-12 20:19:11.682 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (12.78ms)
+2025-07-12 20:20:03.533 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:20:03.533 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:20:03.542 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (9.01ms)
+2025-07-12 20:20:03.542 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (9.01ms)
+2025-07-12 20:20:03.546 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:20:03.546 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-12 20:20:03.559 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (13.65ms)
+2025-07-12 20:20:03.559 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (13.65ms)
+2025-07-12 20:20:18.490 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:20:18.490 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-12 20:20:18.492 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.02ms)
+2025-07-12 20:20:18.492 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.02ms)
+2025-07-12 20:20:18.501 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:20:18.501 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-12 20:20:18.653 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (151.3ms)
+2025-07-12 20:20:18.653 | INFO     | src.main:log_requests:49 - POST /rag/upload → 422 (151.3ms)
