@@ -2,6 +2,7 @@ import logging
 from collections import Counter
 from typing import Optional, List
 
+from dotenv import load_dotenv
 from fastapi import HTTPException, UploadFile
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Document, StorageContext
 from llama_index.core.extractors import TitleExtractor, QuestionsAnsweredExtractor
@@ -10,12 +11,15 @@ from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
+from llama_index.llms.together import TogetherLLM
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 from llama_index.readers.github import GithubRepositoryReader, GithubClient
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
 from src.models.schema import Notes
+
+load_dotenv()
 
 EXT_TO_LANG = {
     # Python
@@ -139,13 +143,42 @@ def git_documents(req:GitRequest):
     return documents
 
 
+import tempfile
+import shutil
+from pathlib import Path
 
-async def get_documents(files:List[UploadFile]):
-    dirs_bytes = [await file.read() for file in files]
-    dirs = [file.decode('utf8') for file in dirs_bytes]
-    documents = SimpleDirectoryReader(input_files=dirs).load_data()
+
+async def get_documents(files: List[UploadFile]):
+    """Process uploaded files into documents"""
+    documents = []
+    temp_dir = tempfile.mkdtemp()
+
+    try:
+        saved_files = []
+        for file in files:
+            # Reset file pointer
+            await file.seek(0)
+
+            # Save uploaded file to temp directory
+            temp_path = Path(temp_dir) / file.filename
+            content = await file.read()
+
+            with open(temp_path, 'wb') as f:
+                f.write(content)
+
+            saved_files.append(str(temp_path))
+
+        # Read documents from saved files
+        documents = SimpleDirectoryReader(input_files=saved_files).load_data()
+
+    except Exception as e:
+        logger.error(f"Error processing files: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Error processing files: {str(e)}")
+    finally:
+        # Clean up temp files
+        shutil.rmtree(temp_dir, ignore_errors=True)
+
     return documents
-
 
 
 def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=None):
@@ -157,15 +190,15 @@ def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=No
         )
         return splitter.get_nodes_from_documents(documents)
     else:
-        embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5")
+        embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
         pipeline = IngestionPipeline(transformations=[
             SemanticSplitterNodeParser(
                 buffer_size=1,
                 breakpoint_percentile_threshold=95,
                 embed_model=embed_model
             ),
-            TitleExtractor(nodes=5, llm=Groq(model="llama3-8b-8192")),
-            QuestionsAnsweredExtractor(questions=3, llm=Groq(model="llama3-8b-8192")),
+            TitleExtractor(nodes=5, llm=Groq(model="llama-3.1-8b-instant")),
+
         ])
         return pipeline.run(documents=documents)
 
@@ -177,11 +210,7 @@ def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=No
 
 
 def get_index(nodes, embed_model):
-    """Create vector index from nodes"""
-    embed_model = HuggingFaceEmbedding(
-        model_name=embed_model,
-        trust_remote_code=True
-    )
+
     return VectorStoreIndex(
         nodes=nodes,
         embed_model=embed_model,
@@ -192,7 +221,7 @@ def get_index(nodes, embed_model):
 
 def get_embed_model(is_code:bool):
     return HuggingFaceEmbedding(
-        model_name="Qodo/Qodo-Embed-1-1.5B" if is_code else "BAAI/bge-small-en"
+        model_name="nomic-ai/nomic-embed-code" if is_code else "BAAI/bge-small-en"
     )
 
 

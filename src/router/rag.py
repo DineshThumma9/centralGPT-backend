@@ -20,7 +20,7 @@ def git_rag(req: GitRequest, session_id: str, context_id: str):
 
 
 @router.post("/upload")
-async def git_rag(
+async def get_rag(
     files: List[UploadFile] = File(...),
     session_id: str = Form(...),
     context_id: str = Form(...),

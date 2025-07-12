@@ -94,7 +94,7 @@ Rules:
 
 Title:"""
 
-        session_title = await title_gen.chat(prompt)
+        session_title = await title_gen.acomplete(prompt)
 
         result = session_title.content if hasattr(session_title, 'content') else str(session_title)
 

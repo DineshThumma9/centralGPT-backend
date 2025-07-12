@@ -40,12 +40,19 @@ async def stream_response(engine, session_id, db, title, message):
             if token:
                 full_response += token
                 yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
+
+
                 await asyncio.sleep(0.01)
+
+
+
 
         yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
 
         if title:
             yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
+
+
 
         handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response)
 
