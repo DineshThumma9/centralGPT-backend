@@ -87,6 +87,10 @@ EXT_TO_LANG = {
     "makefile": "make",
 }
 
+from huggingface_hub import login
+
+login(token="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")
+
 
 logger = logging.getLogger("rag")
 
@@ -149,36 +153,47 @@ from pathlib import Path
 
 
 async def get_documents(files: List[UploadFile]):
-    """Process uploaded files into documents"""
     documents = []
     temp_dir = tempfile.mkdtemp()
 
     try:
-        saved_files = []
         for file in files:
-            # Reset file pointer
-            await file.seek(0)
-
-            # Save uploaded file to temp directory
-            temp_path = Path(temp_dir) / file.filename
+            # Don't seek - just read the content
             content = await file.read()
+
+            if not content:
+                logger.warning(f"Empty file: {file.filename}")
+                continue
+
+            temp_path = Path(temp_dir) / file.filename
 
             with open(temp_path, 'wb') as f:
                 f.write(content)
 
-            saved_files.append(str(temp_path))
+        # Use SimpleDirectoryReader with proper error handling
+        if temp_dir:
+            try:
+                documents = SimpleDirectoryReader(
+                    input_dir=temp_dir,
+                    recursive=True,
 
-        # Read documents from saved files
-        documents = SimpleDirectoryReader(input_files=saved_files).load_data()
+                ).load_data()
+            except Exception as e:
+                logger.error(f"Error reading documents: {e}")
+                raise HTTPException(400, f"Error processing documents: {e}")
 
     except Exception as e:
         logger.error(f"Error processing files: {str(e)}")
         raise HTTPException(status_code=400, detail=f"Error processing files: {str(e)}")
     finally:
-        # Clean up temp files
         shutil.rmtree(temp_dir, ignore_errors=True)
 
+    if not documents:
+        raise HTTPException(400, "No documents were successfully processed")
+
     return documents
+
+
 
 
 def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=None):
@@ -196,8 +211,7 @@ def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=No
                 buffer_size=1,
                 breakpoint_percentile_threshold=95,
                 embed_model=embed_model
-            ),
-            TitleExtractor(nodes=5, llm=Groq(model="llama-3.1-8b-instant")),
+            )
 
         ])
         return pipeline.run(documents=documents)
@@ -221,7 +235,8 @@ def get_index(nodes, embed_model):
 
 def get_embed_model(is_code:bool):
     return HuggingFaceEmbedding(
-        model_name="nomic-ai/nomic-embed-code" if is_code else "BAAI/bge-small-en"
+        model_name="nomic-ai/nomic-embed-text-v1" if is_code else "BAAI/bge-small-en-v1.5",
+        trust_remote_code=True
     )
 
 

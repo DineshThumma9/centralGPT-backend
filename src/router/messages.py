@@ -29,36 +29,52 @@ chat_store = RedisChatStore(
     ttl=3600
 )
 
+
 async def stream_response(engine, session_id, db, title, message):
     full_response = ""
+    source_nodes = None  # for capturing source info
 
     try:
         yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-        response = engine.stream_chat(message)
-        for token in response.response_gen:
+        # START streaming
+        chat_response = engine.stream_chat(message)
+
+        for token in chat_response.response_gen:
             if token:
                 full_response += token
                 yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
-
-
                 await asyncio.sleep(0.01)
 
+        # 🔥 Access source nodes AFTER stream is done
+        if hasattr(chat_response, "source_nodes") and chat_response.source_nodes:
+            logger.info(f"Sending Source nodes : {chat_response.source_nodes[0]}")
+            logger.info(f"Sending Source nodes : {chat_response.source_nodes[0].metadata.keys()}")
+            source_nodes = [
+                {
+                    "score": sn.score,
+                    "doc_id": sn.node.id_,
+                    "text": sn.node.text[:200],
+                    "metadata": sn.node.metadata,
 
 
+                }
+                for sn in chat_response.source_nodes
+            ]
+            yield f"data: {json.dumps({'type': 'sources', 'content': source_nodes})}\n\n"
 
+        # Send final response
         yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
-
         if title:
             yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
-
-
+        # Save to DB
         handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response)
 
     except Exception as e:
         logger.error(f"Streaming error: {e}")
         yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+
 
 
 def handling_save_db(session_id, db, full_response, user_msg):

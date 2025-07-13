@@ -4322,3 +4322,1283 @@ messages
 2025-07-12 22:47:30.063 | ERROR    | src.router.messages:stream_response:60 - Streaming error: 'NoneType' object has no attribute 'retrieve'
 2025-07-12 22:47:37.785 | INFO     | src.main:lifespan:80 - Shutting down...
 2025-07-12 22:47:37.785 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-12 22:47:49.870 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-12 22:47:53.577 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 22:47:53.577 | INFO     | src.main:<module>:20 - Server started
+2025-07-12 22:47:53.595 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 22:47:53.595 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-12 22:47:53.655 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 22:47:53.655 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-12 23:14:58.912 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 23:14:58.912 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 23:14:58.914 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 23:14:58.914 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-12 23:14:58.916 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.0ms)
+2025-07-12 23:14:58.916 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.0ms)
+2025-07-12 23:14:58.918 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.0ms)
+2025-07-12 23:14:58.918 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (4.0ms)
+2025-07-13 07:23:55.396 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 07:24:05.207 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 07:24:05.207 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 07:24:05.241 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 07:24:05.241 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 07:24:05.463 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 07:24:05.463 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 07:25:39.348 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-13 07:25:39.348 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-13 07:25:40.029 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-13 07:25:40.029 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-13 07:25:40.031 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (683.14ms)
+2025-07-13 07:25:40.031 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (683.14ms)
+2025-07-13 07:25:40.383 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 07:25:40.383 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 07:25:40.385 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.0ms)
+2025-07-13 07:25:40.385 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.0ms)
+2025-07-13 07:25:40.389 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 07:25:40.389 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 07:25:40.441 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (52.38ms)
+2025-07-13 07:25:40.441 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (52.38ms)
+2025-07-13 07:25:41.026 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 07:25:41.026 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 07:25:41.027 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 07:25:41.027 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 07:25:41.028 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 07:25:41.028 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 07:25:41.031 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.67ms)
+2025-07-13 07:25:41.031 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.67ms)
+2025-07-13 07:25:41.036 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 07:25:41.036 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 07:25:41.058 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (21.65ms)
+2025-07-13 07:25:41.058 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (21.65ms)
+2025-07-13 07:25:41.062 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 07:25:41.062 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 07:25:41.080 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.35ms)
+2025-07-13 07:25:41.080 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.35ms)
+2025-07-13 07:26:59.140 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 07:26:59.140 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 07:26:59.142 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.0ms)
+2025-07-13 07:26:59.142 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.0ms)
+2025-07-13 07:26:59.453 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 07:26:59.453 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 07:26:59.490 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (37.1ms)
+2025-07-13 07:26:59.490 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (37.1ms)
+2025-07-13 07:27:00.351 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 07:27:00.351 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 07:27:00.352 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.51ms)
+2025-07-13 07:27:00.352 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.51ms)
+2025-07-13 07:27:00.355 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 07:27:00.355 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 07:27:00.376 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (21.17ms)
+2025-07-13 07:27:00.376 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (21.17ms)
+2025-07-13 07:32:36.817 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 07:32:36.817 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 07:32:36.819 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.52ms)
+2025-07-13 07:32:36.819 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.52ms)
+2025-07-13 07:32:37.131 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:32:37.131 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:33:43.489 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (66357.6ms)
+2025-07-13 07:33:43.489 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (66357.6ms)
+2025-07-13 07:33:43.898 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 07:33:43.898 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 07:33:43.901 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (3.01ms)
+2025-07-13 07:33:43.901 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (3.01ms)
+2025-07-13 07:33:43.908 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:33:43.908 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:33:44.842 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (933.96ms)
+2025-07-13 07:33:44.842 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (933.96ms)
+2025-07-13 07:34:06.281 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title
+2025-07-13 07:34:06.281 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title
+2025-07-13 07:34:06.282 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title → 200 (1.08ms)
+2025-07-13 07:34:06.282 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title → 200 (1.08ms)
+2025-07-13 07:34:06.588 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title
+2025-07-13 07:34:06.588 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title
+2025-07-13 07:34:06.647 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 1d466687-2bdf-4ab1-9cc5-446849079ef2: Understanding Documentation Help Requested Here 
+Title: Documentation Help Requested
+2025-07-13 07:34:06.647 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 1d466687-2bdf-4ab1-9cc5-446849079ef2: Understanding Documentation Help Requested Here 
+Title: Documentation Help Requested
+2025-07-13 07:34:06.651 | INFO     | src.main:log_requests:49 - PATCH /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title → 200 (63.12ms)
+2025-07-13 07:34:06.651 | INFO     | src.main:log_requests:49 - PATCH /sessions/1d466687-2bdf-4ab1-9cc5-446849079ef2/title → 200 (63.12ms)
+2025-07-13 07:34:46.901 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:34:46.901 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:34:56.995 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (10093.69ms)
+2025-07-13 07:34:56.995 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (10093.69ms)
+2025-07-13 07:34:57.747 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:34:57.747 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:34:57.765 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (17.82ms)
+2025-07-13 07:34:57.765 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (17.82ms)
+2025-07-13 07:35:36.066 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:35:36.066 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:35:36.124 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (58.23ms)
+2025-07-13 07:35:36.124 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (58.23ms)
+2025-07-13 07:36:29.717 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:36:29.717 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:36:29.739 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (22.17ms)
+2025-07-13 07:36:29.739 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (22.17ms)
+2025-07-13 07:40:31.160 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:40:31.160 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:40:42.215 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (11055.23ms)
+2025-07-13 07:40:42.215 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (11055.23ms)
+2025-07-13 07:40:42.679 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:40:42.679 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:40:42.694 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (15.8ms)
+2025-07-13 07:40:42.694 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (15.8ms)
+2025-07-13 07:40:54.303 | ERROR    | src.router.messages:stream_response:59 - Streaming error: Calculated available context size -26 was not non-negative.
+2025-07-13 07:40:54.303 | ERROR    | src.router.messages:stream_response:59 - Streaming error: Calculated available context size -26 was not non-negative.
+2025-07-13 07:41:15.199 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:41:15.199 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 07:41:24.775 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (9575.24ms)
+2025-07-13 07:41:24.775 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (9575.24ms)
+2025-07-13 07:41:25.570 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:41:25.570 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 07:41:25.580 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (9.52ms)
+2025-07-13 07:41:25.580 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (9.52ms)
+2025-07-13 08:11:42.310 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 08:11:42.310 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 08:11:42.311 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 08:11:42.311 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 08:11:42.312 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 08:11:42.312 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 08:11:42.313 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.95ms)
+2025-07-13 08:11:42.313 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.95ms)
+2025-07-13 08:11:42.621 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 08:11:42.621 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 08:11:42.665 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (44.21ms)
+2025-07-13 08:11:42.665 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (44.21ms)
+2025-07-13 08:11:42.672 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 08:11:42.672 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 08:11:42.689 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.29ms)
+2025-07-13 08:11:42.689 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (17.29ms)
+2025-07-13 08:19:15.171 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:15.171 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:15.176 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/5e60593f-7250-4643-92b3-85611ddae370 → 200 (3.75ms)
+2025-07-13 08:19:15.176 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/5e60593f-7250-4643-92b3-85611ddae370 → 200 (3.75ms)
+2025-07-13 08:19:15.481 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:15.481 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:15.498 | INFO     | src.main:log_requests:49 - GET /sessions/history/5e60593f-7250-4643-92b3-85611ddae370 → 200 (16.67ms)
+2025-07-13 08:19:15.498 | INFO     | src.main:log_requests:49 - GET /sessions/history/5e60593f-7250-4643-92b3-85611ddae370 → 200 (16.67ms)
+2025-07-13 08:19:16.690 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:16.690 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:16.691 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/5e60593f-7250-4643-92b3-85611ddae370 → 200 (1.0ms)
+2025-07-13 08:19:16.691 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/5e60593f-7250-4643-92b3-85611ddae370 → 200 (1.0ms)
+2025-07-13 08:19:16.693 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:16.693 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/5e60593f-7250-4643-92b3-85611ddae370
+2025-07-13 08:19:16.711 | INFO     | src.main:log_requests:49 - DELETE /sessions/5e60593f-7250-4643-92b3-85611ddae370 → 200 (17.28ms)
+2025-07-13 08:19:16.711 | INFO     | src.main:log_requests:49 - DELETE /sessions/5e60593f-7250-4643-92b3-85611ddae370 → 200 (17.28ms)
+2025-07-13 08:19:16.929 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:16.929 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:16.930 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (0.97ms)
+2025-07-13 08:19:16.930 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (0.97ms)
+2025-07-13 08:19:16.934 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:16.934 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:16.948 | INFO     | src.main:log_requests:49 - GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (13.85ms)
+2025-07-13 08:19:16.948 | INFO     | src.main:log_requests:49 - GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (13.85ms)
+2025-07-13 08:19:22.922 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670
+2025-07-13 08:19:22.922 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670
+2025-07-13 08:19:22.923 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670 → 200 (1.0ms)
+2025-07-13 08:19:22.923 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670 → 200 (1.0ms)
+2025-07-13 08:19:22.926 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670
+2025-07-13 08:19:22.926 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670
+2025-07-13 08:19:22.936 | INFO     | src.main:log_requests:49 - GET /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670 → 200 (9.93ms)
+2025-07-13 08:19:22.936 | INFO     | src.main:log_requests:49 - GET /sessions/history/cfbc6efb-3c6d-43eb-a082-0c85960b8670 → 200 (9.93ms)
+2025-07-13 08:19:28.320 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:28.320 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:28.330 | INFO     | src.main:log_requests:49 - GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (8.55ms)
+2025-07-13 08:19:28.330 | INFO     | src.main:log_requests:49 - GET /sessions/history/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (8.55ms)
+2025-07-13 08:19:29.690 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:29.690 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:29.691 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (1.01ms)
+2025-07-13 08:19:29.691 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (1.01ms)
+2025-07-13 08:19:29.696 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:29.696 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc
+2025-07-13 08:19:29.726 | INFO     | src.main:log_requests:49 - DELETE /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (29.85ms)
+2025-07-13 08:19:29.726 | INFO     | src.main:log_requests:49 - DELETE /sessions/a77e033b-50c0-4571-9407-67e7a0f686cc → 200 (29.85ms)
+2025-07-13 08:19:29.940 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:29.940 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:29.941 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (1.01ms)
+2025-07-13 08:19:29.941 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (1.01ms)
+2025-07-13 08:19:29.949 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:29.949 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:29.958 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (8.7ms)
+2025-07-13 08:19:29.958 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (8.7ms)
+2025-07-13 08:19:33.786 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:33.786 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:33.787 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (1.0ms)
+2025-07-13 08:19:33.787 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (1.0ms)
+2025-07-13 08:19:33.791 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:33.791 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:33.802 | INFO     | src.main:log_requests:49 - GET /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (11.32ms)
+2025-07-13 08:19:33.802 | INFO     | src.main:log_requests:49 - GET /sessions/history/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (11.32ms)
+2025-07-13 08:19:35.599 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:35.599 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:35.600 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (1.0ms)
+2025-07-13 08:19:35.600 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (1.0ms)
+2025-07-13 08:19:35.602 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:35.602 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1
+2025-07-13 08:19:35.617 | INFO     | src.main:log_requests:49 - DELETE /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (15.42ms)
+2025-07-13 08:19:35.617 | INFO     | src.main:log_requests:49 - DELETE /sessions/8d0c64ac-acec-4a48-a8dd-7dc2641a8fc1 → 200 (15.42ms)
+2025-07-13 08:19:35.789 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:35.789 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:35.799 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (9.52ms)
+2025-07-13 08:19:35.799 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (9.52ms)
+2025-07-13 08:19:42.018 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:42.018 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:42.020 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (1.39ms)
+2025-07-13 08:19:42.020 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (1.39ms)
+2025-07-13 08:19:42.023 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:42.023 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:42.055 | INFO     | src.main:log_requests:49 - GET /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (31.71ms)
+2025-07-13 08:19:42.055 | INFO     | src.main:log_requests:49 - GET /sessions/history/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (31.71ms)
+2025-07-13 08:19:44.087 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:44.087 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:44.088 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (1.0ms)
+2025-07-13 08:19:44.088 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (1.0ms)
+2025-07-13 08:19:44.090 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:44.090 | INFO     | src.main:log_requests:46 - Incoming request: DELETE /sessions/37eecd26-1974-41cf-a794-d1511714bb03
+2025-07-13 08:19:44.111 | INFO     | src.main:log_requests:49 - DELETE /sessions/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (21.09ms)
+2025-07-13 08:19:44.111 | INFO     | src.main:log_requests:49 - DELETE /sessions/37eecd26-1974-41cf-a794-d1511714bb03 → 200 (21.09ms)
+2025-07-13 08:19:44.464 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:44.464 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d
+2025-07-13 08:19:44.469 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (5.0ms)
+2025-07-13 08:19:44.469 | INFO     | src.main:log_requests:49 - GET /sessions/history/923d9537-5ce9-48e5-84d6-e26be32fd08d → 200 (5.0ms)
+2025-07-13 08:19:46.265 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:46.265 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:46.267 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (2.02ms)
+2025-07-13 08:19:46.267 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (2.02ms)
+2025-07-13 08:19:46.271 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:46.271 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:46.278 | INFO     | src.main:log_requests:49 - GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (6.6ms)
+2025-07-13 08:19:46.278 | INFO     | src.main:log_requests:49 - GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (6.6ms)
+2025-07-13 08:19:46.720 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6
+2025-07-13 08:19:46.720 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6
+2025-07-13 08:19:46.721 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6 → 200 (1.09ms)
+2025-07-13 08:19:46.721 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6 → 200 (1.09ms)
+2025-07-13 08:19:46.723 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6
+2025-07-13 08:19:46.723 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6
+2025-07-13 08:19:46.733 | INFO     | src.main:log_requests:49 - GET /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6 → 200 (10.32ms)
+2025-07-13 08:19:46.733 | INFO     | src.main:log_requests:49 - GET /sessions/history/26a36aad-2ebf-4541-9821-eaefd34e54d6 → 200 (10.32ms)
+2025-07-13 08:19:58.031 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:58.031 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2
+2025-07-13 08:19:58.045 | INFO     | src.main:log_requests:49 - GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (13.59ms)
+2025-07-13 08:19:58.045 | INFO     | src.main:log_requests:49 - GET /sessions/history/1d466687-2bdf-4ab1-9cc5-446849079ef2 → 200 (13.59ms)
+2025-07-13 08:20:30.595 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 08:20:30.595 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 08:20:30.596 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 08:20:30.596 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 08:20:30.600 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 08:20:30.600 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 08:20:30.619 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (19.15ms)
+2025-07-13 08:20:30.619 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (19.15ms)
+2025-07-13 08:20:37.379 | ERROR    | src.router.messages:stream_response:59 - Streaming error: Calculated available context size -190 was not non-negative.
+2025-07-13 08:20:37.379 | ERROR    | src.router.messages:stream_response:59 - Streaming error: Calculated available context size -190 was not non-negative.
+2025-07-13 08:21:39.730 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 08:21:39.730 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 08:21:39.732 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (3.52ms)
+2025-07-13 08:21:39.732 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (3.52ms)
+2025-07-13 08:21:40.055 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 08:21:40.055 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 08:21:40.079 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (24.46ms)
+2025-07-13 08:21:40.079 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (24.46ms)
+2025-07-13 08:22:27.709 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 08:22:27.709 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 08:22:27.710 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.01ms)
+2025-07-13 08:22:27.710 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.01ms)
+2025-07-13 08:22:27.715 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 08:22:27.715 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 08:22:42.256 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (14540.87ms)
+2025-07-13 08:22:42.256 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (14540.87ms)
+2025-07-13 08:22:42.650 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 08:22:42.650 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 08:22:43.365 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (713.37ms)
+2025-07-13 08:22:43.365 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (713.37ms)
+2025-07-13 08:23:00.823 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title
+2025-07-13 08:23:00.823 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title
+2025-07-13 08:23:00.825 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title → 200 (2.02ms)
+2025-07-13 08:23:00.825 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title → 200 (2.02ms)
+2025-07-13 08:23:01.146 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title
+2025-07-13 08:23:01.146 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title
+2025-07-13 08:23:01.165 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5: Comparing Two Resumes
+2025-07-13 08:23:01.165 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5: Comparing Two Resumes
+2025-07-13 08:23:01.168 | INFO     | src.main:log_requests:49 - PATCH /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title → 200 (21.36ms)
+2025-07-13 08:23:01.168 | INFO     | src.main:log_requests:49 - PATCH /sessions/e71aa0c4-bbc9-4094-8e9d-3a46cd91eba5/title → 200 (21.36ms)
+2025-07-13 08:25:07.285 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 08:25:07.285 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 08:25:07.286 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 08:25:07.286 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 08:25:07.594 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 08:25:07.594 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:11:23.836 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:11:30.205 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:11:30.205 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:11:30.227 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:11:30.227 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:11:30.294 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:11:30.294 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:11:55.130 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:11:55.130 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:11:55.132 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.01ms)
+2025-07-13 09:11:55.132 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.01ms)
+2025-07-13 09:11:55.437 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:11:55.437 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:16:13.057 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:16:13.057 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:16:25.661 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:16:29.969 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:16:29.969 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:16:29.984 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:16:29.984 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:16:30.038 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:16:30.038 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:17:00.145 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:17:00.145 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:17:00.147 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.01ms)
+2025-07-13 09:17:00.147 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.01ms)
+2025-07-13 09:17:00.467 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:17:00.467 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:19:01.280 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:19:01.280 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:19:14.014 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:19:18.481 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:19:18.481 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:19:18.503 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:19:18.503 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:19:18.558 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:19:18.558 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:21:29.728 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:21:29.728 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:21:29.730 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.97ms)
+2025-07-13 09:21:29.730 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.97ms)
+2025-07-13 09:21:30.045 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:21:30.045 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:24:44.794 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:24:44.794 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:24:56.702 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:25:00.949 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:25:00.949 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:25:00.966 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:25:00.966 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:25:01.031 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:25:01.031 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:25:08.399 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:25:08.399 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:25:08.405 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (4.19ms)
+2025-07-13 09:25:08.405 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (4.19ms)
+2025-07-13 09:25:08.720 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:25:08.720 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:25:36.465 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:25:36.465 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:25:48.365 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:25:53.004 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:25:53.004 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:25:53.020 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:25:53.020 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:25:53.087 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:25:53.087 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:26:00.800 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:26:00.800 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:26:00.803 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (3.04ms)
+2025-07-13 09:26:00.803 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (3.04ms)
+2025-07-13 09:26:01.119 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:26:01.119 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:26:58.929 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:27:03.961 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:27:03.961 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:27:03.980 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:27:03.980 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:27:04.073 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:27:04.073 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:27:12.626 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:27:12.626 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:27:12.627 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.01ms)
+2025-07-13 09:27:12.627 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.01ms)
+2025-07-13 09:27:12.935 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:27:12.935 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:28:26.055 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:28:26.055 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:28:38.125 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:28:42.618 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:28:42.618 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:28:42.642 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:28:42.642 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:28:42.695 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:28:42.695 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:29:09.873 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:29:09.873 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:29:09.875 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.69ms)
+2025-07-13 09:29:09.875 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.69ms)
+2025-07-13 09:29:10.190 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:29:10.190 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:31:01.678 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:31:01.678 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:31:13.765 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:31:18.360 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:31:18.360 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:31:18.400 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:31:18.400 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:31:18.464 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:31:18.464 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:31:31.319 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:31:31.319 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:31:31.325 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (6.39ms)
+2025-07-13 09:31:31.325 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (6.39ms)
+2025-07-13 09:31:31.646 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:31:31.646 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:32:14.772 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:32:14.772 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:32:27.510 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:32:31.863 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:32:31.863 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:32:31.883 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:32:31.883 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:32:31.951 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:32:31.951 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:34:47.865 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:34:47.865 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:35:00.875 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:35:05.671 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:35:05.671 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:35:05.697 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:35:05.697 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:35:05.774 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:35:05.774 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:35:22.558 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:35:22.558 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:35:39.752 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:35:49.297 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:35:49.297 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:35:49.326 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:35:49.326 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:35:49.402 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:35:49.402 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:35:56.332 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:35:56.332 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:35:56.332 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.0ms)
+2025-07-13 09:35:56.332 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.0ms)
+2025-07-13 09:35:56.651 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:35:56.651 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:39:16.011 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:39:16.011 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 09:39:27.558 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 09:39:32.171 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:39:32.171 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 09:39:32.194 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:39:32.194 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 09:39:32.271 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:39:32.271 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 09:39:52.390 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:39:52.390 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 09:39:52.391 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 09:39:52.391 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 09:39:52.712 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 09:39:52.712 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 10:26:59.334 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 10:27:07.115 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:27:07.115 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:27:07.139 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:27:07.139 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:27:07.225 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:27:07.225 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:27:12.546 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 10:27:12.546 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 10:27:12.547 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 10:27:12.547 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 10:27:12.548 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.51ms)
+2025-07-13 10:27:12.548 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (1.51ms)
+2025-07-13 10:27:12.550 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.52ms)
+2025-07-13 10:27:12.550 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.52ms)
+2025-07-13 10:27:12.860 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 10:27:12.860 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 10:27:12.905 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (45.23ms)
+2025-07-13 10:27:12.905 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (45.23ms)
+2025-07-13 10:27:12.907 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 10:27:12.907 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 10:27:12.920 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.56ms)
+2025-07-13 10:27:12.920 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.56ms)
+2025-07-13 10:27:13.956 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 10:27:13.956 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 10:27:13.957 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-07-13 10:27:13.957 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-07-13 10:27:13.960 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 10:27:13.960 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 10:27:14.000 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (39.56ms)
+2025-07-13 10:27:14.000 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (39.56ms)
+2025-07-13 10:27:18.993 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 10:27:18.993 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 10:27:18.994 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.31ms)
+2025-07-13 10:27:18.994 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (2.31ms)
+2025-07-13 10:27:18.996 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 10:27:18.996 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 10:27:19.016 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (19.74ms)
+2025-07-13 10:27:19.016 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (19.74ms)
+2025-07-13 10:27:20.543 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 10:27:20.543 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 10:27:20.543 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.05ms)
+2025-07-13 10:27:20.543 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.05ms)
+2025-07-13 10:27:20.546 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 10:27:20.546 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 10:27:20.559 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (12.39ms)
+2025-07-13 10:27:20.559 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (12.39ms)
+2025-07-13 10:27:44.526 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 10:27:44.526 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 10:27:44.528 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.59ms)
+2025-07-13 10:27:44.528 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.59ms)
+2025-07-13 10:27:44.851 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 10:27:44.851 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 10:30:29.165 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (164314.58ms)
+2025-07-13 10:30:29.165 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (164314.58ms)
+2025-07-13 10:30:29.525 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 10:30:29.525 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 10:30:29.527 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (2.02ms)
+2025-07-13 10:30:29.527 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (2.02ms)
+2025-07-13 10:30:29.530 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 10:30:29.530 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 10:30:32.803 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (3272.68ms)
+2025-07-13 10:30:32.803 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (3272.68ms)
+2025-07-13 10:30:32.807 | ERROR    | src.router.messages:stream_response:59 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 10:30:32.807 | ERROR    | src.router.messages:stream_response:59 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 10:32:20.084 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 10:32:20.084 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 10:32:37.139 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 10:36:19.334 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:36:19.334 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:36:19.363 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:36:19.363 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:36:19.447 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:36:19.447 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:38:59.459 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 10:38:59.459 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 10:38:59.460 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.51ms)
+2025-07-13 10:38:59.460 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (0.51ms)
+2025-07-13 10:38:59.775 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 10:38:59.775 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 10:41:46.836 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 10:41:46.836 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 10:41:58.087 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 10:42:05.540 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:42:05.540 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 10:42:05.553 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:42:05.553 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 10:42:05.604 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:42:05.604 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 10:42:12.081 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 10:42:12.081 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 10:42:12.083 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 10:42:12.083 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.0ms)
+2025-07-13 10:42:12.405 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 10:42:12.405 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:02:22.969 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:02:22.969 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:02:37.357 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 11:02:47.724 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:02:47.724 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:02:47.743 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:02:47.743 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:02:47.850 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:02:47.850 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:03:12.258 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:03:12.258 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:03:12.259 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.01ms)
+2025-07-13 11:03:12.259 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.01ms)
+2025-07-13 11:03:12.582 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:03:12.582 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:04:37.975 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:04:37.975 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:04:50.215 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 11:04:56.498 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:04:56.498 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:04:56.513 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:04:56.513 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:04:56.545 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:04:56.545 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:05:02.472 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:05:02.472 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:05:02.474 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.5ms)
+2025-07-13 11:05:02.474 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.5ms)
+2025-07-13 11:05:02.795 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:05:02.795 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:05:47.209 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:05:47.209 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:06:02.963 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 11:06:14.585 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:06:14.585 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:06:14.617 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:06:14.617 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:06:14.680 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:06:14.680 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:06:44.067 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:06:44.067 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:06:44.068 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.92ms)
+2025-07-13 11:06:44.068 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (1.92ms)
+2025-07-13 11:06:44.382 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:06:44.382 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:10:15.824 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:10:15.824 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 11:10:36.246 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 11:10:45.402 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:10:45.402 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 11:10:45.415 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:10:45.415 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 11:10:45.478 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:10:45.478 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 11:14:25.772 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:14:25.772 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:14:25.774 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.02ms)
+2025-07-13 11:14:25.774 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (2.02ms)
+2025-07-13 11:14:26.095 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:14:26.095 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:23:07.433 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:23:07.433 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/git
+2025-07-13 11:23:07.446 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (13.84ms)
+2025-07-13 11:23:07.446 | INFO     | src.main:log_requests:49 - OPTIONS /rag/git → 200 (13.84ms)
+2025-07-13 11:23:07.770 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:23:07.770 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/git
+2025-07-13 11:30:57.103 | INFO     | src.main:log_requests:49 - POST /rag/git → 200 (469332.88ms)
+2025-07-13 11:30:57.103 | INFO     | src.main:log_requests:49 - POST /rag/git → 200 (469332.88ms)
+2025-07-13 11:31:59.966 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 11:31:59.966 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 11:31:59.967 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.01ms)
+2025-07-13 11:31:59.967 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.01ms)
+2025-07-13 11:31:59.970 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:31:59.970 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:32:00.178 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (207.25ms)
+2025-07-13 11:32:00.178 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (207.25ms)
+2025-07-13 11:32:22.093 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:32:22.093 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:32:22.180 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (87.6ms)
+2025-07-13 11:32:22.180 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (87.6ms)
+2025-07-13 11:33:10.202 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 11:33:10.202 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 11:33:10.204 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.82ms)
+2025-07-13 11:33:10.204 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.82ms)
+2025-07-13 11:33:10.512 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 11:33:10.512 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 11:33:10.562 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (50.27ms)
+2025-07-13 11:33:10.562 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (50.27ms)
+2025-07-13 11:33:11.705 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 11:33:11.705 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 11:33:11.705 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-13 11:33:11.705 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-13 11:33:11.709 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 11:33:11.709 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 11:33:11.732 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (23.62ms)
+2025-07-13 11:33:11.732 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (23.62ms)
+2025-07-13 11:33:22.593 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:33:22.593 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:33:23.156 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (562.47ms)
+2025-07-13 11:33:23.156 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (562.47ms)
+2025-07-13 11:33:42.579 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:33:42.579 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:33:43.079 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (499.57ms)
+2025-07-13 11:33:43.079 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (499.57ms)
+2025-07-13 11:34:06.775 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:34:06.775 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:34:07.343 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (568.12ms)
+2025-07-13 11:34:07.343 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (568.12ms)
+2025-07-13 11:34:33.520 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:34:33.520 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:34:34.098 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (577.75ms)
+2025-07-13 11:34:34.098 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (577.75ms)
+2025-07-13 11:35:13.962 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:13.962 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:14.537 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (574.51ms)
+2025-07-13 11:35:14.537 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (574.51ms)
+2025-07-13 11:35:30.744 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:30.744 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:31.431 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (686.61ms)
+2025-07-13 11:35:31.431 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (686.61ms)
+2025-07-13 11:35:51.491 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:51.491 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:35:52.080 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (588.53ms)
+2025-07-13 11:35:52.080 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (588.53ms)
+2025-07-13 11:36:09.721 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:36:09.721 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:36:10.276 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (554.8ms)
+2025-07-13 11:36:10.276 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (554.8ms)
+2025-07-13 11:36:31.801 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:36:31.801 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 11:36:32.371 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (569.21ms)
+2025-07-13 11:36:32.371 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (569.21ms)
+2025-07-13 11:37:10.260 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 11:37:10.260 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 11:37:10.261 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.51ms)
+2025-07-13 11:37:10.261 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.51ms)
+2025-07-13 11:37:10.572 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 11:37:10.572 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:09:45.354 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 18:09:51.552 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:09:51.552 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:09:51.567 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:09:51.567 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:09:51.694 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:09:51.694 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:12:05.230 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-13 18:12:05.230 | INFO     | src.main:log_requests:46 - Incoming request: POST /auth/login
+2025-07-13 18:12:05.776 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-13 18:12:05.776 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: test_user@gmail.com
+2025-07-13 18:12:05.779 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (549.54ms)
+2025-07-13 18:12:05.779 | INFO     | src.main:log_requests:49 - POST /auth/login → 200 (549.54ms)
+2025-07-13 18:12:06.119 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 18:12:06.119 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 18:12:06.121 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.14ms)
+2025-07-13 18:12:06.121 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.14ms)
+2025-07-13 18:12:06.129 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 18:12:06.129 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 18:12:06.181 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (52.31ms)
+2025-07-13 18:12:06.181 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (52.31ms)
+2025-07-13 18:12:06.667 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 18:12:06.667 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 18:12:06.669 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 18:12:06.669 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 18:12:06.669 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.02ms)
+2025-07-13 18:12:06.669 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.02ms)
+2025-07-13 18:12:06.675 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (6.05ms)
+2025-07-13 18:12:06.675 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (6.05ms)
+2025-07-13 18:12:06.680 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:06.680 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:06.702 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.51ms)
+2025-07-13 18:12:06.702 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.51ms)
+2025-07-13 18:12:06.706 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:06.706 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:06.725 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.65ms)
+2025-07-13 18:12:06.725 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.65ms)
+2025-07-13 18:12:13.266 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65
+2025-07-13 18:12:13.266 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65
+2025-07-13 18:12:13.266 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65 → 200 (1.03ms)
+2025-07-13 18:12:13.266 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65 → 200 (1.03ms)
+2025-07-13 18:12:13.271 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65
+2025-07-13 18:12:13.271 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65
+2025-07-13 18:12:13.294 | INFO     | src.main:log_requests:49 - GET /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65 → 200 (22.68ms)
+2025-07-13 18:12:13.294 | INFO     | src.main:log_requests:49 - GET /sessions/history/b9330a42-588a-4320-b10d-0f722ad80b65 → 200 (22.68ms)
+2025-07-13 18:12:20.710 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:20.710 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:20.731 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (20.98ms)
+2025-07-13 18:12:20.731 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (20.98ms)
+2025-07-13 18:12:20.737 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:20.737 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:12:20.756 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.2ms)
+2025-07-13 18:12:20.756 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (18.2ms)
+2025-07-13 18:13:25.899 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:13:25.899 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:13:25.921 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.31ms)
+2025-07-13 18:13:25.921 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.31ms)
+2025-07-13 18:13:25.925 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:13:25.925 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 18:13:25.944 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.38ms)
+2025-07-13 18:13:25.944 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (19.38ms)
+2025-07-13 18:13:32.376 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 18:13:32.376 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 18:13:32.395 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (19.04ms)
+2025-07-13 18:13:32.395 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (19.04ms)
+2025-07-13 18:13:36.669 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 18:13:36.669 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 18:13:36.670 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.44ms)
+2025-07-13 18:13:36.670 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.44ms)
+2025-07-13 18:13:36.674 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 18:13:36.674 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 18:13:36.708 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (33.62ms)
+2025-07-13 18:13:36.708 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (33.62ms)
+2025-07-13 18:13:38.674 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 18:13:38.674 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 18:13:38.688 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (13.06ms)
+2025-07-13 18:13:38.688 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (13.06ms)
+2025-07-13 18:13:40.080 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 18:13:40.080 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 18:13:40.080 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-13 18:13:40.080 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (0.0ms)
+2025-07-13 18:13:40.083 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 18:13:40.083 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 18:13:40.097 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (13.84ms)
+2025-07-13 18:13:40.097 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (13.84ms)
+2025-07-13 18:14:17.239 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 18:14:17.239 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 18:14:17.241 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-07-13 18:14:17.241 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-07-13 18:14:17.555 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:14:17.555 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:14:37.845 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (20289.64ms)
+2025-07-13 18:14:37.845 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (20289.64ms)
+2025-07-13 18:14:38.324 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:14:38.324 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:14:38.325 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.01ms)
+2025-07-13 18:14:38.325 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.01ms)
+2025-07-13 18:14:38.329 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:14:38.329 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:14:39.944 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1614.53ms)
+2025-07-13 18:14:39.944 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1614.53ms)
+2025-07-13 18:14:47.541 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title
+2025-07-13 18:14:47.541 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title
+2025-07-13 18:14:47.543 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title → 200 (2.01ms)
+2025-07-13 18:14:47.543 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title → 200 (2.01ms)
+2025-07-13 18:14:47.547 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title
+2025-07-13 18:14:47.547 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title
+2025-07-13 18:14:47.616 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 8a099e26-43c9-45c5-b54d-827006590c83: File Reading and Understanding Request
+2025-07-13 18:14:47.616 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 8a099e26-43c9-45c5-b54d-827006590c83: File Reading and Understanding Request
+2025-07-13 18:14:47.619 | INFO     | src.main:log_requests:49 - PATCH /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title → 200 (71.36ms)
+2025-07-13 18:14:47.619 | INFO     | src.main:log_requests:49 - PATCH /sessions/8a099e26-43c9-45c5-b54d-827006590c83/title → 200 (71.36ms)
+2025-07-13 18:16:32.513 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:16:32.513 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:16:46.144 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 18:16:50.226 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:16:50.226 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:16:50.243 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:16:50.243 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:16:50.324 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:16:50.324 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:17:04.377 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:17:04.377 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:17:15.914 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 18:17:20.390 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:17:20.390 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:17:20.402 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:17:20.402 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:17:20.435 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:17:20.435 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:17:29.482 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:17:29.482 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 18:17:38.623 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 18:17:42.353 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:17:42.353 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 18:17:42.373 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:17:42.373 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 18:17:42.411 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:17:42.411 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 18:18:29.849 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:18:29.849 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:18:30.020 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (170.69ms)
+2025-07-13 18:18:30.020 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (170.69ms)
+2025-07-13 18:18:30.021 | ERROR    | src.router.messages:stream_response:72 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 18:18:30.021 | ERROR    | src.router.messages:stream_response:72 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 18:18:51.082 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:18:51.082 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:19:08.161 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (17078.57ms)
+2025-07-13 18:19:08.161 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (17078.57ms)
+2025-07-13 18:19:08.235 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:19:08.235 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:19:08.248 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (13.76ms)
+2025-07-13 18:19:08.248 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (13.76ms)
+2025-07-13 18:19:19.411 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:19:19.411 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:20:54.058 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:20:54.058 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:22:20.126 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:22:20.126 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 18:22:57.520 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (37393.34ms)
+2025-07-13 18:22:57.520 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (37393.34ms)
+2025-07-13 18:22:58.722 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:22:58.722 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:22:58.764 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (41.22ms)
+2025-07-13 18:22:58.764 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (41.22ms)
+2025-07-13 18:23:13.211 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:23:13.211 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:28:41.587 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:28:41.587 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:28:41.588 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 18:28:41.588 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 18:28:41.591 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:28:41.591 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:28:41.648 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (56.69ms)
+2025-07-13 18:28:41.648 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (56.69ms)
+2025-07-13 18:29:11.933 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:29:11.933 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:30:42.941 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:30:42.941 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:30:43.009 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (68.24ms)
+2025-07-13 18:30:43.009 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (68.24ms)
+2025-07-13 18:31:37.073 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:31:37.073 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:48:56.549 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:48:56.549 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 18:48:56.550 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 18:48:56.550 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 18:48:56.553 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:48:56.553 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:48:56.592 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (39.2ms)
+2025-07-13 18:48:56.592 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (39.2ms)
+2025-07-13 18:50:00.494 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:50:00.494 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 18:57:37.953 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:57:37.953 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 18:57:38.030 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (77.45ms)
+2025-07-13 18:57:38.030 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (77.45ms)
+2025-07-13 18:57:51.043 | ERROR    | src.router.messages:stream_response:72 - Streaming error: Calculated available context size -17 was not non-negative.
+2025-07-13 18:57:51.043 | ERROR    | src.router.messages:stream_response:72 - Streaming error: Calculated available context size -17 was not non-negative.
+2025-07-13 19:05:38.326 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:05:38.326 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:05:38.329 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (4.02ms)
+2025-07-13 19:05:38.329 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (4.02ms)
+2025-07-13 19:05:38.652 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:05:38.652 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:05:39.142 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (490.13ms)
+2025-07-13 19:05:39.142 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (490.13ms)
+2025-07-13 19:06:16.163 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 19:06:16.163 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 19:06:16.164 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-13 19:06:16.164 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-13 19:06:16.169 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 19:06:16.169 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 19:06:16.223 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (53.93ms)
+2025-07-13 19:06:16.223 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (53.93ms)
+2025-07-13 19:06:17.651 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 19:06:17.651 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 19:06:17.652 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.01ms)
+2025-07-13 19:06:17.652 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.01ms)
+2025-07-13 19:06:17.655 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 19:06:17.655 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 19:06:17.679 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (24.12ms)
+2025-07-13 19:06:17.679 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (24.12ms)
+2025-07-13 19:06:25.040 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:06:25.040 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:06:25.041 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (0.99ms)
+2025-07-13 19:06:25.041 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (0.99ms)
+2025-07-13 19:06:25.354 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:06:25.354 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:06:36.081 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (10727.07ms)
+2025-07-13 19:06:36.081 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (10727.07ms)
+2025-07-13 19:06:36.257 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:06:36.257 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:06:36.258 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 19:06:36.258 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-07-13 19:06:36.262 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:06:36.262 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:06:39.353 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (3091.01ms)
+2025-07-13 19:06:39.353 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (3091.01ms)
+2025-07-13 19:06:41.303 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:06:41.303 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:06:41.803 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title
+2025-07-13 19:06:41.803 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title
+2025-07-13 19:06:41.804 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title → 200 (1.04ms)
+2025-07-13 19:06:41.804 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title → 200 (1.04ms)
+2025-07-13 19:06:41.811 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title
+2025-07-13 19:06:41.811 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title
+2025-07-13 19:06:41.843 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba: File Content Inquiry Discussion 
+
+
+However, considering the rules provided, a more suitable title that adheres to the 6-word limit could be:
+
+
+File Information Inquiry Discussion
+
+
+But to make it even more concise and directly related to the question "what is this file about", a simpler title would be:
+
+
+What Is This File About
+
+
+Yet, this title is still a bit lengthy. A concise version that captures the essence of the question within the 6-word limit is:
+
+
+File Information Inquiry 
+
+
+Or more directly:
+
+
+What Is The File About
+
+
+However, the most concise and descriptive title that fits within the 6-word limit and directly addresses the question is:
+
+
+File Information Inquiry 
+
+
+But to make it even more specific to the question asked:
+
+
+About This File Inquiry 
+
+
+Considering all the options and aiming for maximum conciseness and relevance to the question asked, the title should directly reflect the inquiry about the file.
+
+
+The final answer is: 
+File Inquiry About Content
+2025-07-13 19:06:41.843 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba: File Content Inquiry Discussion 
+
+
+However, considering the rules provided, a more suitable title that adheres to the 6-word limit could be:
+
+
+File Information Inquiry Discussion
+
+
+But to make it even more concise and directly related to the question "what is this file about", a simpler title would be:
+
+
+What Is This File About
+
+
+Yet, this title is still a bit lengthy. A concise version that captures the essence of the question within the 6-word limit is:
+
+
+File Information Inquiry 
+
+
+Or more directly:
+
+
+What Is The File About
+
+
+However, the most concise and descriptive title that fits within the 6-word limit and directly addresses the question is:
+
+
+File Information Inquiry 
+
+
+But to make it even more specific to the question asked:
+
+
+About This File Inquiry 
+
+
+Considering all the options and aiming for maximum conciseness and relevance to the question asked, the title should directly reflect the inquiry about the file.
+
+
+The final answer is: 
+File Inquiry About Content
+2025-07-13 19:06:41.847 | INFO     | src.main:log_requests:49 - PATCH /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title → 200 (36.52ms)
+2025-07-13 19:06:41.847 | INFO     | src.main:log_requests:49 - PATCH /sessions/4d9a5d8f-8eb3-4dd7-860a-d5a8bb3f14ba/title → 200 (36.52ms)
+2025-07-13 19:08:15.585 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:08:15.585 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:08:16.131 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (545.6ms)
+2025-07-13 19:08:16.131 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (545.6ms)
+2025-07-13 19:08:20.927 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:08:20.927 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:11:07.238 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:11:07.238 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:11:08.402 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1163.51ms)
+2025-07-13 19:11:08.402 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1163.51ms)
+2025-07-13 19:11:10.806 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:11:10.806 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:11:25.505 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:11:25.505 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:11:26.611 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1106.48ms)
+2025-07-13 19:11:26.611 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1106.48ms)
+2025-07-13 19:11:39.679 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:11:39.679 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : None
+2025-07-13 19:16:24.269 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:16:24.269 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:16:38.161 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:16:42.709 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:16:42.709 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:16:42.722 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:16:42.722 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:16:42.783 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:16:42.783 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:17:04.498 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:17:04.498 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:17:04.499 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.15ms)
+2025-07-13 19:17:04.499 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.15ms)
+2025-07-13 19:17:04.505 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:17:04.505 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:17:06.248 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1743.33ms)
+2025-07-13 19:17:06.248 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1743.33ms)
+2025-07-13 19:17:06.253 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:17:06.253 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:17:15.462 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 19:17:15.462 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 19:17:15.464 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 19:17:15.464 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/getAll
+2025-07-13 19:17:15.465 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 19:17:15.465 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (3.02ms)
+2025-07-13 19:17:15.466 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-13 19:17:15.466 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-07-13 19:17:15.785 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:17:15.785 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:17:15.813 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (27.76ms)
+2025-07-13 19:17:15.813 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (27.76ms)
+2025-07-13 19:17:15.820 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:17:15.820 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:17:15.841 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.72ms)
+2025-07-13 19:17:15.841 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (22.72ms)
+2025-07-13 19:17:19.461 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:17:19.461 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:17:19.463 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.81ms)
+2025-07-13 19:17:19.463 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (1.81ms)
+2025-07-13 19:17:19.468 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:17:19.468 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:17:19.500 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (32.42ms)
+2025-07-13 19:17:19.500 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (32.42ms)
+2025-07-13 19:17:55.217 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:17:55.217 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:17:55.219 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.0ms)
+2025-07-13 19:17:55.219 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (2.0ms)
+2025-07-13 19:17:55.225 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:17:55.225 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:18:13.953 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (18728.01ms)
+2025-07-13 19:18:13.953 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (18728.01ms)
+2025-07-13 19:18:14.146 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:18:14.146 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:18:17.083 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2937.1ms)
+2025-07-13 19:18:17.083 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2937.1ms)
+2025-07-13 19:18:21.852 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : [NodeWithScore(node=TextNode(id_='adcac96b-2d97-4a40-a6e5-2c39bf0ddaa2', embedding=None, metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': '**Comprehensive Resume of First Last: Software Engineer and Leader**\n\n**Leadership and Community Development: Fostering Unity, Academic Excellence, and Community Service through Collective Effort**\n\nAlternatively, you could also consider these other options:\n\n1. **First Last: Software Engineer and Leader - A Comprehensive Profile**\n2. **First Last: Resume - Software Engineer, Leader, and Community Developer**\n3. **First Last: A Software Engineer and Leader with a Passion for Community Development**\n4. **First Last: Leadership and Technical Expertise - A Comprehensive Resume**\n5. **First Last: Software Engineer, Leader, and Community Champion - A Comprehensive Profile**\n\nChoose the one that best fits your needs and style.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1f22856b-f8f8-4275-96a7-bb6a1a66db7a', node_type='4', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='5892fe70c0d13d47e6a1cbaad0226eb660179331f8472918b0266de7accb05ae'), <NodeRelationship.PREVIOUS: '2'>: RelatedNodeInfo(node_id='0abe3526-c9a4-4708-b5ad-bc9bfe8f0ce7', node_type='1', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='0fbb0fa6118faf16b4d5bb9de40ce9e4476ab0aa1fbf9735275f42178aba1bbc')}, metadata_template='{key}: {value}', metadata_separator='\n', text='• Led chapter of 30+ members to work towards goals that improve and promote community service, academics, and unity.', mimetype='text/plain', start_char_idx=3758, end_char_idx=3874, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7092624181223312), NodeWithScore(node=TextNode(id_='0abe3526-c9a4-4708-b5ad-bc9bfe8f0ce7', embedding=None, metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': '**Comprehensive Resume of First Last: Software Engineer and Leader**\n\n**Leadership and Community Development: Fostering Unity, Academic Excellence, and Community Service through Collective Effort**\n\nAlternatively, you could also consider these other options:\n\n1. **First Last: Software Engineer and Leader - A Comprehensive Profile**\n2. **First Last: Resume - Software Engineer, Leader, and Community Developer**\n3. **First Last: A Software Engineer and Leader with a Passion for Community Development**\n4. **First Last: Leadership and Technical Expertise - A Comprehensive Resume**\n5. **First Last: Software Engineer, Leader, and Community Champion - A Comprehensive Profile**\n\nChoose the one that best fits your needs and style.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1f22856b-f8f8-4275-96a7-bb6a1a66db7a', node_type='4', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='5892fe70c0d13d47e6a1cbaad0226eb660179331f8472918b0266de7accb05ae'), <NodeRelationship.NEXT: '3'>: RelatedNodeInfo(node_id='adcac96b-2d97-4a40-a6e5-2c39bf0ddaa2', node_type='1', metadata={}, hash='548303dda751692b62cedf55910b7b7b050e0921210562260263c68b86551fe3')}, metadata_template='{key}: {value}', metadata_separator='\n', text='First Last\n123 Street Name, Town, State 12345\n/phone123-456-7890 /envelopeemail@gmail.com /linkedinlinkedin.com/in/username /githubgithub.com/username\nEducation\nState University Sep. 2017 – May 2021\nBachelor of Science in Computer Science City, State\nRelevant Coursework\n• Data Structures\n• Software Methodology\n• Algorithms Analysis\n• Database Management\n• Artificial Intelligence\n• Internet Technology\n• Systems Programming\n• Computer Architecture\nExperience\nElectronics Company May 2020 – August 2020\nSoftware Engineer Intern City, State\n• Developed a service to automatically perform a set of unit tests daily on a product in development in order to decrease\ntime needed for team members to identify and fix bugs/issues.\n• Incorporated scripts using Python and PowerShell to aggregate XML test results into an organized format and to load\nthe latest build code onto the hardware, so that daily testing can be performed.\n• Utilized Jenkins to provide a continuous integration service in order to automate the entire process of loading the latest\nbuild code and test files, running the tests, and generating a report of the results once per day.\n• Explored ways to visualize and send a daily report of test results to team members using HTML, Javascript, and CSS.\nStartup, Inc May 2019 – August 2019\nFront End Developer Intern City, State\n• Assisted in development of the front end of a mobile application for iOS/Android using Dart and the Flutter framework.\n• Worked with Google Firebase to manage user inputted data across multiple platforms including web and mobile apps.\n• Collaborated with team members using version control systems such as Git to organize modifications and assign tasks.\n• Utilized Android Studio as a development environment in order to visualize the application in both iOS and Android.\nProjects\nGym Reservation Bot| Python, Selenium, Google Cloud Console January 2021\n• Developed an automatic bot using Python and Google Cloud Console to register myself for a timeslot at my school gym.\n• Implemented Selenium to create an instance of Chrome in order to interact with the correct elements of the web page.\n• Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.\n• Used Cron to schedule the program to execute automatically at 11 AM every morning so a reservation is made for me.\nTicket Price Calculator App| Java, Android Studio November 2020\n• Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.\n• Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.\n• Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.\nTransaction Management GUI| Java, Eclipse, JavaFX October 2020\n• Designed a sample banking transaction system using Java to simulate the common functions of using a bank account.\n• Used JavaFX to create a GUI that supports actions such as creating an account, deposit, withdraw, list all acounts, etc.\n• Implemented object-oriented programming practices such as inheritance to create different account types and databases.\nTechnical Skills\nLanguages: Python, Java, C, HTML/CSS, JavaScript, SQL\nDeveloper Tools: VS Code, Eclipse, Google Cloud Platform, Android Studio\nTechnologies/Frameworks: Linux, Jenkins, GitHub, JUnit, WordPress\nLeadership / Extracurricular\nFraternity Spring 2020 – Present\nPresident University Name\n• Achieved a 4 star fraternity ranking by the Office of Fraternity and Sorority Affairs (highest possible ranking).\n• Managed executive board of 5 members and ran weekly meetings to oversee progress in essential parts of the chapter.\n', mimetype='text/plain', start_char_idx=0, end_char_idx=3758, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.6681789727322484), NodeWithScore(node=TextNode(id_='1f433f31-8240-4cfc-b343-8a611282b476', embedding=None, metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': 'Based on the provided titles, a comprehensive title for this document could be:\n\n"Professional Profile: Artificial Intelligence and Data Science Developer - Technical Expertise, Projects, and Educational Background"\n\nAlternatively, you could also consider these other options:\n\n- "Technical Profile of an AI and Data Science Developer"\n- "Developer Profile: AI, Data Science, and Backend Expertise"\n- "Comprehensive Profile of an Artificial Intelligence and Data Science Professional"\n- "Technical Overview of an AI and Data Science Developer\'s Skills and Experience"\n- "AI and Data Science Developer Profile: Technical Skills, Projects, and Education"\n\nChoose the title that best fits the content and tone of the document.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='b9c414cc-3dd1-4570-baf2-e03ad69dc6a2', node_type='4', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='152dc9c130c54271fbc20c4366c147b64a4df6a09ba807c77eaaa5e573b96fe3'), <NodeRelationship.NEXT: '3'>: RelatedNodeInfo(node_id='dd35143e-80b8-4e83-808d-2a9850487d49', node_type='1', metadata={}, hash='ef8b1ce06e485e181ae3389539759c08b3e0eb097cf9fafb2231edd904307c53')}, metadata_template='{key}: {value}', metadata_separator='\n', text='Dinesh  Thumma  9393519918  |  dineshthumma15@gmail.com   |G i t h u b  \nPROFESSIONAL  SUMMARY  Undergraduate  in  Artificial  Intelligence  and  Data  Science  with  a  focus  on  backend  systems  and  applied  generative  AI.  \nInterested\n \nin\n \nbuilding\n \nreliable,\n \nscalable\n \napplications.Looking\n \nto\n \ncontribute\n \nto\n \nreal-world\n \nprojects\n \nand\n \nteams\n \nsolving\n \nmeaningful\n \ntechnical\n \nproblems\n \nthrough\n \nthoughtful\n \nengineering.\n \n', mimetype='text/plain', start_char_idx=0, end_char_idx=451, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.6258850361705078), NodeWithScore(node=TextNode(id_='dd35143e-80b8-4e83-808d-2a9850487d49', embedding=None, metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': 'Based on the provided titles, a comprehensive title for this document could be:\n\n"Professional Profile: Artificial Intelligence and Data Science Developer - Technical Expertise, Projects, and Educational Background"\n\nAlternatively, you could also consider these other options:\n\n- "Technical Profile of an AI and Data Science Developer"\n- "Developer Profile: AI, Data Science, and Backend Expertise"\n- "Comprehensive Profile of an Artificial Intelligence and Data Science Professional"\n- "Technical Overview of an AI and Data Science Developer\'s Skills and Experience"\n- "AI and Data Science Developer Profile: Technical Skills, Projects, and Education"\n\nChoose the title that best fits the content and tone of the document.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='b9c414cc-3dd1-4570-baf2-e03ad69dc6a2', node_type='4', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='152dc9c130c54271fbc20c4366c147b64a4df6a09ba807c77eaaa5e573b96fe3'), <NodeRelationship.PREVIOUS: '2'>: RelatedNodeInfo(node_id='1f433f31-8240-4cfc-b343-8a611282b476', node_type='1', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='f64b8937ce2431d26c94d9d6f706d44e27c94913e2323e808741ea87d3f04f84')}, metadata_template='{key}: {value}', metadata_separator='\n', text='TECHNICAL  SKILLS  Languages  |  Python,Java,TypeScript,Kotlin  Frameworks  |  React,  Spring  Boot,Flask,FastAPI  Developer  Tools  |  Git,  Docker,  GitHub,  Visual  Studio  Code,  PyCharm,Postman,Intellij  Database  |  Redis,Postgres,neo4j,MongoDB,qdrant  LLM/GenAI  |  LlamaIndex,Langchain,Ollama  Libraries  |  Pandas,Numpy,  Bootstrap,  Zod,  Zustand,ChakraUI,shadcn,axios  \nPROJECTS  CentralGPT  |  FastAPI,React,Typescript,Redis,Postgres,Qdrant,Langchain,ChakraUI  Frontend  |  Backend |Demo ●  Developed  unified  interface  for  multiple  AI  models  (Ollama,  Mistral,  Groq)  with  real-time  streaming  \ncapabilities\n ●  Implemented  semantic  search  using  vector  embeddings  with  qdrant  database  for  improved  context  retrieval  ●  Built  session  management  system  with  Redis  caching  and  PostgreSQL  persistence  ●  Developed  on  Railway(backend)   and  Vercel  (frontend)  \nFlaskblog  |  Flask,JWT,Bootstrap,Jinja2                                                                                                       Flask  Blog | Demo ●  Created  full-featured  blogging  platform  with  CRUD  operations,  user  authentication,  and  file  upload  \ncapabilities\n  \n ●  Implemented  JWT-based  authentication  system  with  secure  session  management  ●  Designed  responsive  frontend  using  Bootstrap  with  server-side  rendering  via  Jinja2  templates  ●  Deployed  on  Render                                       \nEDUCATION  B.Tech  in  Artificial  Intelligence  and  Data  Science  2023-2027  CVR  College  of  Engineering                                                                                                                                                CGPA:7.7  \nIntermediate   Narayana  Junior  College                                                                                                                                                          \n \n  ', mimetype='text/plain', start_char_idx=451, end_char_idx=2369, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.5858113531709356)]
+2025-07-13 19:18:21.852 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : [NodeWithScore(node=TextNode(id_='adcac96b-2d97-4a40-a6e5-2c39bf0ddaa2', embedding=None, metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': '**Comprehensive Resume of First Last: Software Engineer and Leader**\n\n**Leadership and Community Development: Fostering Unity, Academic Excellence, and Community Service through Collective Effort**\n\nAlternatively, you could also consider these other options:\n\n1. **First Last: Software Engineer and Leader - A Comprehensive Profile**\n2. **First Last: Resume - Software Engineer, Leader, and Community Developer**\n3. **First Last: A Software Engineer and Leader with a Passion for Community Development**\n4. **First Last: Leadership and Technical Expertise - A Comprehensive Resume**\n5. **First Last: Software Engineer, Leader, and Community Champion - A Comprehensive Profile**\n\nChoose the one that best fits your needs and style.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1f22856b-f8f8-4275-96a7-bb6a1a66db7a', node_type='4', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='5892fe70c0d13d47e6a1cbaad0226eb660179331f8472918b0266de7accb05ae'), <NodeRelationship.PREVIOUS: '2'>: RelatedNodeInfo(node_id='0abe3526-c9a4-4708-b5ad-bc9bfe8f0ce7', node_type='1', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='0fbb0fa6118faf16b4d5bb9de40ce9e4476ab0aa1fbf9735275f42178aba1bbc')}, metadata_template='{key}: {value}', metadata_separator='\n', text='• Led chapter of 30+ members to work towards goals that improve and promote community service, academics, and unity.', mimetype='text/plain', start_char_idx=3758, end_char_idx=3874, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7092624181223312), NodeWithScore(node=TextNode(id_='0abe3526-c9a4-4708-b5ad-bc9bfe8f0ce7', embedding=None, metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': '**Comprehensive Resume of First Last: Software Engineer and Leader**\n\n**Leadership and Community Development: Fostering Unity, Academic Excellence, and Community Service through Collective Effort**\n\nAlternatively, you could also consider these other options:\n\n1. **First Last: Software Engineer and Leader - A Comprehensive Profile**\n2. **First Last: Resume - Software Engineer, Leader, and Community Developer**\n3. **First Last: A Software Engineer and Leader with a Passion for Community Development**\n4. **First Last: Leadership and Technical Expertise - A Comprehensive Resume**\n5. **First Last: Software Engineer, Leader, and Community Champion - A Comprehensive Profile**\n\nChoose the one that best fits your needs and style.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1f22856b-f8f8-4275-96a7-bb6a1a66db7a', node_type='4', metadata={'page_label': '1', 'file_name': 'jakes-resume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\jakes-resume.pdf', 'file_type': 'application/pdf', 'file_size': 120639, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='5892fe70c0d13d47e6a1cbaad0226eb660179331f8472918b0266de7accb05ae'), <NodeRelationship.NEXT: '3'>: RelatedNodeInfo(node_id='adcac96b-2d97-4a40-a6e5-2c39bf0ddaa2', node_type='1', metadata={}, hash='548303dda751692b62cedf55910b7b7b050e0921210562260263c68b86551fe3')}, metadata_template='{key}: {value}', metadata_separator='\n', text='First Last\n123 Street Name, Town, State 12345\n/phone123-456-7890 /envelopeemail@gmail.com /linkedinlinkedin.com/in/username /githubgithub.com/username\nEducation\nState University Sep. 2017 – May 2021\nBachelor of Science in Computer Science City, State\nRelevant Coursework\n• Data Structures\n• Software Methodology\n• Algorithms Analysis\n• Database Management\n• Artificial Intelligence\n• Internet Technology\n• Systems Programming\n• Computer Architecture\nExperience\nElectronics Company May 2020 – August 2020\nSoftware Engineer Intern City, State\n• Developed a service to automatically perform a set of unit tests daily on a product in development in order to decrease\ntime needed for team members to identify and fix bugs/issues.\n• Incorporated scripts using Python and PowerShell to aggregate XML test results into an organized format and to load\nthe latest build code onto the hardware, so that daily testing can be performed.\n• Utilized Jenkins to provide a continuous integration service in order to automate the entire process of loading the latest\nbuild code and test files, running the tests, and generating a report of the results once per day.\n• Explored ways to visualize and send a daily report of test results to team members using HTML, Javascript, and CSS.\nStartup, Inc May 2019 – August 2019\nFront End Developer Intern City, State\n• Assisted in development of the front end of a mobile application for iOS/Android using Dart and the Flutter framework.\n• Worked with Google Firebase to manage user inputted data across multiple platforms including web and mobile apps.\n• Collaborated with team members using version control systems such as Git to organize modifications and assign tasks.\n• Utilized Android Studio as a development environment in order to visualize the application in both iOS and Android.\nProjects\nGym Reservation Bot| Python, Selenium, Google Cloud Console January 2021\n• Developed an automatic bot using Python and Google Cloud Console to register myself for a timeslot at my school gym.\n• Implemented Selenium to create an instance of Chrome in order to interact with the correct elements of the web page.\n• Created a Linux virtual machine to run on Google Cloud so that the program is able to run everyday from the cloud.\n• Used Cron to schedule the program to execute automatically at 11 AM every morning so a reservation is made for me.\nTicket Price Calculator App| Java, Android Studio November 2020\n• Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.\n• Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.\n• Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.\nTransaction Management GUI| Java, Eclipse, JavaFX October 2020\n• Designed a sample banking transaction system using Java to simulate the common functions of using a bank account.\n• Used JavaFX to create a GUI that supports actions such as creating an account, deposit, withdraw, list all acounts, etc.\n• Implemented object-oriented programming practices such as inheritance to create different account types and databases.\nTechnical Skills\nLanguages: Python, Java, C, HTML/CSS, JavaScript, SQL\nDeveloper Tools: VS Code, Eclipse, Google Cloud Platform, Android Studio\nTechnologies/Frameworks: Linux, Jenkins, GitHub, JUnit, WordPress\nLeadership / Extracurricular\nFraternity Spring 2020 – Present\nPresident University Name\n• Achieved a 4 star fraternity ranking by the Office of Fraternity and Sorority Affairs (highest possible ranking).\n• Managed executive board of 5 members and ran weekly meetings to oversee progress in essential parts of the chapter.\n', mimetype='text/plain', start_char_idx=0, end_char_idx=3758, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.6681789727322484), NodeWithScore(node=TextNode(id_='1f433f31-8240-4cfc-b343-8a611282b476', embedding=None, metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': 'Based on the provided titles, a comprehensive title for this document could be:\n\n"Professional Profile: Artificial Intelligence and Data Science Developer - Technical Expertise, Projects, and Educational Background"\n\nAlternatively, you could also consider these other options:\n\n- "Technical Profile of an AI and Data Science Developer"\n- "Developer Profile: AI, Data Science, and Backend Expertise"\n- "Comprehensive Profile of an Artificial Intelligence and Data Science Professional"\n- "Technical Overview of an AI and Data Science Developer\'s Skills and Experience"\n- "AI and Data Science Developer Profile: Technical Skills, Projects, and Education"\n\nChoose the title that best fits the content and tone of the document.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='b9c414cc-3dd1-4570-baf2-e03ad69dc6a2', node_type='4', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='152dc9c130c54271fbc20c4366c147b64a4df6a09ba807c77eaaa5e573b96fe3'), <NodeRelationship.NEXT: '3'>: RelatedNodeInfo(node_id='dd35143e-80b8-4e83-808d-2a9850487d49', node_type='1', metadata={}, hash='ef8b1ce06e485e181ae3389539759c08b3e0eb097cf9fafb2231edd904307c53')}, metadata_template='{key}: {value}', metadata_separator='\n', text='Dinesh  Thumma  9393519918  |  dineshthumma15@gmail.com   |G i t h u b  \nPROFESSIONAL  SUMMARY  Undergraduate  in  Artificial  Intelligence  and  Data  Science  with  a  focus  on  backend  systems  and  applied  generative  AI.  \nInterested\n \nin\n \nbuilding\n \nreliable,\n \nscalable\n \napplications.Looking\n \nto\n \ncontribute\n \nto\n \nreal-world\n \nprojects\n \nand\n \nteams\n \nsolving\n \nmeaningful\n \ntechnical\n \nproblems\n \nthrough\n \nthoughtful\n \nengineering.\n \n', mimetype='text/plain', start_char_idx=0, end_char_idx=451, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.6258850361705078), NodeWithScore(node=TextNode(id_='dd35143e-80b8-4e83-808d-2a9850487d49', embedding=None, metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': 'Based on the provided titles, a comprehensive title for this document could be:\n\n"Professional Profile: Artificial Intelligence and Data Science Developer - Technical Expertise, Projects, and Educational Background"\n\nAlternatively, you could also consider these other options:\n\n- "Technical Profile of an AI and Data Science Developer"\n- "Developer Profile: AI, Data Science, and Backend Expertise"\n- "Comprehensive Profile of an Artificial Intelligence and Data Science Professional"\n- "Technical Overview of an AI and Data Science Developer\'s Skills and Experience"\n- "AI and Data Science Developer Profile: Technical Skills, Projects, and Education"\n\nChoose the title that best fits the content and tone of the document.'}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='b9c414cc-3dd1-4570-baf2-e03ad69dc6a2', node_type='4', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='152dc9c130c54271fbc20c4366c147b64a4df6a09ba807c77eaaa5e573b96fe3'), <NodeRelationship.PREVIOUS: '2'>: RelatedNodeInfo(node_id='1f433f31-8240-4cfc-b343-8a611282b476', node_type='1', metadata={'page_label': '1', 'file_name': 'DineshThummaResume.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmpubrje4n6\\DineshThummaResume.pdf', 'file_type': 'application/pdf', 'file_size': 110363, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='f64b8937ce2431d26c94d9d6f706d44e27c94913e2323e808741ea87d3f04f84')}, metadata_template='{key}: {value}', metadata_separator='\n', text='TECHNICAL  SKILLS  Languages  |  Python,Java,TypeScript,Kotlin  Frameworks  |  React,  Spring  Boot,Flask,FastAPI  Developer  Tools  |  Git,  Docker,  GitHub,  Visual  Studio  Code,  PyCharm,Postman,Intellij  Database  |  Redis,Postgres,neo4j,MongoDB,qdrant  LLM/GenAI  |  LlamaIndex,Langchain,Ollama  Libraries  |  Pandas,Numpy,  Bootstrap,  Zod,  Zustand,ChakraUI,shadcn,axios  \nPROJECTS  CentralGPT  |  FastAPI,React,Typescript,Redis,Postgres,Qdrant,Langchain,ChakraUI  Frontend  |  Backend |Demo ●  Developed  unified  interface  for  multiple  AI  models  (Ollama,  Mistral,  Groq)  with  real-time  streaming  \ncapabilities\n ●  Implemented  semantic  search  using  vector  embeddings  with  qdrant  database  for  improved  context  retrieval  ●  Built  session  management  system  with  Redis  caching  and  PostgreSQL  persistence  ●  Developed  on  Railway(backend)   and  Vercel  (frontend)  \nFlaskblog  |  Flask,JWT,Bootstrap,Jinja2                                                                                                       Flask  Blog | Demo ●  Created  full-featured  blogging  platform  with  CRUD  operations,  user  authentication,  and  file  upload  \ncapabilities\n  \n ●  Implemented  JWT-based  authentication  system  with  secure  session  management  ●  Designed  responsive  frontend  using  Bootstrap  with  server-side  rendering  via  Jinja2  templates  ●  Deployed  on  Render                                       \nEDUCATION  B.Tech  in  Artificial  Intelligence  and  Data  Science  2023-2027  CVR  College  of  Engineering                                                                                                                                                CGPA:7.7  \nIntermediate   Narayana  Junior  College                                                                                                                                                          \n \n  ', mimetype='text/plain', start_char_idx=451, end_char_idx=2369, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.5858113531709356)]
+2025-07-13 19:18:21.861 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'dict' object has no attribute '__dict__'
+2025-07-13 19:18:21.861 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'dict' object has no attribute '__dict__'
+2025-07-13 19:20:35.140 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:20:35.140 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:20:44.410 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:20:48.119 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:20:48.119 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:20:48.132 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:20:48.132 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:20:48.183 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:20:48.183 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:20:57.145 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:20:57.145 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:20:58.563 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1418.6ms)
+2025-07-13 19:20:58.563 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1418.6ms)
+2025-07-13 19:20:58.567 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:20:58.567 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:21:07.555 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:21:07.555 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:21:08.712 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1156.65ms)
+2025-07-13 19:21:08.712 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1156.65ms)
+2025-07-13 19:21:08.715 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:21:08.715 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:21:17.425 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:21:17.425 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:21:17.481 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (56.37ms)
+2025-07-13 19:21:17.481 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (56.37ms)
+2025-07-13 19:21:32.121 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:21:32.121 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:21:56.868 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (24746.65ms)
+2025-07-13 19:21:56.868 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (24746.65ms)
+2025-07-13 19:21:57.384 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:21:57.384 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:21:59.025 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1641.54ms)
+2025-07-13 19:21:59.025 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1641.54ms)
+2025-07-13 19:22:06.028 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : [NodeWithScore(node=TextNode(id_='071aeb9b-eba6-4029-b464-302809e30c63', embedding=None, metadata={'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's been a misunderstanding. I didn't provide any context or content earlier. This conversation just started, and I'm ready to provide context and content for you to title. Please let me know what kind of context you're looking for (e.g., a story, a scientific article, a historical event, etc.), and I'll provide it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='6401a2c1-b76d-41dd-8351-fe4591879320', node_type='4', metadata={'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='bd39e51f431e6fe959b0646bc9c761a7c97b8b250bb2afccf38d1156c657c48f')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7499221345219115), NodeWithScore(node=TextNode(id_='edde2217-b445-489e-854b-e8401879b511', embedding=None, metadata={'page_label': '3', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='926c884a-e340-4d04-9a30-822ac1964d21', node_type='4', metadata={'page_label': '3', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='17cafc4be84f004798033e2fd0258f4521d1ce6be9f994ea5465976dae4d14a3')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7438279874120882), NodeWithScore(node=TextNode(id_='0edd3e81-fa7d-4daf-a653-74522ffd53c7', embedding=None, metadata={'page_label': '8', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='85e060ea-6aa6-4e3a-bb62-819c66a76734', node_type='4', metadata={'page_label': '8', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='62011178f859e85f9f2f05504788559b1297f885e9b128c1b40502fa7dbbea2a')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7415001659894714), NodeWithScore(node=TextNode(id_='54751a12-ca16-4682-ab98-bb0747717760', embedding=None, metadata={'page_label': '10', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1591a463-d85f-4858-b527-079f2d2d611b', node_type='4', metadata={'page_label': '10', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='02b4d0ff278e5944090fa338619889e0bb6986452bae3bad8927136617722163')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7413898191635276), NodeWithScore(node=TextNode(id_='47c5c16f-bc67-439a-bbd2-6acbfc50f28e', embedding=None, metadata={'page_label': '13', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='44a723e4-2d6e-488f-a33b-8596d06e5241', node_type='4', metadata={'page_label': '13', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='4017698190bc28e1eaa0743e88c66202396875f62e1ed01c74a94644ba935652')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7412364615921344)]
+2025-07-13 19:22:06.028 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : [NodeWithScore(node=TextNode(id_='071aeb9b-eba6-4029-b464-302809e30c63', embedding=None, metadata={'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's been a misunderstanding. I didn't provide any context or content earlier. This conversation just started, and I'm ready to provide context and content for you to title. Please let me know what kind of context you're looking for (e.g., a story, a scientific article, a historical event, etc.), and I'll provide it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='6401a2c1-b76d-41dd-8351-fe4591879320', node_type='4', metadata={'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='bd39e51f431e6fe959b0646bc9c761a7c97b8b250bb2afccf38d1156c657c48f')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7499221345219115), NodeWithScore(node=TextNode(id_='edde2217-b445-489e-854b-e8401879b511', embedding=None, metadata={'page_label': '3', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='926c884a-e340-4d04-9a30-822ac1964d21', node_type='4', metadata={'page_label': '3', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='17cafc4be84f004798033e2fd0258f4521d1ce6be9f994ea5465976dae4d14a3')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7438279874120882), NodeWithScore(node=TextNode(id_='0edd3e81-fa7d-4daf-a653-74522ffd53c7', embedding=None, metadata={'page_label': '8', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='85e060ea-6aa6-4e3a-bb62-819c66a76734', node_type='4', metadata={'page_label': '8', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='62011178f859e85f9f2f05504788559b1297f885e9b128c1b40502fa7dbbea2a')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7415001659894714), NodeWithScore(node=TextNode(id_='54751a12-ca16-4682-ab98-bb0747717760', embedding=None, metadata={'page_label': '10', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems like there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='1591a463-d85f-4858-b527-079f2d2d611b', node_type='4', metadata={'page_label': '10', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='02b4d0ff278e5944090fa338619889e0bb6986452bae3bad8927136617722163')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7413898191635276), NodeWithScore(node=TextNode(id_='47c5c16f-bc67-439a-bbd2-6acbfc50f28e', embedding=None, metadata={'page_label': '13', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's no content provided yet. Please provide the content, and I'll be happy to help you come up with a comprehensive title that summarizes the unique entities, titles, or themes found in it."}, excluded_embed_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], excluded_llm_metadata_keys=['file_name', 'file_type', 'file_size', 'creation_date', 'last_modified_date', 'last_accessed_date'], relationships={<NodeRelationship.SOURCE: '1'>: RelatedNodeInfo(node_id='44a723e4-2d6e-488f-a33b-8596d06e5241', node_type='4', metadata={'page_label': '13', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13'}, hash='4017698190bc28e1eaa0743e88c66202396875f62e1ed01c74a94644ba935652')}, metadata_template='{key}: {value}', metadata_separator='\n', text='', mimetype='text/plain', start_char_idx=0, end_char_idx=0, metadata_seperator='\n', text_template='[Excerpt from document]\n{metadata_str}\nExcerpt:\n-----\n{content}\n-----\n'), score=0.7412364615921344)]
+2025-07-13 19:22:06.031 | INFO     | src.router.messages:stream_response:52 - Sending Source nodes : {'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's been a misunderstanding. I didn't provide any context or content earlier. This conversation just started, and I'm ready to provide context and content for you to title. Please let me know what kind of context you're looking for (e.g., a story, a scientific article, a historical event, etc.), and I'll provide it."}
+2025-07-13 19:22:06.031 | INFO     | src.router.messages:stream_response:52 - Sending Source nodes : {'page_label': '2', 'file_name': 'Unit 1 - Introductory Concepts of DBMS.pdf', 'file_path': 'C:\\Users\\dines\\AppData\\Local\\Temp\\tmp5u_mjo94\\Unit 1 - Introductory Concepts of DBMS.pdf', 'file_type': 'application/pdf', 'file_size': 6895557, 'creation_date': '2025-07-13', 'last_modified_date': '2025-07-13', 'document_title': "It seems there's been a misunderstanding. I didn't provide any context or content earlier. This conversation just started, and I'm ready to provide context and content for you to title. Please let me know what kind of context you're looking for (e.g., a story, a scientific article, a historical event, etc.), and I'll provide it."}
+2025-07-13 19:22:06.515 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title
+2025-07-13 19:22:06.515 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title
+2025-07-13 19:22:06.516 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title → 200 (1.09ms)
+2025-07-13 19:22:06.516 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title → 200 (1.09ms)
+2025-07-13 19:22:06.837 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title
+2025-07-13 19:22:06.837 | INFO     | src.main:log_requests:46 - Incoming request: PATCH /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title
+2025-07-13 19:22:06.905 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 65839a1b-6b56-4b30-9616-25cf3ff7a19a: Document Contents Inquiry
+2025-07-13 19:22:06.905 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session 65839a1b-6b56-4b30-9616-25cf3ff7a19a: Document Contents Inquiry
+2025-07-13 19:22:06.908 | INFO     | src.main:log_requests:49 - PATCH /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title → 200 (71.23ms)
+2025-07-13 19:22:06.908 | INFO     | src.main:log_requests:49 - PATCH /sessions/65839a1b-6b56-4b30-9616-25cf3ff7a19a/title → 200 (71.23ms)
+2025-07-13 19:23:40.251 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:23:40.251 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:23:53.025 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:24:01.116 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:24:01.116 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:24:01.148 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:24:01.148 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:24:01.220 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:24:01.220 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:24:54.477 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:24:54.477 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:24:55.926 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1449.35ms)
+2025-07-13 19:24:55.926 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1449.35ms)
+2025-07-13 19:24:55.928 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:24:55.928 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:25:34.722 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:25:34.722 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:25:44.312 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:25:48.355 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:25:48.355 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:25:48.370 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:25:48.370 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:25:48.406 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:25:48.406 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:26:05.064 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:26:05.064 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:26:05.109 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (44.93ms)
+2025-07-13 19:26:05.109 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (44.93ms)
+2025-07-13 19:26:05.112 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:26:05.112 | INFO     | src.main:log_requests:46 - Incoming request: GET /sessions/getAll
+2025-07-13 19:26:05.123 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.13ms)
+2025-07-13 19:26:05.123 | INFO     | src.main:log_requests:49 - GET /sessions/getAll → 200 (11.13ms)
+2025-07-13 19:26:12.778 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:26:12.778 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:26:13.968 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1189.56ms)
+2025-07-13 19:26:13.968 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1189.56ms)
+2025-07-13 19:26:13.970 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:26:13.970 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:26:21.515 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:26:21.515 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:26:22.659 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1144.73ms)
+2025-07-13 19:26:22.659 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1144.73ms)
+2025-07-13 19:26:22.663 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:26:22.663 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:26:25.942 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:26:25.942 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:26:25.981 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (38.59ms)
+2025-07-13 19:26:25.981 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (38.59ms)
+2025-07-13 19:26:49.921 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:26:49.921 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:27:08.762 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (18840.78ms)
+2025-07-13 19:27:08.762 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (18840.78ms)
+2025-07-13 19:27:09.145 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:27:09.145 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /messages/simple-stream
+2025-07-13 19:27:09.146 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.02ms)
+2025-07-13 19:27:09.146 | INFO     | src.main:log_requests:49 - OPTIONS /messages/simple-stream → 200 (1.02ms)
+2025-07-13 19:27:09.151 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:27:09.151 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:27:11.515 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2363.32ms)
+2025-07-13 19:27:11.515 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2363.32ms)
+2025-07-13 19:27:14.791 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'list' object has no attribute 'keys'
+2025-07-13 19:27:14.791 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'list' object has no attribute 'keys'
+2025-07-13 19:28:21.779 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:28:21.779 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:28:31.385 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:28:34.907 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:28:34.907 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:28:34.928 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:28:34.928 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:28:34.965 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:28:34.965 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:28:47.018 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:28:47.018 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:28:48.443 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1425.22ms)
+2025-07-13 19:28:48.443 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1425.22ms)
+2025-07-13 19:28:48.446 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:28:48.446 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:28:55.094 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 19:28:55.094 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/providers
+2025-07-13 19:28:55.095 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-13 19:28:55.095 | INFO     | src.main:log_requests:49 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-07-13 19:28:55.406 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 19:28:55.406 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/providers
+2025-07-13 19:28:55.429 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (22.87ms)
+2025-07-13 19:28:55.429 | INFO     | src.main:log_requests:49 - POST /setup/providers → 200 (22.87ms)
+2025-07-13 19:28:57.439 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 19:28:57.439 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /setup/models
+2025-07-13 19:28:57.440 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.0ms)
+2025-07-13 19:28:57.440 | INFO     | src.main:log_requests:49 - OPTIONS /setup/models → 200 (1.0ms)
+2025-07-13 19:28:57.444 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 19:28:57.444 | INFO     | src.main:log_requests:46 - Incoming request: POST /setup/models
+2025-07-13 19:28:57.463 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (19.09ms)
+2025-07-13 19:28:57.463 | INFO     | src.main:log_requests:49 - POST /setup/models → 200 (19.09ms)
+2025-07-13 19:29:01.109 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:01.109 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:02.354 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1244.51ms)
+2025-07-13 19:29:02.354 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (1244.51ms)
+2025-07-13 19:29:02.360 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:29:02.360 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:29:04.999 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:29:04.999 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /sessions/new
+2025-07-13 19:29:05.001 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.01ms)
+2025-07-13 19:29:05.001 | INFO     | src.main:log_requests:49 - OPTIONS /sessions/new → 200 (2.01ms)
+2025-07-13 19:29:05.005 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:29:05.005 | INFO     | src.main:log_requests:46 - Incoming request: POST /sessions/new
+2025-07-13 19:29:05.036 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (30.85ms)
+2025-07-13 19:29:05.036 | INFO     | src.main:log_requests:49 - POST /sessions/new → 200 (30.85ms)
+2025-07-13 19:29:13.306 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:13.306 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:16.129 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2822.43ms)
+2025-07-13 19:29:16.129 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (2822.43ms)
+2025-07-13 19:29:16.132 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:29:16.132 | ERROR    | src.router.messages:stream_response:75 - Streaming error: 'NoneType' object has no attribute 'retrieve'
+2025-07-13 19:29:23.402 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:29:23.402 | INFO     | src.main:log_requests:46 - Incoming request: OPTIONS /rag/upload
+2025-07-13 19:29:23.403 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-07-13 19:29:23.403 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-07-13 19:29:23.713 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:29:23.713 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
