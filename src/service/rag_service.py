@@ -87,10 +87,6 @@ EXT_TO_LANG = {
     "makefile": "make",
 }
 
-from huggingface_hub import login
-
-login(token="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")
-
 
 logger = logging.getLogger("rag")
 

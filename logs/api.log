@@ -5602,3 +5602,30 @@ File Inquiry About Content
 2025-07-13 19:29:23.403 | INFO     | src.main:log_requests:49 - OPTIONS /rag/upload → 200 (1.0ms)
 2025-07-13 19:29:23.713 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
 2025-07-13 19:29:23.713 | INFO     | src.main:log_requests:46 - Incoming request: POST /rag/upload
+2025-07-13 19:29:45.146 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (21433.21ms)
+2025-07-13 19:29:45.146 | INFO     | src.main:log_requests:49 - POST /rag/upload → 200 (21433.21ms)
+2025-07-13 19:29:45.560 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:45.560 | INFO     | src.main:log_requests:46 - Incoming request: POST /messages/simple-stream
+2025-07-13 19:29:46.065 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (504.16ms)
+2025-07-13 19:29:46.065 | INFO     | src.main:log_requests:49 - POST /messages/simple-stream → 200 (504.16ms)
+2025-07-13 19:29:50.100 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : Node ID: 7dc12c03-cb29-486c-bb94-b0dfc808f791
+Text: • Led chapter of 30+ members to work towards goals that improve
+and promote community service, academics, and unity.
+Score:  0.633
+
+2025-07-13 19:29:50.100 | INFO     | src.router.messages:stream_response:51 - Sending Source nodes : Node ID: 7dc12c03-cb29-486c-bb94-b0dfc808f791
+Text: • Led chapter of 30+ members to work towards goals that improve
+and promote community service, academics, and unity.
+Score:  0.633
+
+2025-07-13 19:29:50.100 | INFO     | src.router.messages:stream_response:52 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-07-13 19:29:50.100 | INFO     | src.router.messages:stream_response:52 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-07-13 19:33:35.948 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:33:35.948 | INFO     | src.main:lifespan:80 - Shutting down...
+2025-07-13 19:33:45.824 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-07-13 19:33:49.035 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:33:49.035 | INFO     | src.main:<module>:20 - Server started
+2025-07-13 19:33:49.050 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:33:49.050 | INFO     | src.main:lifespan:72 - Starting up...
+2025-07-13 19:33:49.096 | INFO     | src.main:lifespan:76 - Database tables created successfully
+2025-07-13 19:33:49.096 | INFO     | src.main:lifespan:76 - Database tables created successfully
