@@ -15,3 +15,5 @@ frontend/
 logs/
 src/data
 later/
+.env
+".env" 

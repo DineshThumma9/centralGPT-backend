@@ -8,7 +8,8 @@ from loguru import logger
 from starlette.requests import Request
 
 from src.db.dbs import create_all_tables
-from src.router import auth_router, basic_router, session_router,message_router
+from src.router import auth_router, basic_router, session_router,message_router,rag_router
+
 app = FastAPI(
     title="FastAPI App",
     description="Simple FastAPI Application",
@@ -25,21 +26,17 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:55000",
         "http://localhost:55000",
-        "https://central-gpt-frontend.vercel.app",
-        "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
-        "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
         "http://localhost:55001",
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:5176",
-        "http://localhost:55000",
+        "https://central-gpt-frontend.vercel.app",
+        "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
     ],
-   allow_origin_regex="https://central-gpt.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 
 import time
@@ -64,6 +61,7 @@ app.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 app.include_router(basic_router, prefix="/setup", tags=["Chat API"])
 app.include_router(session_router, prefix="/sessions", tags=["Session"])
 app.include_router(message_router, prefix="/messages", tags=["Message"])
+app.include_router(rag_router, prefix="/rag", tags=["Rag"])
 
 
 
@@ -74,6 +72,7 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up...")
     try:
         create_all_tables()
+        # current_state = CurrentState(current_llm=None,current_session=None)
         logger.info("Database tables created successfully")
     except Exception as e:
         logger.error(f"Database init error: {str(e)}")
