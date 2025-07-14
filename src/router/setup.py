@@ -62,12 +62,9 @@ async def choose_llm_provider(
 ):
     provider = body.get("provider")
 
-
-
     logger.info(f"provider is {provider}")
     if not provider:
         raise HTTPException(status_code=400, detail="Provider is required")
-
 
     provider = provider.strip()
     if not provider:
@@ -103,10 +100,8 @@ async def choose_model(
 ):
     model = body.get("model")
 
-
     if not model:
         raise HTTPException(status_code=400, detail="Model is required")
-
 
     model = model.strip()
     if not model:

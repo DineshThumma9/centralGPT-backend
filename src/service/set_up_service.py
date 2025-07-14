@@ -19,7 +19,6 @@ llm_providers = {
     "ollama": Ollama,
     "groq": Groq,
     "mistral": MistralAI,
-    "deepinfra": DeepInfraLLM,
     "together": TogetherLLM,
 
 }
@@ -30,34 +29,30 @@ api_providers = {
     "GROK",
     "TOGETHER",
     "DEEPSEEK",
-    "DEEPINFRA",
     "OPENROUTER",
     "MISTRAL",
     "TOGETHERAI"
 
 }
 
-
 logger = logging.getLogger("set_up_service")
-
-
-
 
 fernet = Fernet("d3FVcotBFzBnqZ4BE0zlgji_YYZiK5hkDO3EzX9H7fs=")
 
-def encrypt(key:str) -> str:
+
+def encrypt(key: str) -> str:
     return fernet.encrypt(key.encode()).decode()
 
-def decrypt(key:str)->str:
-    return fernet.decrypt(key.encode()).decode()
-def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user)):
 
+def decrypt(key: str) -> str:
+    return fernet.decrypt(key.encode()).decode()
+
+
+def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user)):
     api_key = db.query(APIKEYS).filter_by(user_id=user.userid, provider=provider).first()
     if not api_key:
         raise HTTPException(status_code=404, detail="API KEY NOT FOUND")
     return decrypt(api_key.encrypted_key)
-
-
 
 
 def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
@@ -67,7 +62,6 @@ def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
 
     if not config:
         raise HTTPException(status_code=404, detail="Config is'nt Setup")
-
 
     api_record = db.query(APIKEYS).filter_by(user_id=user.userid, provider=config.provider.upper()).first()
 

@@ -4,96 +4,26 @@ from typing import Optional, List
 
 from dotenv import load_dotenv
 from fastapi import HTTPException, UploadFile
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Document, StorageContext
-from llama_index.core.extractors import TitleExtractor, QuestionsAnsweredExtractor
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Document
 from llama_index.core.indices.vector_store import VectorIndexRetriever
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.llms.groq import Groq
-from llama_index.llms.together import TogetherLLM
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 from llama_index.readers.github import GithubRepositoryReader, GithubClient
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
-from src.models.schema import Notes
+from src.service.message_service import EXT_TO_LANG
 
 load_dotenv()
 
-EXT_TO_LANG = {
-    # Python
-    "py": "python",
-    # JavaScript / TypeScript
-    "js": "javascript",
-    "ts": "typescript",
-    "jsx": "javascript",
-    "tsx": "typescript",
-    # HTML/CSS
-    "html": "html",
-    "css": "css",
-    # Java
-    "java": "java",
-    # C/C++
-    "c": "c",
-    "h": "c",
-    "cpp": "cpp",
-    "cc": "cpp",
-    "cxx": "cpp",
-    "hpp": "cpp",
-    # C#
-    "cs": "csharp",
-    # PHP
-    "php": "php",
-    # Ruby
-    "rb": "ruby",
-    # Go
-    "go": "go",
-    # Rust
-    "rs": "rust",
-    # Kotlin
-    "kt": "kotlin",
-    "kts": "kotlin",
-    # Swift
-    "swift": "swift",
-    # Shell / Bash
-    "sh": "bash",
-    "bash": "bash",
-    # PowerShell
-    "ps1": "powershell",
-    # Scala
-    "scala": "scala",
-    # Dart
-    "dart": "dart",
-    # R
-    "r": "r",
-    # Julia
-    "jl": "julia",
-    # SQL
-    "sql": "sql",
-    # YAML/JSON config
-    "yaml": "yaml",
-    "yml": "yaml",
-    "json": "json",
-    # Markdown / Docs
-    "md": "markdown",
-    "rst": "markdown",
-    # Text
-    "txt": "text",
-    # Docker / CI
-    "dockerfile": "docker",
-    "env": "text",
-    # Make
-    "makefile": "make",
-}
-
-
 logger = logging.getLogger("rag")
+
 
 class ChatEngineManager:
     def __init__(self):
         self.engines = {}
-
 
     def set_engine(self, context_type: str, session_id: str, context_id: str, engine):
         key = f"{session_id}_{context_id}_{context_type}"
@@ -108,6 +38,7 @@ class ChatEngineManager:
 
 chat_engine = ChatEngineManager()
 
+
 class GitRequest(BaseModel):
     owner: str
     repo: str
@@ -119,10 +50,7 @@ class GitRequest(BaseModel):
     file_extension_exclude: Optional[List[str]] = None
 
 
-
-
-
-def git_documents(req:GitRequest):
+def git_documents(req: GitRequest):
     documents = GithubRepositoryReader(
         github_client=GithubClient(verbose=True),
         owner=req.owner,
@@ -135,7 +63,6 @@ def git_documents(req:GitRequest):
         use_parser=False,
         verbose=True
     ).load_data(branch="main")
-
 
     if not documents:
         raise HTTPException(status_code=400, detail="No documents found")
@@ -190,9 +117,7 @@ async def get_documents(files: List[UploadFile]):
     return documents
 
 
-
-
-def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=None):
+def get_nodes(documents: List[Document], is_code: bool, language: Optional[str] = None):
     """Process documents into nodes"""
     if is_code:
         from llama_index.core.node_parser import CodeSplitter
@@ -213,14 +138,7 @@ def get_nodes(documents: List[Document], is_code: bool,language:Optional[str]=No
         return pipeline.run(documents=documents)
 
 
-
-
-
-
-
-
 def get_index(nodes, embed_model):
-
     return VectorStoreIndex(
         nodes=nodes,
         embed_model=embed_model,
@@ -228,23 +146,20 @@ def get_index(nodes, embed_model):
     )
 
 
-
-def get_embed_model(is_code:bool):
+def get_embed_model(is_code: bool):
     return HuggingFaceEmbedding(
-        model_name="nomic-ai/nomic-embed-text-v1" if is_code else "BAAI/bge-small-en-v1.5",
+        model_name="jinaai/jina-embeddings-v2-base-code" if is_code else "BAAI/bge-small-en-v1.5",
         trust_remote_code=True
     )
 
 
-
-def get_retriever(index,embed_model):
+def get_retriever(index, embed_model):
     return VectorIndexRetriever(
         index=index,
         embed_model=embed_model,
         similarity_top_k=5,
         node_postprocessors=[CohereRerank(top_n=3)]
     )
-
 
 
 def build_file_tree(file_entries):
@@ -268,24 +183,30 @@ def build_file_tree(file_entries):
     return tree
 
 
-
-def git_handler(req:GitRequest,session_id,context_id,context_type):
+def git_handler(req: GitRequest, session_id, context_id, context_type):
     documents = git_documents(req)
     counter = Counter()
     files_info = []
     for dic in documents:
-        counter[dic.extra_info["file_name"].split(".")[1]] = counter.get(dic.extra_info["file_name"].split(".")[1],0)+1
-        files_info.append(dic.extra_info)
+        filename = dic.extra_info["file_name"]
+        parts = filename.split(".")
+
+        if len(parts) > 1 and parts[1]:  # has extension and it's not empty
+            ext = parts[1]
+        else:
+            ext = "unknown"
+            logger.info(f"error causing agents {filename} {parts} {ext}")
+        counter[ext] = counter.get(ext, 0) + 1
+
     max_val = max(counter.values())
-    language = max(key for key,val in counter.items() if val==max_val)
+    language = max(key for key, val in counter.items() if val == max_val)
     tree = build_file_tree(files_info)
-    nodes = get_nodes(documents,language=EXT_TO_LANG[language],is_code=True)
+    nodes = get_nodes(documents, language=EXT_TO_LANG[language], is_code=True)
     embed_model = get_embed_model(is_code=True)
-    index = get_index(nodes,embed_model)
-    retriever = get_retriever(index,embed_model=embed_model)
+    index = get_index(nodes, embed_model)
+    retriever = get_retriever(index, embed_model=embed_model)
 
-
-    chat_engine.set_engine(session_id=session_id,context_type=context_type,context_id=context_id,engine=retriever)
+    chat_engine.set_engine(session_id=session_id, context_type=context_type, context_id=context_id, engine=retriever)
 
     return JSONResponse(
         status_code=200,
@@ -293,19 +214,16 @@ def git_handler(req:GitRequest,session_id,context_id,context_type):
     )
 
 
-
-async def get_handler(req:List[UploadFile],session_id,context_id,context_type):
+async def get_handler(req: List[UploadFile], session_id, context_id, context_type):
     documents = await get_documents(req)
-    nodes = get_nodes(documents,is_code=False)
+    nodes = get_nodes(documents, is_code=False)
     embed_model = get_embed_model(is_code=False)
-    index = get_index(nodes,embed_model)
-    retriever = get_retriever(index,embed_model=embed_model)
+    index = get_index(nodes, embed_model)
+    retriever = get_retriever(index, embed_model=embed_model)
 
-
-    chat_engine.set_engine(session_id=session_id,context_type=context_type,context_id=context_id,engine=retriever)
+    chat_engine.set_engine(session_id=session_id, context_type=context_type, context_id=context_id, engine=retriever)
 
     return JSONResponse(
         status_code=200,
         content="Engine has been Set For notes"
     )
-

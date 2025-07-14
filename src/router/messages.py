@@ -5,17 +5,13 @@ from fastapi import APIRouter
 from fastapi import Depends, HTTPException, Body
 from fastapi.responses import StreamingResponse
 from llama_index.core.chat_engine import ContextChatEngine, SimpleChatEngine
-from llama_index.core.indices.vector_store import VectorIndexRetriever
 from llama_index.core.memory import ChatMemoryBuffer
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.storage.chat_store.redis import RedisChatStore
-from llama_index.vector_stores.qdrant import QdrantVectorStore
 from loguru import logger
 from sqlmodel import Session as DBSession
 
 from src.db.dbs import get_db, add_msg_to_dbs
-from src.db.qdrant_client import qdrant_client
-from src.db.redis_client import redis_client
+from src.db.qdrant_client import vector_store
+from src.db.redis_client import chat_store
 from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
 from src.service.message_service import session_title_gen, system_prompt
@@ -24,22 +20,16 @@ from src.service.set_up_service import get_llm_instance
 
 router = APIRouter()
 
-chat_store = RedisChatStore(
-    redis_client=redis_client,
-    ttl=3600
-)
 
-
-async def stream_response(engine, session_id, db, title, message):
+async def stream_response(engine, session_id, db, title, message,files):
     full_response = ""
-    source_nodes = None  # for capturing source info
+      # for capturing source info
 
     try:
         yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
         # START streaming
         chat_response = engine.stream_chat(message)
-
         for token in chat_response.response_gen:
             if token:
                 full_response += token
@@ -57,7 +47,6 @@ async def stream_response(engine, session_id, db, title, message):
                     "text": sn.node.text[:200],
                     "metadata": sn.node.metadata,
 
-
                 }
                 for sn in chat_response.source_nodes
             ]
@@ -69,18 +58,16 @@ async def stream_response(engine, session_id, db, title, message):
             yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
         # Save to DB
-        handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response)
+        handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response,files=files)
 
     except Exception as e:
         logger.error(f"Streaming error: {e}")
         yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
 
 
-
-def handling_save_db(session_id, db, full_response, user_msg):
-    add_msg_to_dbs(user_msg, session_id, db)
+def handling_save_db(session_id, db, full_response, user_msg,files):
+    add_msg_to_dbs(user_msg, session_id, db,files_name=files)
     add_msg_to_dbs(full_response, session_id, db, isUser=False)
-
 
 
 def get_memory(session_id):
@@ -93,14 +80,6 @@ def get_memory(session_id):
     return memory
 
 
-
-
-vector_store = QdrantVectorStore(
-    client=qdrant_client,
-    collection_name="llamaIndex"
-)
-
-
 @router.post("/simple-stream")
 async def message_stream(
         body: MsgRequest = Body(...),
@@ -108,11 +87,12 @@ async def message_stream(
         user=Depends(get_current_user)
 ):
     current_model = get_llm_instance(db=db, user=user)
+    files = body.files
+    logger.info(f"Recived files in backend:{files}")
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
 
     try:
-
 
         memory = get_memory(session_id=body.session_id)
         if body.context_type == "vanilla":
@@ -140,7 +120,7 @@ async def message_stream(
             title = await session_title_gen(body.msg)
 
         return StreamingResponse(
-            stream_response(engine, title=title, session_id=body.session_id, db=db, message=body.msg),
+            stream_response(engine, title=title, session_id=body.session_id, db=db, message=body.msg,files=files),
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",

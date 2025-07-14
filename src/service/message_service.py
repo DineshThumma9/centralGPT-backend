@@ -4,8 +4,6 @@ from fastapi import APIRouter
 from llama_index.llms.groq import Groq
 from loguru import logger
 
-from src.models.schema import MessageInfo, qdrant_convert
-
 system_prompt = """You are a professional AI assistant that MUST follow these strict formatting rules:
 
     ## TEXT FORMATTING:
@@ -52,8 +50,7 @@ system_prompt = """You are a professional AI assistant that MUST follow these st
 
     Remember: Consistent, readable formatting is as important as the content itself."""
 
-
-rag_prompt=""" 
+rag_prompt = """ 
 
 YOU are smart RAG Model which read content and answer user query you know all filename and dir structure of code and helpful to user
 
@@ -61,23 +58,73 @@ YOU are smart RAG Model which read content and answer user query you know all fi
 
 """
 
+EXT_TO_LANG = {
+    # Python
+    "py": "python",
+    # JavaScript / TypeScript
+    "js": "javascript",
+    "ts": "typescript",
+    "jsx": "javascript",
+    "tsx": "typescript",
+    # HTML/CSS
+    "html": "html",
+    "css": "css",
+    # Java
+    "java": "java",
+    # C/C++
+    "c": "c",
+    "h": "c",
+    "cpp": "cpp",
+    "cc": "cpp",
+    "cxx": "cpp",
+    "hpp": "cpp",
+    # C#
+    "cs": "csharp",
+    # PHP
+    "php": "php",
+    # Ruby
+    "rb": "ruby",
+    # Go
+    "go": "go",
+    # Rust
+    "rs": "rust",
+    # Kotlin
+    "kt": "kotlin",
+    "kts": "kotlin",
+    # Swift
+    "swift": "swift",
+    # Shell / Bash
+    "sh": "bash",
+    "bash": "bash",
+    # PowerShell
+    "ps1": "powershell",
+    # Scala
+    "scala": "scala",
+    # Dart
+    "dart": "dart",
+    # R
+    "r": "r",
+    # Julia
+    "jl": "julia",
+    # SQL
+    "sql": "sql",
+    # YAML/JSON config
+    "yaml": "yaml",
+    "yml": "yaml",
+    "json": "json",
+    # Markdown / Docs
+    "md": "markdown",
+    "rst": "markdown",
+    # Text
+    "txt": "text",
+    # Docker / CI
+    "dockerfile": "docker",
+    "env": "text",
+    # Make
+    "makefile": "make",
+}
+
 router = APIRouter()
-
-
-
-
-
-def conversion_for_qdrant(msg: MessageInfo, collection_name: str):
-    msg_id = msg.message_id  # str, not tuple
-
-    vector = msg.content
-    payload = {
-        "content": msg.content,
-        "sender": msg.sender,
-        "timestamp": msg.timestamp
-    }
-
-    return qdrant_convert(point_id=msg_id, vector=vector, payload=payload, collection_name=collection_name)
 
 
 async def session_title_gen(query):

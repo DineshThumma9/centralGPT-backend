@@ -64,6 +64,8 @@ async def get_chat_history(session_id: str, db: DBSession = Depends(get_db)):
     messages = db.query(Message).filter(
         Message.session_id == session_id
     ).order_by(Message.timestamp).all()
+    logger.info(messages)
+    logger.info(messages[0].model_dump())
     return messages
 
 

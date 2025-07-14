@@ -5,7 +5,8 @@ from uuid import UUID, uuid4
 
 from fastapi import UploadFile
 from pydantic import BaseModel, EmailStr
-from sqlalchemy import Enum as SQLEnum
+from sqlalchemy import Enum as SQLEnum, Column
+from sqlalchemy.dialects.postgresql import JSON
 from sqlmodel import SQLModel, Field
 
 
@@ -29,6 +30,9 @@ class MessageInfo(BaseModel):
     content: str
     sender: str
     timestamp: str
+
+
+
 
 
 
@@ -59,7 +63,7 @@ class MsgRequest(BaseModel):
     msg: str
     context_id:str
     context_type:str
-
+    files:Optional[List[str]]= None
 
 
 
@@ -91,13 +95,6 @@ class API_KEY_REQUEST(BaseModel):
     api_prov: str
     api_key: str
 
-
-class MessageInfo(BaseModel):
-    message_id: str
-    session_id: str
-    content: str
-    sender: str
-    timestamp: str
 
 
 class TitleUpdateRequest(BaseModel):
@@ -138,6 +135,7 @@ class Message(SQLModel, table=True):
     sender: SenderRole = Field(sa_column=SQLEnum(SenderRole))
     content: str
     timestamp: datetime = Field(default_factory=datetime.now)
+    files: Optional[List[str]] = Field(default=None, sa_column=Column(JSON))
     model_response_time_ms: Optional[float] = None
 
 

@@ -1,15 +1,13 @@
 import os
 
+from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 
+qdrant_client =  QdrantClient(
+            url=os.getenv("QDRANT_URL"),
+    )
 
-
-
-
-
-
-qdrant_client = QdrantClient(
-            port=6333,
-            host="localhost"
-        )
-
+vector_store = QdrantVectorStore(
+    client=qdrant_client,
+    collection_name="llamaIndex"
+)
