@@ -34,6 +34,7 @@ app.add_middleware(
         "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
     ],
     allow_credentials=True,
+    allow_origin_regex=r"^https:\/\/central-gpt\.vercel\.app$",
     allow_methods=["*"],
     allow_headers=["*"],
 )
