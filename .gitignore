@@ -17,3 +17,5 @@ src/data
 later/
 .env
 ".env" 
+logs
+src/logs
