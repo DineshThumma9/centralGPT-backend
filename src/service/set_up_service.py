@@ -3,7 +3,6 @@ import logging
 from cryptography.fernet import Fernet;
 from fastapi import Depends
 from fastapi import HTTPException
-from llama_index.llms.deepinfra import DeepInfraLLM
 from llama_index.llms.groq import Groq
 from llama_index.llms.mistralai import MistralAI
 from llama_index.llms.ollama import Ollama
