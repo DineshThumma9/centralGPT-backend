@@ -148,7 +148,7 @@ def get_index(nodes, embed_model):
 
 def get_embed_model(is_code: bool):
     return HuggingFaceEmbedding(
-        model_name="jinaai/jina-embeddings-v2-base-code" if is_code else "BAAI/bge-small-en-v1.5",
+        model_name="/models/jina-code" if is_code else "/models/bge",
         trust_remote_code=True
     )
 
