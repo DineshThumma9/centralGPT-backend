@@ -7,11 +7,17 @@ from fastapi.responses import StreamingResponse
 from llama_index.core.chat_engine import ContextChatEngine, SimpleChatEngine
 from llama_index.core.memory import ChatMemoryBuffer
 from loguru import logger
+from redisvl.schema import IndexSchema,IndexInfo
+from sqlalchemy.util import await_only
 from sqlmodel import Session as DBSession
 
+
+
+from fastapi import Request
+
+
 from src.db.dbs import get_db, add_msg_to_dbs
-from src.db.qdrant_client import vector_store
-from src.db.redis_client import chat_store
+from src.db.redis_client import chat_store, get_vector_store
 from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
 from src.service.message_service import session_title_gen, system_prompt
@@ -21,7 +27,7 @@ from src.service.set_up_service import get_llm_instance
 router = APIRouter()
 
 
-async def stream_response(engine, session_id, db, title, message,files):
+async def stream_response(engine, session_id, db, title, message,files,request):
     full_response = ""
       # for capturing source info
 
@@ -31,6 +37,12 @@ async def stream_response(engine, session_id, db, title, message,files):
         # START streaming
         chat_response = engine.stream_chat(message)
         for token in chat_response.response_gen:
+            if  await request.is_disconnected():
+                yield f"data: {json.dumps({'type': 'abort', 'content': ''})}\n\n"
+                logger.info("Stopping Stream")
+                break
+
+
             if token:
                 full_response += token
                 yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
@@ -58,7 +70,8 @@ async def stream_response(engine, session_id, db, title, message,files):
             yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
         # Save to DB
-        handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response,files=files)
+        if not await request.is_disconnected():
+            handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response,files=files)
 
     except Exception as e:
         logger.error(f"Streaming error: {e}")
@@ -82,6 +95,7 @@ def get_memory(session_id):
 
 @router.post("/simple-stream")
 async def message_stream(
+        request:Request,
         body: MsgRequest = Body(...),
         db: DBSession = Depends(get_db),
         user=Depends(get_current_user)
@@ -106,21 +120,57 @@ async def message_stream(
             ret = chat_engine.get_engine(session_id=body.session_id, context_id=body.context_id,
                                          context_type=body.context_type)
 
-            engine = ContextChatEngine.from_defaults(
-                retriever=ret,
-                llm=current_model,
-                system_prompt=system_prompt,
-                vector_store=vector_store,
-                memory=memory,
+            if not ret:
+                logger.info("Retiver has not has been init properly currently using Simple Chat Engine")
+                engine = SimpleChatEngine.from_defaults(
+                    llm=current_model,
+                    memory=memory,
+                    system_prompt=system_prompt
 
-            )
+                )
+            else:
+                 #
+                embedding_dim = 768
+
+                vector_schema = IndexSchema.from_dict({
+                    "index": {
+                        "name": "centralGPT",
+                        "prefix": "code",
+                        "key_separator": ":",
+                        "storage_type": "json",
+                    },
+                    "fields": [
+                        {"name": "id", "type": FieldType.text},
+                        {"name": "user", "type": "tag"},
+                        {"name": "credit_score", "type": "tag"},
+                        {
+                            "name": "embedding",
+                            "type": "vector",
+                            "attrs": {
+                                "algorithm": "hnsw",  # better than flat for larger data
+                                "dims": embedding_dim,  # must match your embedding vector size
+                                "distance_metric": "cosine",
+                                "datatype": "float32"
+                            }
+                        }
+                    ]
+                })
+
+                engine = ContextChatEngine.from_defaults(
+                    retriever=ret,
+                    llm=current_model,
+                    system_prompt=system_prompt,
+                    vector_store=get_vector_store(vector_schema),
+                    memory=memory,
+
+                )
 
         title = ""
         if body.isFirst:
             title = await session_title_gen(body.msg)
 
         return StreamingResponse(
-            stream_response(engine, title=title, session_id=body.session_id, db=db, message=body.msg,files=files),
+            stream_response(engine, title=title, session_id=body.session_id, db=db, message=body.msg,files=files,request=request),
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",

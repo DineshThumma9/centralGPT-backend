@@ -7,10 +7,12 @@ from llama_index.llms.groq import Groq
 from llama_index.llms.mistralai import MistralAI
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.together import TogetherLLM
-
 from src.db import get_db
 from src.models.schema import APIKEYS, UserLLMConfig
 from src.router.auth import get_current_user
+
+
+
 
 llm_instances = {}
 
@@ -34,9 +36,14 @@ api_providers = {
 
 }
 
-logger = logging.getLogger("set_up_service")
 
+
+
+logger = logging.getLogger("set_up_service")
 fernet = Fernet("d3FVcotBFzBnqZ4BE0zlgji_YYZiK5hkDO3EzX9H7fs=")
+
+
+
 
 
 def encrypt(key: str) -> str:

@@ -108,6 +108,30 @@ class TitleResponse(BaseModel):
 class SessionResponse(BaseModel):
     session_id: str
 
+
+
+
+class git_spec(BaseModel):
+    owner:str
+    repo:str
+    branch:Optional[str] = "main"
+    commit:Optional[str] = None
+    tree_sha:Optional[str] = None
+
+
+
+class GitRequest(BaseModel):
+    owner: str
+    repo: str
+    commit: Optional[str] = None
+    branch: Optional[str] = "main"
+    dir_include: Optional[List[str]] = None
+    dir_exclude: Optional[List[str]] = None
+    file_extension_include: Optional[List[str]] = None
+    file_extension_exclude: Optional[List[str]] = None
+    files:Optional[List[str]] = None
+
+
 # --- DB (SQLModel) ---
 class User(SQLModel, table=True):
     __tablename__ = "users"
