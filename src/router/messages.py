@@ -4,10 +4,15 @@ import json
 from fastapi import APIRouter
 from fastapi import Depends, HTTPException, Body
 from fastapi.responses import StreamingResponse
+from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.core.chat_engine import ContextChatEngine, SimpleChatEngine
+from llama_index.core.chat_engine.types import ChatMode
 from llama_index.core.memory import ChatMemoryBuffer
+from llama_index.core.query_engine import RetrieverQueryEngine
+from llama_index.postprocessor.cohere_rerank import CohereRerank
 from loguru import logger
 from redisvl.schema import IndexSchema,IndexInfo
+from redisvl.utils.rerank import CohereReranker
 from sqlalchemy.util import await_only
 from sqlmodel import Session as DBSession
 
@@ -17,17 +22,18 @@ from fastapi import Request
 
 
 from src.db.dbs import get_db, add_msg_to_dbs
-from src.db.redis_client import chat_store, get_vector_store
+from src.db.qdrant_client import  get_vector_store
+from src.db.redis_client import chat_store, get_index_store, redis_client
 from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
 from src.service.message_service import session_title_gen, system_prompt
-from src.service.rag_service import chat_engine
+from src.service.rag_service import  code_embed_model, notes_embed_model
 from src.service.set_up_service import get_llm_instance
 
 router = APIRouter()
 
 
-async def stream_response(engine, session_id, db, title, message,files,request):
+async def streamresponse(engine, session_id, db, title, message,files,request):
     full_response = ""
       # for capturing source info
 
@@ -93,84 +99,107 @@ def get_memory(session_id):
     return memory
 
 
+
+async def not_ready_stream():
+        yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
+        yield f"data: {json.dumps({'type': 'token', 'content': 'Your documents are still being processed. Please wait a moment and try again.'})}\n\n"
+        yield f"data: {json.dumps({'type': 'done', 'content': 'Your documents are still being processed. Please wait a moment and try again.'})}\n\n"
+
+
+
 @router.post("/simple-stream")
 async def message_stream(
-        request:Request,
+        request: Request,
         body: MsgRequest = Body(...),
         db: DBSession = Depends(get_db),
         user=Depends(get_current_user)
 ):
     current_model = get_llm_instance(db=db, user=user)
     files = body.files
-    logger.info(f"Recived files in backend:{files}")
+    logger.info(f"Received files in backend:{files}")
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
 
     try:
-
         memory = get_memory(session_id=body.session_id)
         if body.context_type == "vanilla":
             engine = SimpleChatEngine.from_defaults(
                 llm=current_model,
                 memory=memory,
                 system_prompt=system_prompt
-
             )
         else:
-            ret = chat_engine.get_engine(session_id=body.session_id, context_id=body.context_id,
-                                         context_type=body.context_type)
+            collection_name = f"{body.session_id}_{body.context_id}_{body.context_type}"
 
-            if not ret:
-                logger.info("Retiver has not has been init properly currently using Simple Chat Engine")
+            # # FIX: Use consistent key pattern
+            # status = await redis_client.get(f"collection_name:{collection_name}:status")
+            #
+            # if not status or status.decode() != "ready":
+            #     logger.warning(f"Index not ready for {collection_name}, status: {status}")
+            #
+            #
+            #
+            #     return StreamingResponse(
+            #         not_ready_stream(),
+            #         media_type="text/event-stream",
+            #         headers={
+            #             "Cache-Control": "no-cache",
+            #             "Connection": "keep-alive",
+            #             "X-Accel-Buffering": "no",
+            #         }
+            #     )
+
+            logger.info("Rebuilding ADVANCED RAG pipeline from vector store...")
+
+            # 1. Load the index from the persisted vector store (as before)
+
+
+            vector_store = get_vector_store(collection_name)
+
+            if vector_store:
+                index = VectorStoreIndex.from_vector_store(
+                    vector_store=vector_store,
+                    embed_model=code_embed_model if body.context_type == 'code' else notes_embed_model
+                )
+
+                # 2. Create your custom retriever to fetch more initial candidates (e.g., top 10)
+                retriever = index.as_retriever(similarity_top_k=7)
+
+                # 3. Create your reranker to intelligently pick the best results (e.g., top 3)
+                reranker = CohereRerank(top_n=3)
+
+                # 4. Build a Query Engine with the retriever and reranker
+                # This is the core of your RAG logic
+
+                # 5. Create a chat engine that uses your powerful query engine and memory
+                engine = ContextChatEngine.from_defaults(
+                    retriever=retriever,
+                    node_postprocessors=[reranker],
+                    memory=memory,
+                    llm=current_model,
+                    system_prompt=system_prompt
+                )
+
+                logger.info("Advanced RAG pipeline rebuilt successfully.")
+            else:
+                logger.error("Some how vector stored isnt retivered using simple chat engine temp")
+
                 engine = SimpleChatEngine.from_defaults(
                     llm=current_model,
                     memory=memory,
                     system_prompt=system_prompt
-
                 )
-            else:
-                 #
-                embedding_dim = 768
 
-                vector_schema = IndexSchema.from_dict({
-                    "index": {
-                        "name": "centralGPT",
-                        "prefix": "code",
-                        "key_separator": ":",
-                        "storage_type": "json",
-                    },
-                    "fields": [
-                        {"name": "id", "type": FieldType.text},
-                        {"name": "user", "type": "tag"},
-                        {"name": "credit_score", "type": "tag"},
-                        {
-                            "name": "embedding",
-                            "type": "vector",
-                            "attrs": {
-                                "algorithm": "hnsw",  # better than flat for larger data
-                                "dims": embedding_dim,  # must match your embedding vector size
-                                "distance_metric": "cosine",
-                                "datatype": "float32"
-                            }
-                        }
-                    ]
-                })
 
-                engine = ContextChatEngine.from_defaults(
-                    retriever=ret,
-                    llm=current_model,
-                    system_prompt=system_prompt,
-                    vector_store=get_vector_store(vector_schema),
-                    memory=memory,
 
-                )
 
         title = ""
         if body.isFirst:
             title = await session_title_gen(body.msg)
 
         return StreamingResponse(
-            stream_response(engine, title=title, session_id=body.session_id, db=db, message=body.msg,files=files,request=request),
+            streamresponse(engine, title=title, session_id=body.session_id, db=db, message=body.msg, files=files,
+                           request=request),
             media_type="text/event-stream",
             headers={
                 "Cache-Control": "no-cache",

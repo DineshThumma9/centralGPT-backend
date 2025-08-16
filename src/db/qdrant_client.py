@@ -1,17 +1,43 @@
 import os
-#
-# from llama_index.vector_stores.qdrant import QdrantVectorStore
-# from qdrant_client.async_qdrant_client import AsyncQdrantClient
-#
+
+import chromadb
+from dotenv import load_dotenv
+from llama_index.vector_stores.chroma import ChromaVectorStore
+from qdrant_client import QdrantClient
+
 # qdrant_client =  AsyncQdrantClient(
-#             url=os.getenv("QDRANT_URL"),
-#           api_key=os.getenv("QDRANT_API_KEY")
-#     )
+#              url=os.getenv("QDRANT_URL"),
+#            api_key=os.getenv("QDRANT_API_KEY")
+#      )
 #
-#
-#
-# vector_store = QdrantVectorStore(
-#     aclient=qdrant_client,
-#     collection_name="c"
-#
-# )
+
+
+
+load_dotenv()
+
+
+client = chromadb.CloudClient(
+    api_key=os.getenv("CHROMA_API_KEY"),
+    tenant=os.getenv("CHROMA_TENANT"),
+    database=os.getenv("CHROMA_DATABASE")
+
+)
+
+
+
+
+def get_vector_store(collection_name):
+    collection = client.get_or_create_collection(
+        name=collection_name
+
+
+    )
+    vector_store = ChromaVectorStore(
+
+        chroma_collection=collection
+
+    )
+
+    return vector_store
+
+

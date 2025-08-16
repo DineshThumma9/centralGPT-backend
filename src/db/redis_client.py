@@ -3,10 +3,12 @@
 import os
 import redis.asyncio as redis
 from llama_index.core import StorageContext
+from llama_index.storage.docstore.redis import RedisDocumentStore
 from llama_index.storage.kvstore.redis import RedisKVStore
 from llama_index.core.storage.docstore.keyval_docstore import KVDocumentStore
 from llama_index.storage.index_store.redis import RedisIndexStore
 from llama_index.storage.chat_store.redis import RedisChatStore
+from llama_index.vector_stores.qdrant import QdrantVectorStore
 from llama_index.vector_stores.redis import RedisVectorStore
 
 
@@ -42,7 +44,7 @@ kvstore = RedisKVStore(
 
 
 def get_doc_store():
-    return KVDocumentStore(kvstore=kvstore)
+    return RedisDocumentStore(redis_kvstore=kvstore)
 
 
 def get_index_store(namespace):
@@ -53,14 +55,6 @@ def get_index_store(namespace):
             async_redis_client=redis_client
         ),
         namespace=namespace
-    )
-
-
-def get_vector_store(schema):
-    return RedisVectorStore(
-        redis_client_async=redis_client,
-        redis_url=REDIS_URL,
-        schema=schema
     )
 
 
