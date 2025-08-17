@@ -76,13 +76,9 @@ def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
 
     decrypted_key = decrypt(api_record.encrypted_key)
 
-    logger.info(f"API RECORD IS  {api_record}")
-    logger.info(f"DECRYPTED KEY  , {decrypted_key}")
 
     llm_class = llm_providers.get(config.provider.lower())
 
-    logger.info(f"llms class not found {llm_class}")
-    logger.info(f"llm decropedt key is   {decrypted_key}")
 
     if not llm_class:
         raise HTTPException(status_code=404, detail="NOT AN LLM CLass found")

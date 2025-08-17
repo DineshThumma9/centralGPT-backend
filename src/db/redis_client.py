@@ -1,17 +1,13 @@
 # src/db/redis_client.py
 
 import os
-import redis.asyncio as redis
-from llama_index.core import StorageContext
-from llama_index.core.memory import ChatMemoryBuffer
-from llama_index.storage.docstore.redis import RedisDocumentStore
-from llama_index.storage.kvstore.redis import RedisKVStore
-from llama_index.core.storage.docstore.keyval_docstore import KVDocumentStore
-from llama_index.storage.index_store.redis import RedisIndexStore
-from llama_index.storage.chat_store.redis import RedisChatStore
-from llama_index.vector_stores.qdrant import QdrantVectorStore
-from llama_index.vector_stores.redis import RedisVectorStore
 
+import redis.asyncio as redis
+from llama_index.core.memory import ChatMemoryBuffer
+from llama_index.storage.chat_store.redis import RedisChatStore
+from llama_index.storage.docstore.redis import RedisDocumentStore
+from llama_index.storage.index_store.redis import RedisIndexStore
+from llama_index.storage.kvstore.redis import RedisKVStore
 
 REDIS_URL = os.getenv("REDIS_URL")
 

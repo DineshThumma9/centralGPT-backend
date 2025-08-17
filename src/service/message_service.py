@@ -44,9 +44,9 @@ Title:"""
 
         result = session_title.content if hasattr(session_title, 'content') else str(session_title)
 
-        # Clean and validate the result
+
         if result:
-            # Remove quotes and clean up
+
             cleaned_title = result.strip().strip('"').strip("'")
             if cleaned_title and len(cleaned_title) > 0:
                 return cleaned_title

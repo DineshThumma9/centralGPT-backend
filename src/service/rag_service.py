@@ -11,12 +11,10 @@ from fastapi import HTTPException, UploadFile, BackgroundTasks
 from github import Auth, Github
 from llama_index.core import SimpleDirectoryReader, Document, StorageContext
 from llama_index.core import VectorStoreIndex
-from llama_index.core.indices.vector_store import VectorIndexRetriever
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import CodeSplitter, SentenceSplitter
 from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.postprocessor.cohere_rerank import CohereRerank
 from llama_index.readers.github import GithubRepositoryReader, GithubClient
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
@@ -84,8 +82,11 @@ async def git_documents(req: GitRequest):
     else:
         sha = repo.get_branch(repo.default_branch).commit.sha
 
-    documents = await async_github_reader(owner=req.owner, repo=req.repo, dir_include=req.dir_include,
-                                          commit=req.commit, branch=req.branch)
+    documents = await async_github_reader(owner=req.owner,
+                                          repo=req.repo,
+                                          dir_include=req.dir_include,
+                                          commit=req.commit,
+                                          branch=req.branch)
 
     try:
         read_me = repo.get_readme()
@@ -105,6 +106,9 @@ async def git_documents(req: GitRequest):
     return {"docs": documents, "langs": langs, "sha": sha}
 
 
+
+
+
 async def async_github_reader(owner, repo, dir_include, branch, commit):
     loop = asyncio.get_event_loop()
 
@@ -117,7 +121,7 @@ async def async_github_reader(owner, repo, dir_include, branch, commit):
                                           retries=2,
                                           logger=logger,
                                           filter_directories=(
-                                          dir_include or ["src"], GithubRepositoryReader.FilterType.INCLUDE),
+                                              dir_include or ["src"], GithubRepositoryReader.FilterType.INCLUDE),
                                           filter_file_extensions=([
                                                                       ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
                                                                       ".json", ".ipynb", ".lock", ".md"
@@ -127,6 +131,8 @@ async def async_github_reader(owner, repo, dir_include, branch, commit):
                                           custom_folder=f"{owner}_{repo}_{branch}"
                                       ).load_data(branch=branch, commit_sha=commit)
                                       )
+
+
 
 
 def get_documents(files: List[FileType]):
@@ -203,12 +209,10 @@ def get_nodes(documents: List[Document], is_code: bool,
         return nodes
 
 
-def get_repo_index_id(owner, repo, commit_sha):
-    index_id = f"{owner}_{repo}_{commit_sha}_code"
-    return index_id
 
 
-# THIS FUNCTION IS THE CORE FIX
+
+
 def get_or_build_index(nodes, is_code: bool, session_id: str, context_id: str, context_type: str):
     """
     Builds the index and PERSISTS it to the vector store.
@@ -216,22 +220,18 @@ def get_or_build_index(nodes, is_code: bool, session_id: str, context_id: str, c
     collection_name = f"{session_id}_{context_id}_{context_type}"
     logger.info(f"Using collection: {collection_name} for persistence.")
 
-    # 1. Get the vector store (the "library shelf")
+
     vector_store = get_vector_store(collection_name)
 
-    # 2. Create a StorageContext that tells the index WHERE to save
+
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
     index = VectorStoreIndex(
         nodes=nodes,
         storage_context=storage_context,
-        embed_model=get_embed_model(is_code),
+        embed_model=code_embed_model if is_code else notes_embed_model,
         show_progress=True,
     )
     return index
-
-
-def get_embed_model(is_code: bool):
-    return code_embed_model if is_code else notes_embed_model
 
 
 
@@ -263,6 +263,9 @@ def build_tree(tree_lis):
     return root["children"]
 
 
+
+
+
 def get_dir_struct(req):
     repo = g.get_repo(f"{req.owner}/{req.repo}")
     tree_sha = repo.default_branch
@@ -279,10 +282,10 @@ def get_dir_struct(req):
 
 
 def get_specific_files(files: List[str], owner: str, repo: str):
-    return _get_repo_data(owner, repo, files)
+    return get_repo_data(owner, repo, files)
 
 
-def _get_repo_data(owner: str, repo: str, files: List[str]):
+def get_repo_data(owner: str, repo: str, files: List[str]):
     from collections import defaultdict
 
     repo = g.get_repo(f"{owner}/{repo}")
@@ -311,16 +314,9 @@ def _get_repo_data(owner: str, repo: str, files: List[str]):
 
 
 async def build_index(req: List[FileType], session_id, context_id, context_type):
-    logger.info("Sending Docs to Simple Dir")
     documents = get_documents(req)
-    logger.info("Got Docs")
-    logger.info("getting nodes from docs")
     nodes = get_nodes(documents=documents, is_code=False)
-    logger.info("Get nodes from docs")
 
-    logger.info("Building and persisting the index...")
-
-    # We call our corrected function with all the necessary IDs
     get_or_build_index(
         nodes=nodes,
         is_code=False,
@@ -329,10 +325,8 @@ async def build_index(req: List[FileType], session_id, context_id, context_type)
         context_type=context_type
     )
 
-    # FIX: Use consistent key pattern
     collection_name = f"{session_id}_{context_id}_{context_type}"
     await redis_client.set(f"collection_name:{collection_name}:status", "ready")
-    logger.info(f"Index ready for collection: {collection_name}")
 
 
 async def to_files(files: List[UploadFile]):
@@ -366,29 +360,6 @@ async def to_files(files: List[UploadFile]):
 
 
 async def get_handler(background_tasks: BackgroundTasks, req: List[UploadFile], session_id, context_id, context_type):
-    # logger.info("Sending Docs to Simple Dir")
-    # documents = get_documents(req)
-    # logger.info("Got Docs")
-    # logger.info("getting nodes from docs")
-    # nodes = get_nodes(documents=documents, is_code=False)
-    # logger.info("Get nodes from docs")
-    #
-    # logger.info("Building and persisting the index...")
-    #
-    # # We call our corrected function with all the necessary IDs
-    # get_or_build_index(
-    #     nodes=nodes,
-    #     is_code=False,
-    #     session_id=session_id,
-    #     context_id=context_id,
-    #     context_type=context_type
-    # )
-
-    # FIX: Use consistent key pattern
-    # collection_name = f"{session_id}_{context_id}_{context_type}"
-    # await redis_client.set(f"collection_name:{collection_name}:status", "ready")
-    # logger.info(f"Index ready for collection: {collection_name}")
-
     collection_name = f"{session_id}_{context_id}_{context_type}"
     await redis_client.set(f"collection_name:{collection_name}:status", "indexing")
     files = await to_files(req)
@@ -417,7 +388,6 @@ async def git_handler(req: GitRequest, session_id, context_id, context_type):
         context_id=context_id
     )
 
-    # FIX: Set status consistently
     collection_name = f"{session_id}_{context_id}_{context_type}"
     await redis_client.set(f"collection_name:{collection_name}:status", "ready")
 

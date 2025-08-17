@@ -77,7 +77,6 @@ async def lifespan(app: FastAPI):
     logger.info("Starting up...")
     try:
         create_all_tables()
-        # current_state = CurrentState(current_llm=None,current_session=None)
         logger.info("Database tables created successfully")
     except Exception as e:
         logger.error(f"Database init error: {str(e)}")

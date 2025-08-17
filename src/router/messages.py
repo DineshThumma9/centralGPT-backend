@@ -7,14 +7,13 @@ from fastapi import Request
 from fastapi.responses import StreamingResponse
 from llama_index.core import VectorStoreIndex
 from llama_index.core.chat_engine import ContextChatEngine, SimpleChatEngine
-from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 from loguru import logger
 from sqlmodel import Session as DBSession
 
 from src.db.dbs import get_db, add_msg_to_dbs
 from src.db.qdrant_client import get_vector_store
-from src.db.redis_client import chat_store, redis_client, get_memory
+from src.db.redis_client import redis_client, get_memory
 from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
 from src.service.message_service import session_title_gen, system_prompt
@@ -26,12 +25,11 @@ router = APIRouter()
 
 async def streamresponse(engine, session_id, db, title, message, files, request):
     full_response = ""
-    # for capturing source info
+
 
     try:
         yield f"data: {json.dumps({'type': 'start', 'content': ''})}\n\n"
 
-        # START streaming
         chat_response = engine.stream_chat(message)
         for token in chat_response.response_gen:
             if await request.is_disconnected():
@@ -44,10 +42,10 @@ async def streamresponse(engine, session_id, db, title, message, files, request)
                 yield f"data: {json.dumps({'type': 'token', 'content': token})}\n\n"
                 await asyncio.sleep(0.01)
 
-        # 🔥 Access source nodes AFTER stream is done
+
+
+
         if hasattr(chat_response, "source_nodes") and chat_response.source_nodes:
-            logger.info(f"Sending Source nodes : {chat_response.source_nodes[0]}")
-            logger.info(f"Sending Source nodes : {chat_response.source_nodes[0].metadata.keys()}")
             source_nodes = [
                 {
                     "score": sn.score,
@@ -60,12 +58,12 @@ async def streamresponse(engine, session_id, db, title, message, files, request)
             ]
             yield f"data: {json.dumps({'type': 'sources', 'content': source_nodes})}\n\n"
 
-        # Send final response
+
         yield f"data: {json.dumps({'type': 'done', 'content': full_response})}\n\n"
         if title:
             yield f"data: {json.dumps({'type': 'title', 'content': title})}\n\n"
 
-        # Save to DB
+
         if not await request.is_disconnected():
             handling_save_db(user_msg=message, session_id=session_id, db=db, full_response=full_response, files=files)
 
@@ -97,7 +95,6 @@ async def message_stream(
 ):
     current_model = get_llm_instance(db=db, user=user)
     files = body.files
-    logger.info(f"Received files in backend:{files}")
     if not current_model:
         raise HTTPException(status_code=401, detail="No model found")
 
@@ -112,7 +109,6 @@ async def message_stream(
         else:
             collection_name = f"{body.session_id}_{body.context_id}_{body.context_type}"
 
-            # FIX: Use consistent key pattern
 
 
             status = await redis_client.get(f"collection_name:{collection_name}:status")
@@ -130,9 +126,8 @@ async def message_stream(
                     }
                 )
 
-            logger.info("Rebuilding ADVANCED RAG pipeline from vector store...")
 
-            # 1. Load the index from the persisted vector store (as before)
+
 
             vector_store = get_vector_store(collection_name)
 
@@ -142,16 +137,9 @@ async def message_stream(
                     embed_model=code_embed_model if body.context_type == 'code' else notes_embed_model
                 )
 
-                # 2. Create your custom retriever to fetch more initial candidates (e.g., top 10)
+
                 retriever = index.as_retriever(similarity_top_k=7)
-
-                # 3. Create your reranker to intelligently pick the best results (e.g., top 3)
                 reranker = CohereRerank(top_n=3)
-
-                # 4. Build a Query Engine with the retriever and reranker
-                # This is the core of your RAG logic
-
-                # 5. Create a chat engine that uses your powerful query engine and memory
                 engine = ContextChatEngine.from_defaults(
                     retriever=retriever,
                     node_postprocessors=[reranker],
@@ -160,7 +148,7 @@ async def message_stream(
                     system_prompt=system_prompt
                 )
 
-                logger.info("Advanced RAG pipeline rebuilt successfully.")
+
             else:
                 logger.error("Some how vector stored isnt retivered using simple chat engine temp")
 

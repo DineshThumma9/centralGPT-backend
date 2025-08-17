@@ -24,7 +24,7 @@ def set_api_provider(
     api_provider = req.api_prov.upper().strip()
     api_key = req.api_key.strip()
 
-    logger.info(f"API KEY AND PROVIDER ARE : {api_provider} & {api_key}")
+
 
     if api_provider not in api_providers:
         raise HTTPException(status_code=404, detail="api provider doesnt exists")
@@ -37,7 +37,7 @@ def set_api_provider(
 
     if existing:
         existing.encrypted_key = encrypted_key
-        logger.info("Saved / Updated new key", encrypted_key)
+
     else:
         new_key = APIKEYS(
             user_id=current_user.userid,
