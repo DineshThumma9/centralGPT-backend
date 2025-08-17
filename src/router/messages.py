@@ -14,7 +14,7 @@ from sqlmodel import Session as DBSession
 
 from src.db.dbs import get_db, add_msg_to_dbs
 from src.db.qdrant_client import get_vector_store
-from src.db.redis_client import chat_store, redis_client
+from src.db.redis_client import chat_store, redis_client, get_memory
 from src.models.schema import MsgRequest
 from src.router.auth import get_current_user
 from src.service.message_service import session_title_gen, system_prompt
