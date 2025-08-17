@@ -1,0 +1,4 @@
+fastapi
+llama-index
+uvicorn
+redis
