@@ -11,7 +11,7 @@ Supports memory, chat history, persistent messages, and file retrieval from GitH
 | Layer                | Tech                      |
 | -------------------- | ------------------------- |
 | **Framework**        | FastAPI                   |
-| **LLM Framework**    | LangChain                 |
+| **LLM Framework**    | LlamaIndex                 |
 | **Validation**       | Pydantic                  |
 | **Database**         | Redis, PostgreSQL, Qdrant |
 | **Containerization** | Docker                    |
@@ -81,3 +81,4 @@ uvicorn src.main:app --reload
 ```
 
 ---
+
