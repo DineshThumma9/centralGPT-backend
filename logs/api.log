@@ -3984,3 +3984,1133 @@ Learning From Resume
 2025-08-17 00:00:35.661 | INFO     | src.main:lifespan:81 - Database tables created successfully
 2025-08-17 00:01:17.860 | INFO     | src.main:lifespan:85 - Shutting down...
 2025-08-17 00:01:17.860 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 00:01:38.282 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 00:01:52.909 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 00:01:52.909 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 00:01:52.925 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 00:01:52.925 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 00:01:59.165 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 00:01:59.165 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 00:03:39.670 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 00:03:39.670 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 00:07:44.794 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 00:07:44.794 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 00:07:44.795 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 00:07:44.795 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 00:07:44.795 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 00:07:44.795 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 00:07:44.796 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.55ms)
+2025-08-17 00:07:44.796 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.55ms)
+2025-08-17 00:07:44.797 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (2.04ms)
+2025-08-17 00:07:44.797 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (2.04ms)
+2025-08-17 00:07:44.799 | INFO     | src.main:log_requests:54 - POST /rag/upload → 400 (4.05ms)
+2025-08-17 00:07:44.799 | INFO     | src.main:log_requests:54 - POST /rag/upload → 400 (4.05ms)
+2025-08-17 00:07:44.799 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (584466.89ms)
+2025-08-17 00:07:44.799 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (584466.89ms)
+2025-08-17 09:43:08.036 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:43:27.341 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:43:27.341 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:43:27.372 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:43:27.372 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:43:35.100 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 09:43:35.100 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 09:43:48.119 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 09:43:48.119 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 09:43:48.120 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 09:43:48.120 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 09:43:48.121 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-08-17 09:43:48.121 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-08-17 09:43:48.122 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.04ms)
+2025-08-17 09:43:48.122 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.04ms)
+2025-08-17 09:43:48.439 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:43:48.439 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:43:48.471 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (31.81ms)
+2025-08-17 09:43:48.471 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (31.81ms)
+2025-08-17 09:43:48.478 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:43:48.478 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:43:48.483 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (6.57ms)
+2025-08-17 09:43:48.483 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (6.57ms)
+2025-08-17 09:44:02.096 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 09:44:02.096 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 09:44:03.771 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 09:44:03.771 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 09:44:03.773 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (1677.06ms)
+2025-08-17 09:44:03.773 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (1677.06ms)
+2025-08-17 09:44:03.879 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 09:44:03.879 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 09:44:03.880 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.11ms)
+2025-08-17 09:44:03.880 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.11ms)
+2025-08-17 09:44:03.883 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 09:44:03.883 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 09:44:06.746 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2863.27ms)
+2025-08-17 09:44:06.746 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2863.27ms)
+2025-08-17 09:44:08.798 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:44:08.798 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:44:11.226 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2428.48ms)
+2025-08-17 09:44:11.226 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2428.48ms)
+2025-08-17 09:44:11.232 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:44:11.232 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 09:44:13.059 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1826.65ms)
+2025-08-17 09:44:13.059 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1826.65ms)
+2025-08-17 09:47:17.733 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 09:47:17.733 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 09:47:39.832 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:48:05.876 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:48:05.876 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:48:05.913 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:48:05.913 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:48:12.416 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 09:48:12.416 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 09:50:37.679 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 09:50:37.679 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 09:51:27.437 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:52:45.160 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:53:32.754 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:54:25.616 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:56:33.544 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:58:11.420 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:58:41.695 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 09:59:23.221 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:59:23.221 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 09:59:23.245 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:59:23.245 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 09:59:28.782 | ERROR    | src.main:lifespan:83 - Database init error: (psycopg2.OperationalError) connection to server at "ep-shy-queen-a8t044kf-pooler.eastus2.azure.neon.tech" (52.167.188.143), port 5432 failed: timeout expired
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-08-17 09:59:28.782 | ERROR    | src.main:lifespan:83 - Database init error: (psycopg2.OperationalError) connection to server at "ep-shy-queen-a8t044kf-pooler.eastus2.azure.neon.tech" (52.167.188.143), port 5432 failed: timeout expired
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-08-17 10:10:36.344 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:10:36.344 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:10:36.347 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (3.07ms)
+2025-08-17 10:10:36.347 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (3.07ms)
+2025-08-17 10:10:36.660 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:10:36.660 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:10:41.649 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:10:41.649 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:10:41.651 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (2.0ms)
+2025-08-17 10:10:41.651 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (2.0ms)
+2025-08-17 10:10:41.653 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (4993.06ms)
+2025-08-17 10:10:41.653 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (4993.06ms)
+2025-08-17 10:10:41.656 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:10:41.656 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:10:42.726 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1070.14ms)
+2025-08-17 10:10:42.726 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1070.14ms)
+2025-08-17 10:11:27.940 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 10:11:49.274 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:11:49.274 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:11:49.297 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:11:49.297 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:11:55.630 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:11:55.630 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:12:09.092 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:12:09.092 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:12:11.073 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:12:11.073 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:12:11.074 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1982.31ms)
+2025-08-17 10:12:11.074 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1982.31ms)
+2025-08-17 10:12:12.586 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1512.78ms)
+2025-08-17 10:12:12.586 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1512.78ms)
+2025-08-17 10:16:36.995 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 10:16:55.247 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:16:55.247 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:16:55.262 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:16:55.262 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:17:01.754 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:17:01.754 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:17:02.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:17:02.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:17:02.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:17:02.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:17:02.561 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (1.0ms)
+2025-08-17 10:17:02.561 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (1.0ms)
+2025-08-17 10:17:02.562 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-08-17 10:17:02.562 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.0ms)
+2025-08-17 10:17:02.879 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:17:02.879 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:17:04.434 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1554.92ms)
+2025-08-17 10:17:04.434 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1554.92ms)
+2025-08-17 10:17:04.438 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:17:04.438 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:17:05.685 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1246.1ms)
+2025-08-17 10:17:05.685 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1246.1ms)
+2025-08-17 10:17:13.646 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:17:13.646 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:17:13.647 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-08-17 10:17:13.647 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (1.0ms)
+2025-08-17 10:17:13.959 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:17:13.959 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:17:15.291 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:17:15.291 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:17:15.292 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (2.0ms)
+2025-08-17 10:17:15.292 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (2.0ms)
+2025-08-17 10:17:15.294 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1335.02ms)
+2025-08-17 10:17:15.294 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1335.02ms)
+2025-08-17 10:17:15.298 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:17:15.298 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:17:16.558 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1259.7ms)
+2025-08-17 10:17:16.558 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1259.7ms)
+2025-08-17 10:17:30.669 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:17:30.669 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:17:30.670 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-08-17 10:17:30.670 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-08-17 10:17:31.000 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:17:31.000 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:17:32.234 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (1233.44ms)
+2025-08-17 10:17:32.234 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (1233.44ms)
+2025-08-17 10:17:32.331 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:17:32.331 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:17:32.331 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.0ms)
+2025-08-17 10:17:32.331 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.0ms)
+2025-08-17 10:17:32.334 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:17:32.334 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:17:33.621 | INFO     | src.router.messages:message_stream:119 - Received files in backend:['DineshThummaResume.pdf']
+2025-08-17 10:17:33.621 | INFO     | src.router.messages:message_stream:119 - Received files in backend:['DineshThummaResume.pdf']
+2025-08-17 10:17:35.664 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3329.98ms)
+2025-08-17 10:17:35.664 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3329.98ms)
+2025-08-17 10:17:44.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title
+2025-08-17 10:17:44.560 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title
+2025-08-17 10:17:44.563 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title → 200 (2.42ms)
+2025-08-17 10:17:44.563 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title → 200 (2.42ms)
+2025-08-17 10:17:44.883 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title
+2025-08-17 10:17:44.883 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title
+2025-08-17 10:17:48.517 | INFO     | src.router.sessions:update_session_title:98 - Updated title for session 87788406-df9d-4672-b941-21b5f606ec0d: Resume Review and Feedback Requested
+2025-08-17 10:17:48.517 | INFO     | src.router.sessions:update_session_title:98 - Updated title for session 87788406-df9d-4672-b941-21b5f606ec0d: Resume Review and Feedback Requested
+2025-08-17 10:17:48.875 | INFO     | src.main:log_requests:54 - PATCH /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title → 200 (3992.05ms)
+2025-08-17 10:17:48.875 | INFO     | src.main:log_requests:54 - PATCH /sessions/87788406-df9d-4672-b941-21b5f606ec0d/title → 200 (3992.05ms)
+2025-08-17 10:17:49.720 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:17:49.720 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:17:51.127 | INFO     | src.router.messages:message_stream:119 - Received files in backend:[]
+2025-08-17 10:17:51.127 | INFO     | src.router.messages:message_stream:119 - Received files in backend:[]
+2025-08-17 10:17:51.430 | ERROR    | src.router.messages:message_stream:212 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:17:51.430 | ERROR    | src.router.messages:message_stream:212 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:17:51.680 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (1960.56ms)
+2025-08-17 10:17:51.680 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (1960.56ms)
+2025-08-17 10:19:29.019 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:19:29.019 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:19:52.507 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 10:20:09.708 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:20:09.708 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:20:09.737 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:20:09.737 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:20:16.629 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:20:16.629 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:21:10.555 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:10.555 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:10.559 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:21:10.559 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:21:12.037 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1481.93ms)
+2025-08-17 10:21:12.037 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1481.93ms)
+2025-08-17 10:21:12.819 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2259.21ms)
+2025-08-17 10:21:12.819 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2259.21ms)
+2025-08-17 10:21:14.054 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:14.054 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:14.474 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (421.01ms)
+2025-08-17 10:21:14.474 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (421.01ms)
+2025-08-17 10:21:16.486 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:16.486 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:21:16.878 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (391.86ms)
+2025-08-17 10:21:16.878 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (391.86ms)
+2025-08-17 10:22:03.444 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:22:03.444 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:22:16.367 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 10:22:30.993 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:22:30.993 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:22:31.013 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:22:31.013 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:22:39.141 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:22:39.141 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:22:59.403 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:22:59.403 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:00.873 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1469.74ms)
+2025-08-17 10:23:00.873 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1469.74ms)
+2025-08-17 10:23:02.885 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:02.885 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:03.233 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (348.33ms)
+2025-08-17 10:23:03.233 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (348.33ms)
+2025-08-17 10:23:05.246 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:05.246 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:05.559 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (313.81ms)
+2025-08-17 10:23:05.559 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (313.81ms)
+2025-08-17 10:23:07.576 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:07.576 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:07.936 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (360.78ms)
+2025-08-17 10:23:07.936 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (360.78ms)
+2025-08-17 10:23:09.948 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:09.948 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:23:10.323 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (374.87ms)
+2025-08-17 10:23:10.323 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (374.87ms)
+2025-08-17 10:23:22.230 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 10:23:22.230 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 10:23:24.365 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 10:23:24.365 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 10:23:24.368 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (2137.77ms)
+2025-08-17 10:23:24.368 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (2137.77ms)
+2025-08-17 10:23:24.436 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:23:24.436 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:23:24.437 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-08-17 10:23:24.437 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-08-17 10:23:24.442 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:23:24.442 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:23:27.402 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2959.52ms)
+2025-08-17 10:23:27.402 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2959.52ms)
+2025-08-17 10:23:28.271 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:23:28.271 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:23:30.103 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1832.47ms)
+2025-08-17 10:23:30.103 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1832.47ms)
+2025-08-17 10:23:30.112 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:23:30.112 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:23:31.607 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1494.9ms)
+2025-08-17 10:23:31.607 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1494.9ms)
+2025-08-17 10:23:47.242 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:23:47.242 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:23:47.916 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (673.75ms)
+2025-08-17 10:23:47.916 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (673.75ms)
+2025-08-17 10:24:02.625 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:24:02.625 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:24:04.207 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1581.96ms)
+2025-08-17 10:24:04.207 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1581.96ms)
+2025-08-17 10:24:05.926 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:24:05.926 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:24:07.295 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:24:07.295 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:24:07.560 | ERROR    | src.router.messages:message_stream:194 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:24:07.560 | ERROR    | src.router.messages:message_stream:194 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:24:07.853 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (1926.36ms)
+2025-08-17 10:24:07.853 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (1926.36ms)
+2025-08-17 10:24:35.312 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:24:35.312 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:24:36.714 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1402.05ms)
+2025-08-17 10:24:36.714 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1402.05ms)
+2025-08-17 10:24:37.013 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:24:37.013 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:24:38.631 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1617.57ms)
+2025-08-17 10:24:38.631 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1617.57ms)
+2025-08-17 10:24:44.687 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:24:44.687 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:24:44.689 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:24:44.689 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:24:45.352 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (663.19ms)
+2025-08-17 10:24:45.352 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (663.19ms)
+2025-08-17 10:24:45.354 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (666.7ms)
+2025-08-17 10:24:45.354 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (666.7ms)
+2025-08-17 10:25:27.569 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:25:27.569 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:25:27.859 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (289.27ms)
+2025-08-17 10:25:27.859 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (289.27ms)
+2025-08-17 10:25:28.892 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:25:28.892 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:25:30.470 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:25:30.470 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:25:30.732 | ERROR    | src.router.messages:message_stream:194 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:25:30.732 | ERROR    | src.router.messages:message_stream:194 - Streaming setup error: 'str' object has no attribute 'decode'
+2025-08-17 10:25:30.979 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (2086.98ms)
+2025-08-17 10:25:30.979 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 500 (2086.98ms)
+2025-08-17 10:27:39.070 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:27:39.070 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 10:27:52.073 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 10:28:07.695 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:28:07.695 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 10:28:07.710 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:28:07.710 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 10:28:14.667 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:28:14.667 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 10:42:20.628 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:42:20.628 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:42:20.633 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:42:20.633 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:42:20.635 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (2.02ms)
+2025-08-17 10:42:20.635 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (2.02ms)
+2025-08-17 10:42:20.951 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:42:20.951 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:42:22.304 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1675.57ms)
+2025-08-17 10:42:22.304 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1675.57ms)
+2025-08-17 10:42:23.171 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2220.32ms)
+2025-08-17 10:42:23.171 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2220.32ms)
+2025-08-17 10:42:32.482 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:42:32.482 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:42:32.785 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (303.14ms)
+2025-08-17 10:42:32.785 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (303.14ms)
+2025-08-17 10:42:33.817 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:42:33.817 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:42:33.819 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.03ms)
+2025-08-17 10:42:33.819 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.03ms)
+2025-08-17 10:42:33.828 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:42:33.828 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:42:38.427 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:42:38.427 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:42:38.783 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:42:38.783 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:42:40.966 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:42:40.966 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:42:41.354 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7525.92ms)
+2025-08-17 10:42:41.354 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7525.92ms)
+2025-08-17 10:42:56.702 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 2e8e6b84-6963-4802-923b-800b4a16e714
+Text: Dinesh  Thumma  9393519918  |  dineshthumma15@gmail.com
+|Github|Leetcode|Codechef  PROFESSIONAL  SUMMARY  An  undergraduate
+specializing  in  Artificial  Intelligence  and  Data  Science,  with
+a  primary  focus  on  backend  systems   and   applied   generative
+AI.   Seeking   to   contribute   to   real-world   projects   and
+collabora...
+Score:  0.038
+
+2025-08-17 10:42:56.702 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 2e8e6b84-6963-4802-923b-800b4a16e714
+Text: Dinesh  Thumma  9393519918  |  dineshthumma15@gmail.com
+|Github|Leetcode|Codechef  PROFESSIONAL  SUMMARY  An  undergraduate
+specializing  in  Artificial  Intelligence  and  Data  Science,  with
+a  primary  focus  on  backend  systems   and   applied   generative
+AI.   Seeking   to   contribute   to   real-world   projects   and
+collabora...
+Score:  0.038
+
+2025-08-17 10:42:56.704 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 10:42:56.704 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 10:43:00.545 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:43:00.545 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:43:00.546 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.18ms)
+2025-08-17 10:43:00.546 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.18ms)
+2025-08-17 10:43:00.551 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:43:00.551 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:43:04.703 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4151.48ms)
+2025-08-17 10:43:04.703 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4151.48ms)
+2025-08-17 10:43:20.391 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:43:20.391 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:43:21.036 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (645.03ms)
+2025-08-17 10:43:21.036 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (645.03ms)
+2025-08-17 10:43:30.782 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:43:30.782 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:43:31.311 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (528.22ms)
+2025-08-17 10:43:31.311 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (528.22ms)
+2025-08-17 10:43:32.931 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:43:32.931 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:43:34.624 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:43:34.624 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:43:34.941 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:43:34.941 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:43:35.594 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:43:35.594 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:43:35.902 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2970.62ms)
+2025-08-17 10:43:35.902 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2970.62ms)
+2025-08-17 10:43:42.790 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 0f78bed0-5f27-40a8-b1ac-828fe53be4e9
+Text: Queen Elareth Driin, ruler of Erothis, wept for forty-two days
+after the Vanishing of Her Eleven Mirrors, relics believed to contain
+the souls of former monarchs. Each mirror shattered upon exposure to
+betrayal. According to the Book of Flooded Stars, authored by blind
+chronicler Fevin Dal Cor, her grief summoned The Tearborn, water
+elementals t...
+Score:  0.009
+
+2025-08-17 10:43:42.790 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 0f78bed0-5f27-40a8-b1ac-828fe53be4e9
+Text: Queen Elareth Driin, ruler of Erothis, wept for forty-two days
+after the Vanishing of Her Eleven Mirrors, relics believed to contain
+the souls of former monarchs. Each mirror shattered upon exposure to
+betrayal. According to the Book of Flooded Stars, authored by blind
+chronicler Fevin Dal Cor, her grief summoned The Tearborn, water
+elementals t...
+Score:  0.009
+
+2025-08-17 10:43:42.791 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 10:43:42.791 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 10:43:59.287 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:43:59.287 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:43:59.289 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:43:59.289 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:43:59.572 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (285.12ms)
+2025-08-17 10:43:59.572 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (285.12ms)
+2025-08-17 10:43:59.733 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (444.59ms)
+2025-08-17 10:43:59.733 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (444.59ms)
+2025-08-17 10:47:01.429 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:47:01.429 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 10:47:01.431 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:47:01.431 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:47:01.435 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 10:47:01.435 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 10:47:01.436 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:47:01.436 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:47:01.437 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:47:01.437 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 10:47:03.742 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2306.26ms)
+2025-08-17 10:47:03.742 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2306.26ms)
+2025-08-17 10:47:03.743 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2306.27ms)
+2025-08-17 10:47:03.743 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2306.27ms)
+2025-08-17 10:47:03.753 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:03.753 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:05.818 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 10:47:05.818 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 10:47:07.196 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (5764.99ms)
+2025-08-17 10:47:07.196 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (5764.99ms)
+2025-08-17 10:47:07.198 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (5768.93ms)
+2025-08-17 10:47:07.198 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (5768.93ms)
+2025-08-17 10:47:07.202 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (5767.46ms)
+2025-08-17 10:47:07.202 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (5767.46ms)
+2025-08-17 10:47:07.268 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:47:07.268 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:47:09.486 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (5732.53ms)
+2025-08-17 10:47:09.486 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (5732.53ms)
+2025-08-17 10:47:09.498 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:09.498 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:10.998 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3730.71ms)
+2025-08-17 10:47:10.998 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3730.71ms)
+2025-08-17 10:47:11.001 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03
+2025-08-17 10:47:11.001 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03
+2025-08-17 10:47:11.005 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03 → 200 (3.36ms)
+2025-08-17 10:47:11.005 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03 → 200 (3.36ms)
+2025-08-17 10:47:11.009 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03
+2025-08-17 10:47:11.009 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/3ea21a32-218b-41bb-a05c-d76f16c19c03
+2025-08-17 10:47:11.830 | INFO     | src.router.sessions:get_chat_history:67 - []
+2025-08-17 10:47:11.830 | INFO     | src.router.sessions:get_chat_history:67 - []
+2025-08-17 10:47:11.830 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2331.9ms)
+2025-08-17 10:47:11.830 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2331.9ms)
+2025-08-17 10:47:14.980 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:14.980 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:16.861 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1880.47ms)
+2025-08-17 10:47:16.861 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1880.47ms)
+2025-08-17 10:47:16.870 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:16.870 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 10:47:18.498 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1628.42ms)
+2025-08-17 10:47:18.498 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1628.42ms)
+2025-08-17 10:48:46.205 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:48:46.205 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 10:48:46.209 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (4.07ms)
+2025-08-17 10:48:46.209 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (4.07ms)
+2025-08-17 10:48:46.518 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:46.518 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:48.434 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:48.434 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:48.435 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1916.93ms)
+2025-08-17 10:48:48.435 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1916.93ms)
+2025-08-17 10:48:49.906 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1472.15ms)
+2025-08-17 10:48:49.906 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1472.15ms)
+2025-08-17 10:48:50.047 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:50.047 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 10:48:51.898 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1850.98ms)
+2025-08-17 10:48:51.898 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1850.98ms)
+2025-08-17 10:48:52.076 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:48:52.076 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 10:48:52.077 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (1.04ms)
+2025-08-17 10:48:52.077 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (1.04ms)
+2025-08-17 10:48:52.079 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:48:52.079 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 10:48:53.503 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1424.31ms)
+2025-08-17 10:48:53.503 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1424.31ms)
+2025-08-17 10:49:50.914 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:49:50.914 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:49:50.915 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-17 10:49:50.915 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-17 10:49:51.224 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:49:51.224 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:50:22.169 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:50:22.169 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:50:22.170 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-17 10:50:22.170 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-17 10:50:22.172 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:50:22.172 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:50:48.861 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:50:48.861 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 10:50:48.862 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (0.52ms)
+2025-08-17 10:50:48.862 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (0.52ms)
+2025-08-17 10:50:49.173 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:50:49.173 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 10:54:04.152 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (194979.15ms)
+2025-08-17 10:54:04.152 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (194979.15ms)
+2025-08-17 10:54:46.678 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:54:46.678 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 10:54:46.680 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.0ms)
+2025-08-17 10:54:46.680 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.0ms)
+2025-08-17 10:54:46.683 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:54:46.683 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:54:50.136 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:54:50.136 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:54:50.664 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:54:50.664 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:54:52.565 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:54:52.565 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:54:54.428 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7744.04ms)
+2025-08-17 10:54:54.428 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7744.04ms)
+2025-08-17 10:55:06.460 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 52ddd1d0-c50b-48f0-a577-0edb5b7aeb72
+Text: "meta-llama/llama-4-scout",     "moonshotai/kimi-
+vl-a3b-thinking",     "nvidia/llama-3.1-nemotron-nano-8b-v1",
+"google/gemini-2.5-pro-exp-03-25",     "mistralai/mistral-
+small-3.1-24b-instruct",     "openrouter/optimus-alpha",
+"openrouter/quasar-alpha",     "deepseek/deepseek-v3-base",
+"qwen/qwen2.5-vl-3b-instruct",     "deepseek/deep...
+Score:  0.000
+
+2025-08-17 10:55:06.460 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 52ddd1d0-c50b-48f0-a577-0edb5b7aeb72
+Text: "meta-llama/llama-4-scout",     "moonshotai/kimi-
+vl-a3b-thinking",     "nvidia/llama-3.1-nemotron-nano-8b-v1",
+"google/gemini-2.5-pro-exp-03-25",     "mistralai/mistral-
+small-3.1-24b-instruct",     "openrouter/optimus-alpha",
+"openrouter/quasar-alpha",     "deepseek/deepseek-v3-base",
+"qwen/qwen2.5-vl-3b-instruct",     "deepseek/deep...
+Score:  0.000
+
+2025-08-17 10:55:06.464 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 10:55:06.464 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 10:55:13.077 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title
+2025-08-17 10:55:13.077 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title
+2025-08-17 10:55:13.078 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title → 200 (1.59ms)
+2025-08-17 10:55:13.078 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title → 200 (1.59ms)
+2025-08-17 10:55:13.391 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title
+2025-08-17 10:55:13.391 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title
+2025-08-17 10:55:15.896 | INFO     | src.router.sessions:update_session_title:98 - Updated title for session 03a0e017-78da-4af1-b40d-074a5c4fc8cf: Codebase Learning and Directory
+2025-08-17 10:55:15.896 | INFO     | src.router.sessions:update_session_title:98 - Updated title for session 03a0e017-78da-4af1-b40d-074a5c4fc8cf: Codebase Learning and Directory
+2025-08-17 10:55:16.216 | INFO     | src.main:log_requests:54 - PATCH /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title → 200 (2824.38ms)
+2025-08-17 10:55:16.216 | INFO     | src.main:log_requests:54 - PATCH /sessions/03a0e017-78da-4af1-b40d-074a5c4fc8cf/title → 200 (2824.38ms)
+2025-08-17 10:55:44.120 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:55:44.120 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 10:55:45.711 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:55:45.711 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 10:55:46.217 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:55:46.217 | INFO     | src.router.messages:message_stream:138 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 10:55:47.804 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:55:47.804 | INFO     | src.router.messages:message_stream:168 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 10:55:48.070 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3950.45ms)
+2025-08-17 10:55:48.070 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3950.45ms)
+2025-08-17 10:56:22.845 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: peer closed connection without sending complete message body (incomplete chunked read)
+2025-08-17 10:56:22.845 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: peer closed connection without sending complete message body (incomplete chunked read)
+2025-08-17 10:57:50.981 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:57:50.981 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 10:57:50.982 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-08-17 10:57:50.982 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.0ms)
+2025-08-17 10:57:51.305 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:57:51.305 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 10:57:54.432 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3126.72ms)
+2025-08-17 10:57:54.432 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3126.72ms)
+2025-08-17 10:58:17.865 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:58:17.865 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 10:58:17.867 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.01ms)
+2025-08-17 10:58:17.867 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.01ms)
+2025-08-17 10:58:17.872 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 10:58:17.872 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:01:18.693 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:01:18.693 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:01:41.593 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 11:02:56.240 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:02:56.240 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:02:56.258 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:02:56.258 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:03:02.049 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:03:02.049 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:03:02.064 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 11:03:02.064 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-17 11:03:02.066 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:03:02.066 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:03:06.533 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 11:03:06.533 | INFO     | src.service.auth_service:create_tokens:73 - Refresh token stored for user: otest@gmail.com
+2025-08-17 11:03:06.534 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4468.3ms)
+2025-08-17 11:03:06.534 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4468.3ms)
+2025-08-17 11:03:06.535 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (4471.24ms)
+2025-08-17 11:03:06.535 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (4471.24ms)
+2025-08-17 11:03:06.576 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:03:06.576 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:03:11.278 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4701.53ms)
+2025-08-17 11:03:11.278 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4701.53ms)
+2025-08-17 11:03:12.048 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 11:03:12.048 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 11:03:12.049 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 11:03:12.049 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-17 11:03:12.050 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.01ms)
+2025-08-17 11:03:12.050 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.01ms)
+2025-08-17 11:03:12.053 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.44ms)
+2025-08-17 11:03:12.053 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.44ms)
+2025-08-17 11:03:12.056 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 11:03:12.056 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 11:03:15.584 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3528.82ms)
+2025-08-17 11:03:15.584 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3528.82ms)
+2025-08-17 11:03:15.588 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 11:03:15.588 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-17 11:03:19.177 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3588.67ms)
+2025-08-17 11:03:19.177 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3588.67ms)
+2025-08-17 11:03:25.489 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 11:03:25.489 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-17 11:03:25.489 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (0.0ms)
+2025-08-17 11:03:25.489 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (0.0ms)
+2025-08-17 11:03:25.806 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 11:03:25.806 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-17 11:03:27.066 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1260.44ms)
+2025-08-17 11:03:27.066 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1260.44ms)
+2025-08-17 11:03:27.504 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 11:03:27.504 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-17 11:03:27.504 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (0.0ms)
+2025-08-17 11:03:27.504 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (0.0ms)
+2025-08-17 11:03:27.506 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 11:03:27.506 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-17 11:03:28.588 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1081.99ms)
+2025-08-17 11:03:28.588 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1081.99ms)
+2025-08-17 11:03:48.049 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:03:48.049 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:03:49.015 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (965.99ms)
+2025-08-17 11:03:49.015 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (965.99ms)
+2025-08-17 11:04:38.278 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:04:38.278 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:04:39.192 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (914.24ms)
+2025-08-17 11:04:39.192 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (914.24ms)
+2025-08-17 11:04:40.215 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:04:40.215 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:04:41.320 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:04:41.320 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:04:41.545 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:04:41.545 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:04:42.377 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:04:42.377 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:04:42.597 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2381.77ms)
+2025-08-17 11:04:42.597 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2381.77ms)
+2025-08-17 11:04:50.659 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 6fe3de98-bf9e-40de-a9b2-a770ead36f9b
+Text: Interrupts   Interrupts are signals sent to the processor to
+temporarily halt the current execution  of a program and redirect it
+to handle an event or task.   o These events can come from hardware
+devices (e.g., keyboard press, mouse  movement, timer) or software
+(e.g., system calls, errors).
+Score:  0.005
+
+2025-08-17 11:04:50.659 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 6fe3de98-bf9e-40de-a9b2-a770ead36f9b
+Text: Interrupts   Interrupts are signals sent to the processor to
+temporarily halt the current execution  of a program and redirect it
+to handle an event or task.   o These events can come from hardware
+devices (e.g., keyboard press, mouse  movement, timer) or software
+(e.g., system calls, errors).
+Score:  0.005
+
+2025-08-17 11:04:50.660 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:04:50.660 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:05:16.814 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:05:16.814 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:05:16.815 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-17 11:05:16.815 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-17 11:05:16.821 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:05:16.821 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:05:17.951 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:05:17.951 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:05:18.405 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:05:18.405 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:05:20.015 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:05:20.015 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:05:20.236 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3415.16ms)
+2025-08-17 11:05:20.236 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3415.16ms)
+2025-08-17 11:05:30.184 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 8d32748e-0250-4898-b825-ef7111e847d2
+Text:  The system may have two or more ALUs and be able to execute
+two or more instructions at the same time.   Furthermore, the system
+may have two or more processors  operating concurrently.         The
+purpose of parallel processing is to speed up the computer  processing
+capability and increase its throughput, that is, the  amount of
+processin...
+Score:  0.973
+
+2025-08-17 11:05:30.184 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 8d32748e-0250-4898-b825-ef7111e847d2
+Text:  The system may have two or more ALUs and be able to execute
+two or more instructions at the same time.   Furthermore, the system
+may have two or more processors  operating concurrently.         The
+purpose of parallel processing is to speed up the computer  processing
+capability and increase its throughput, that is, the  amount of
+processin...
+Score:  0.973
+
+2025-08-17 11:05:30.186 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:05:30.186 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:05:55.007 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 11:05:55.007 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 11:05:55.009 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (2.0ms)
+2025-08-17 11:05:55.009 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (2.0ms)
+2025-08-17 11:05:55.329 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 11:05:55.329 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 11:07:33.649 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (98319.99ms)
+2025-08-17 11:07:33.649 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (98319.99ms)
+2025-08-17 11:08:31.593 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:08:31.593 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:08:33.780 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:08:33.780 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:08:34.226 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:08:34.226 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:08:35.550 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:08:35.550 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:08:35.760 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4167.07ms)
+2025-08-17 11:08:35.760 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4167.07ms)
+2025-08-17 11:08:45.261 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 2331e2d3-271e-49ab-b338-f18a6bb11d70
+Text: import type {AlgoProps} from "@/components/AlgoCard.tsx"; import
+sortingLogo from "@/assets/sorting.png"; import dpLogo from
+"@/assets/dp.png"; import queueLogo from "@/assets/queue.png"; import
+graphLogo from "@/assets/graph.png"; import treeLogo from
+"@/assets/tree.png"; import heapLogo from "@/assets/heap.png";
+export const algos: AlgoProps...
+Score:  0.000
+
+2025-08-17 11:08:45.261 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 2331e2d3-271e-49ab-b338-f18a6bb11d70
+Text: import type {AlgoProps} from "@/components/AlgoCard.tsx"; import
+sortingLogo from "@/assets/sorting.png"; import dpLogo from
+"@/assets/dp.png"; import queueLogo from "@/assets/queue.png"; import
+graphLogo from "@/assets/graph.png"; import treeLogo from
+"@/assets/tree.png"; import heapLogo from "@/assets/heap.png";
+export const algos: AlgoProps...
+Score:  0.000
+
+2025-08-17 11:08:45.263 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:08:45.263 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:09:04.224 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:09:04.224 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:09:06.442 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:09:06.442 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:09:06.894 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:09:06.894 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:09:08.382 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:09:08.382 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:09:08.832 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4608.43ms)
+2025-08-17 11:09:08.832 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4608.43ms)
+2025-08-17 11:09:22.528 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: e38f8ca9-ca25-447e-a800-6eb2e13ab21a
+Text:
+Score:  0.000
+
+2025-08-17 11:09:22.528 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: e38f8ca9-ca25-447e-a800-6eb2e13ab21a
+Text:
+Score:  0.000
+
+2025-08-17 11:09:22.531 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:09:22.531 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:09:57.784 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:09:57.784 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:10:00.096 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:10:00.096 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:10:00.568 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:10:00.568 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:10:02.360 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:10:02.360 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:10:02.570 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4786.09ms)
+2025-08-17 11:10:02.570 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4786.09ms)
+2025-08-17 11:10:16.343 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: Calculated available context size -710 was not non-negative.
+2025-08-17 11:10:16.343 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: Calculated available context size -710 was not non-negative.
+2025-08-17 11:10:20.909 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 11:10:20.909 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 11:10:20.910 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-08-17 11:10:20.910 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.01ms)
+2025-08-17 11:10:21.222 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:10:21.222 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:10:23.157 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (1935.0ms)
+2025-08-17 11:10:23.157 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (1935.0ms)
+2025-08-17 11:10:53.577 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:10:53.577 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:11:07.992 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 11:11:21.798 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:11:21.798 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:11:21.816 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:11:21.816 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:11:27.105 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:11:27.105 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:19:49.353 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 11:19:49.353 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-17 11:19:49.355 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (2.04ms)
+2025-08-17 11:19:49.355 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (2.04ms)
+2025-08-17 11:19:49.671 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:19:49.671 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:19:51.931 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2259.86ms)
+2025-08-17 11:19:51.931 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (2259.86ms)
+2025-08-17 11:25:02.717 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:25:02.717 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:25:03.869 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1151.5ms)
+2025-08-17 11:25:03.869 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1151.5ms)
+2025-08-17 11:25:03.975 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:25:03.975 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:25:22.950 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 11:25:39.696 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:25:39.696 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:25:39.709 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:25:39.709 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:25:46.966 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:25:46.966 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:25:46.972 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:25:46.972 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:25:46.972 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.75ms)
+2025-08-17 11:25:46.972 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.75ms)
+2025-08-17 11:25:46.977 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:25:46.977 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:25:48.230 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:25:48.230 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:25:49.400 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:25:49.400 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:25:51.453 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:25:51.453 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:25:51.671 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4693.72ms)
+2025-08-17 11:25:51.671 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4693.72ms)
+2025-08-17 11:26:04.278 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 3ff1f761-a107-44f4-97a6-0eac50d176fb
+Text: fighting among themselves and were also rapidly starving to
+death. When time passed and the animals had evidently not starved to
+death, Frederick and Pilkington changed their tune and began to talk
+of the terrible wickedness that now flourished on Animal Farm. It was
+given out that the animals there practised cannibalism, tortured one
+another wi...
+Score:  0.009
+
+2025-08-17 11:26:04.278 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 3ff1f761-a107-44f4-97a6-0eac50d176fb
+Text: fighting among themselves and were also rapidly starving to
+death. When time passed and the animals had evidently not starved to
+death, Frederick and Pilkington changed their tune and began to talk
+of the terrible wickedness that now flourished on Animal Farm. It was
+given out that the animals there practised cannibalism, tortured one
+another wi...
+Score:  0.009
+
+2025-08-17 11:26:04.279 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:26:04.279 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:26:11.366 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 11:26:11.366 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 11:26:11.366 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (0.0ms)
+2025-08-17 11:26:11.366 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (0.0ms)
+2025-08-17 11:26:11.679 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:26:11.679 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 11:26:17.168 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (5489.52ms)
+2025-08-17 11:26:17.168 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (5489.52ms)
+2025-08-17 11:27:03.478 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:27:03.478 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-17 11:27:03.981 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (503.1ms)
+2025-08-17 11:27:03.981 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (503.1ms)
+2025-08-17 11:27:32.674 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:27:32.674 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-17 11:27:33.847 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1172.98ms)
+2025-08-17 11:27:33.847 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1172.98ms)
+2025-08-17 11:27:34.932 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:27:34.932 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:27:36.075 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:27:36.075 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:27:36.314 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:27:36.314 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:27:37.127 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:27:37.127 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:27:37.394 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2462.06ms)
+2025-08-17 11:27:37.394 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2462.06ms)
+2025-08-17 11:27:48.569 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: c4f79e22-170d-42a5-aaef-1f82ef55465e
+Text: Simultaneously, Luffy the Pirate King, while crossing the
+Cloudreach Trench, spotted a massive whirlpool in the sky that
+devoured sunlight. From this rift, Echo Shards rained—crystals
+containing echoes of battles that never occurred. Each shard bore
+fragments of faces half-familiar . Chapter 2: The Nine Shadows The
+Echo  Shards,  when  assemble...
+Score:  0.000
+
+2025-08-17 11:27:48.569 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: c4f79e22-170d-42a5-aaef-1f82ef55465e
+Text: Simultaneously, Luffy the Pirate King, while crossing the
+Cloudreach Trench, spotted a massive whirlpool in the sky that
+devoured sunlight. From this rift, Echo Shards rained—crystals
+containing echoes of battles that never occurred. Each shard bore
+fragments of faces half-familiar . Chapter 2: The Nine Shadows The
+Echo  Shards,  when  assemble...
+Score:  0.000
+
+2025-08-17 11:27:48.572 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:27:48.572 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:28:31.177 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:28:31.177 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:28:49.190 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:28:49.190 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:28:49.739 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:28:49.739 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:28:53.041 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:28:53.041 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:28:53.282 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (22104.43ms)
+2025-08-17 11:28:53.282 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (22104.43ms)
+2025-08-17 11:29:03.538 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 3298b872-ef54-4f94-a8b1-ad8ec9baf346
+Text: Epilogue: Two Suns, One Sky With the rift sealed, the two worlds
+began to separate. Time compression meant only weeks passed in each,
+despite years within the Rift. Naruto returned to Konoha, bearing a
+straw hat in a memory case.
+Score:  0.000
+
+2025-08-17 11:29:03.538 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 3298b872-ef54-4f94-a8b1-ad8ec9baf346
+Text: Epilogue: Two Suns, One Sky With the rift sealed, the two worlds
+began to separate. Time compression meant only weeks passed in each,
+despite years within the Rift. Naruto returned to Konoha, bearing a
+straw hat in a memory case.
+Score:  0.000
+
+2025-08-17 11:29:03.539 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:29:03.539 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:30:24.363 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:30:24.363 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:30:30.407 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:30:30.407 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:30:31.011 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:30:31.011 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:30:34.926 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:30:34.926 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:30:36.014 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (11651.26ms)
+2025-08-17 11:30:36.014 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (11651.26ms)
+2025-08-17 11:30:54.288 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 942aab73-e843-4ad7-8ccb-29a70714b643
+Text: Title: The Celestial Rift: Luffy & Naruto — The Crossworld Pact
+Author: Anonymous Chronicler of the Rift Archives Chapter 1: The Split
+Sky Event On  the  112th  cycle  of  the  Tenshō  Calendar,  a  rift
+split  open  above  the  Crimson  Sea,  merging  two universes:  the
+world  of  Shinobi and  the  seas  of  the  Grand  Line.  From  it
+emer...
+Score:  0.975
+
+2025-08-17 11:30:54.288 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 942aab73-e843-4ad7-8ccb-29a70714b643
+Text: Title: The Celestial Rift: Luffy & Naruto — The Crossworld Pact
+Author: Anonymous Chronicler of the Rift Archives Chapter 1: The Split
+Sky Event On  the  112th  cycle  of  the  Tenshō  Calendar,  a  rift
+split  open  above  the  Crimson  Sea,  merging  two universes:  the
+world  of  Shinobi and  the  seas  of  the  Grand  Line.  From  it
+emer...
+Score:  0.975
+
+2025-08-17 11:30:54.289 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:30:54.289 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:32:29.360 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:32:29.360 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:32:32.617 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:32:32.617 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:32:33.099 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:32:33.099 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:32:34.932 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:32:34.932 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:32:35.191 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (5830.9ms)
+2025-08-17 11:32:35.191 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (5830.9ms)
+2025-08-17 11:32:51.830 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: fdbdfdc0-8100-429a-9cbe-449aeed9b575
+Text: Chapter 6: The Final Pebble of Tervan In the kingdom of Tervan,
+where land is paid in riddles and taxes in memories, the king demanded
+that all citizens contribute a single pebble to a growing monument
+known as the Mound of Resolution. Over time, it was revealed each
+pebble was sentient, storing the regret of its contributor .
+Score:  0.996
+
+2025-08-17 11:32:51.830 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: fdbdfdc0-8100-429a-9cbe-449aeed9b575
+Text: Chapter 6: The Final Pebble of Tervan In the kingdom of Tervan,
+where land is paid in riddles and taxes in memories, the king demanded
+that all citizens contribute a single pebble to a growing monument
+known as the Mound of Resolution. Over time, it was revealed each
+pebble was sentient, storing the regret of its contributor .
+Score:  0.996
+
+2025-08-17 11:32:51.831 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:32:51.831 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['page_label', 'file_name', 'file_path', 'file_type', 'file_size', 'creation_date', 'last_modified_date'])
+2025-08-17 11:37:14.807 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 11:37:14.807 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-17 11:37:14.808 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.09ms)
+2025-08-17 11:37:14.808 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.09ms)
+2025-08-17 11:37:15.119 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 11:37:15.119 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-17 11:43:03.599 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (348480.83ms)
+2025-08-17 11:43:03.599 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (348480.83ms)
+2025-08-17 11:45:55.310 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:45:55.310 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-17 11:45:55.313 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.91ms)
+2025-08-17 11:45:55.313 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.91ms)
+2025-08-17 11:45:55.318 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:45:55.318 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:45:59.176 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:45:59.176 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:45:59.797 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:45:59.797 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:46:01.911 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:46:01.911 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:46:02.283 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (6964.22ms)
+2025-08-17 11:46:02.283 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (6964.22ms)
+2025-08-17 11:46:14.821 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: a7ebaed6-7e94-4208-8ce6-929e4f9cd0c7
+Text: : unknown; inline?: boolean; className?: string; children?:
+React.ReactNode; style?: React.CSSProperties }) => (
+<CodeComponent             {...props}             idx={idx}
+copiedCodeBlocks={copiedCodeBlocks}
+onCodeBlockCopy={onCodeBlockCopy}         />     ),     p: ({ children
+}) => (         <Text mb={3} lineHe...
+Score:  0.000
+
+2025-08-17 11:46:14.821 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: a7ebaed6-7e94-4208-8ce6-929e4f9cd0c7
+Text: : unknown; inline?: boolean; className?: string; children?:
+React.ReactNode; style?: React.CSSProperties }) => (
+<CodeComponent             {...props}             idx={idx}
+copiedCodeBlocks={copiedCodeBlocks}
+onCodeBlockCopy={onCodeBlockCopy}         />     ),     p: ({ children
+}) => (         <Text mb={3} lineHe...
+Score:  0.000
+
+2025-08-17 11:46:14.822 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:46:14.822 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:46:38.678 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:46:38.678 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:46:41.025 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:46:41.025 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:46:41.515 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:46:41.515 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:46:43.203 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:46:43.203 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:46:43.543 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4864.87ms)
+2025-08-17 11:46:43.543 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4864.87ms)
+2025-08-17 11:46:57.139 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 796e9610-b464-4dbf-ac64-66eff3468390
+Text: /// <reference types="vite/client" />
+Score:  0.000
+
+2025-08-17 11:46:57.139 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: 796e9610-b464-4dbf-ac64-66eff3468390
+Text: /// <reference types="vite/client" />
+Score:  0.000
+
+2025-08-17 11:46:57.139 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:46:57.139 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:47:29.748 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:47:29.748 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:47:34.538 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:47:34.538 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:47:35.315 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:47:35.315 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:47:37.798 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:47:37.798 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:47:38.352 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (8604.04ms)
+2025-08-17 11:47:38.352 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (8604.04ms)
+2025-08-17 11:48:14.384 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: d4d16cbc-9671-4124-b4f2-201f00a613ee
+Text: 50">             {children}         </Box>     ),     li: ({
+children }) => (         <Box as="li" mb={1} color="purple.50">
+{children}         </Box>     ),     blockquote: ({ children }) => (
+<Box             as="blockquote"             borderLeft="4px solid"
+borderColor="purple.400"             pl={4}          ...
+Score:  0.038
+
+2025-08-17 11:48:14.384 | INFO     | src.router.messages:streamresponse:49 - Sending Source nodes : Node ID: d4d16cbc-9671-4124-b4f2-201f00a613ee
+Text: 50">             {children}         </Box>     ),     li: ({
+children }) => (         <Box as="li" mb={1} color="purple.50">
+{children}         </Box>     ),     blockquote: ({ children }) => (
+<Box             as="blockquote"             borderLeft="4px solid"
+borderColor="purple.400"             pl={4}          ...
+Score:  0.038
+
+2025-08-17 11:48:14.385 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:48:14.385 | INFO     | src.router.messages:streamresponse:50 - Sending Source nodes : dict_keys(['file_path', 'file_name', 'url'])
+2025-08-17 11:50:13.251 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:50:13.251 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-17 11:50:15.587 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:50:15.587 | INFO     | src.router.messages:message_stream:107 - Received files in backend:[]
+2025-08-17 11:50:16.109 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:50:16.109 | INFO     | src.router.messages:message_stream:140 - Rebuilding ADVANCED RAG pipeline from vector store...
+2025-08-17 11:50:17.932 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:50:17.932 | INFO     | src.router.messages:message_stream:170 - Advanced RAG pipeline rebuilt successfully.
+2025-08-17 11:50:18.147 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4895.53ms)
+2025-08-17 11:50:18.147 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4895.53ms)
+2025-08-17 11:50:39.549 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: <class 'ValueError'> Calculated available context size -135 was not non-negative.
+2025-08-17 11:50:39.549 | ERROR    | src.router.messages:streamresponse:73 - Streaming error: <class 'ValueError'> Calculated available context size -135 was not non-negative.
+2025-08-17 11:52:13.884 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:52:13.884 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 11:52:30.122 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 11:52:44.951 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:52:44.951 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 11:52:44.967 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:52:44.967 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 11:52:50.074 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 11:52:50.074 | INFO     | src.main:lifespan:81 - Database tables created successfully
+2025-08-17 12:03:14.912 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 12:03:14.912 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-17 12:03:14.913 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.08ms)
+2025-08-17 12:03:14.913 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.08ms)
+2025-08-17 12:03:15.228 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 12:03:15.228 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-17 12:03:23.567 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (8338.69ms)
+2025-08-17 12:03:23.567 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (8338.69ms)
+2025-08-17 12:07:35.674 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 12:07:35.674 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 12:08:01.620 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-17 12:08:38.998 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 12:08:38.998 | INFO     | src.main:<module>:20 - Server started
+2025-08-17 12:08:39.035 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 12:08:39.035 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-17 12:08:44.839 | ERROR    | src.main:lifespan:83 - Database init error: (psycopg2.OperationalError) connection to server at "ep-shy-queen-a8t044kf-pooler.eastus2.azure.neon.tech" (52.167.188.143), port 5432 failed: timeout expired
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-08-17 12:08:44.839 | ERROR    | src.main:lifespan:83 - Database init error: (psycopg2.OperationalError) connection to server at "ep-shy-queen-a8t044kf-pooler.eastus2.azure.neon.tech" (52.167.188.143), port 5432 failed: timeout expired
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-08-17 12:09:04.219 | INFO     | src.main:lifespan:85 - Shutting down...
+2025-08-17 12:09:04.219 | INFO     | src.main:lifespan:85 - Shutting down...

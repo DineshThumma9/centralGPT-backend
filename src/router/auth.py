@@ -32,7 +32,7 @@ def register(user: UserPayload, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         logger.exception("User registration failed")
-        return JSONResponse(content={"detail": f"Registration failed: {str(e)}"}, status_code=500)
+        return JSONResponse(content={"detail": f"Registration failed: {str(e)}" } , status_code=500)
 
 
 @router.post("/login", response_model=Token)

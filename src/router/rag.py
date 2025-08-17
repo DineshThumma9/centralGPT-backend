@@ -1,15 +1,15 @@
 # Fixed rag.py
 
 import logging
-from typing import List, Optional
+from typing import List
 
 from fastapi import APIRouter, File, UploadFile, Form
-from pydantic import BaseModel
 from fastapi import BackgroundTasks
+from fastapi import HTTPException
 
+from src.db.redis_client import redis_client
 from src.models.schema import git_spec
 from src.service.rag_service import GitRequest, git_handler, get_handler, get_dir_struct
-from src.db.redis_client import redis_client
 
 router = APIRouter()
 
@@ -61,6 +61,12 @@ async def get_status(session_id: str, context_id: str, context_type: str):
         # FIX: Use consistent key pattern
         key = f"collection_name:{collection_name}:status"
         status = await redis_client.get(key)
+
+        if not session_id or not context_id or not context_type:
+            raise HTTPException(status_code=400,detail="Error has occured some params are missing")
+
+
+
 
         if status is None:
             return {"status": "missing", "collection_name": collection_name}

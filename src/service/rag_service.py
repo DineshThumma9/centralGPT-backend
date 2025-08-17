@@ -3,8 +3,6 @@ import logging
 import os
 import shutil
 import tempfile
-import time
-from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
@@ -12,7 +10,7 @@ from dotenv import load_dotenv
 from fastapi import HTTPException, UploadFile, BackgroundTasks
 from github import Auth, Github
 from llama_index.core import SimpleDirectoryReader, Document, StorageContext
-from llama_index.core import VectorStoreIndex, load_index_from_storage
+from llama_index.core import VectorStoreIndex
 from llama_index.core.indices.vector_store import VectorIndexRetriever
 from llama_index.core.ingestion import IngestionPipeline
 from llama_index.core.node_parser import CodeSplitter, SentenceSplitter
@@ -20,11 +18,12 @@ from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 from llama_index.readers.github import GithubRepositoryReader, GithubClient
+from pydantic import BaseModel
 from starlette.responses import JSONResponse
-from src.db.qdrant_client import get_vector_store
-from src.db.redis_client import get_doc_store, get_index_store, redis_client
-from src.models.schema import GitRequest
 
+from src.db.qdrant_client import get_vector_store
+from src.db.redis_client import redis_client
+from src.models.schema import GitRequest
 
 load_dotenv()
 
@@ -32,6 +31,13 @@ logger = logging.getLogger(__name__)
 
 auth = Auth.Token(os.getenv("GITHUB_TOKEN"))
 g = Github(auth=auth)
+
+
+class FileType(BaseModel):
+    name: str
+    content: bytes
+    type: str
+
 
 EXT_MAP = {
     ".py": "Python",
@@ -44,7 +50,7 @@ EXT_MAP = {
     ".go": "Go",
     ".rb": "Ruby",
     ".php": "PHP",
-    ".jsx":"JavaScript",
+    ".jsx": "JavaScript",
     ".swift": "Swift",
     ".kt": "Kotlin",
     ".rs": "Rust",
@@ -55,19 +61,16 @@ EXT_MAP = {
     ".md": "Markdown"
 }
 
-
-
 code_embed_model = HuggingFaceEmbedding(
-        model_name="jinaai/jina-embeddings-v2-base-code" ,
-        trust_remote_code=True
-    )
-notes_embed_model =  HuggingFaceEmbedding(
-        model_name= "BAAI/bge-small-en-v1.5",
-        trust_remote_code=True
-    )
-
-
-
+    model_name="jinaai/jina-embeddings-v2-base-code",
+    trust_remote_code=True,
+    show_progress_bar=True
+)
+notes_embed_model = HuggingFaceEmbedding(
+    model_name="BAAI/bge-small-en-v1.5",
+    trust_remote_code=True,
+    show_progress_bar=True
+)
 
 
 async def git_documents(req: GitRequest):
@@ -81,20 +84,20 @@ async def git_documents(req: GitRequest):
     else:
         sha = repo.get_branch(repo.default_branch).commit.sha
 
-
-    documents = await async_github_reader(owner=req.owner,repo=req.repo,dir_include=req.dir_include,commit=req.commit,branch=req.branch)
+    documents = await async_github_reader(owner=req.owner, repo=req.repo, dir_include=req.dir_include,
+                                          commit=req.commit, branch=req.branch)
 
     try:
         read_me = repo.get_readme()
         readme = Document(
             doc_id=read_me.sha,
-            text=read_me.decoded_content.decode('utf-8') if isinstance(read_me.decoded_content, bytes) else read_me.decoded_content,
+            text=read_me.decoded_content.decode('utf-8') if isinstance(read_me.decoded_content,
+                                                                       bytes) else read_me.decoded_content,
             metadata={"path": read_me.path, "size": read_me.size}
         )
         documents.append(readme)
     except Exception as e:
         logger.warning(f"README not found or not accessible: {e}")
-
 
     if not documents:
         raise HTTPException(status_code=400, detail="No documents found")
@@ -102,55 +105,45 @@ async def git_documents(req: GitRequest):
     return {"docs": documents, "langs": langs, "sha": sha}
 
 
-
-
-
 async def async_github_reader(owner, repo, dir_include, branch, commit):
-
     loop = asyncio.get_event_loop()
 
-
     return await loop.run_in_executor(None,
-                                      lambda :GithubRepositoryReader(
-        github_client=GithubClient(verbose=True),
-        owner=owner,
-        repo=repo,
-        concurrent_requests=10,
-        retries=2,
-        logger=logger,
-        filter_directories=(dir_include or ["src"], GithubRepositoryReader.FilterType.INCLUDE),
-        filter_file_extensions=([
-            ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
-            ".json", ".ipynb", ".lock", ".md"
-        ], GithubRepositoryReader.FilterType.EXCLUDE),
-        use_parser=False,
-        verbose=True,
-        custom_folder=f"{owner}_{repo}_{branch}"
-            ).load_data(branch=branch, commit_sha=commit)
-    )
+                                      lambda: GithubRepositoryReader(
+                                          github_client=GithubClient(verbose=True),
+                                          owner=owner,
+                                          repo=repo,
+                                          concurrent_requests=10,
+                                          retries=2,
+                                          logger=logger,
+                                          filter_directories=(
+                                          dir_include or ["src"], GithubRepositoryReader.FilterType.INCLUDE),
+                                          filter_file_extensions=([
+                                                                      ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
+                                                                      ".json", ".ipynb", ".lock", ".md"
+                                                                  ], GithubRepositoryReader.FilterType.EXCLUDE),
+                                          use_parser=False,
+                                          verbose=True,
+                                          custom_folder=f"{owner}_{repo}_{branch}"
+                                      ).load_data(branch=branch, commit_sha=commit)
+                                      )
 
 
-
-def get_documents(files: List[UploadFile]):
-    documents = []
-
-
-
+def get_documents(files: List[FileType]):
     temp_dir = tempfile.mkdtemp()
 
     try:
         for file in files:
-            content = file.file.read()
 
-            if not content:
-                logger.warning(f"Empty file: {file.filename}")
+            if not file.content:
+                logger.warning(f"Empty file: {file.name}")
                 continue
 
-            temp_path = Path(temp_dir) / file.filename
+            temp_path = Path(temp_dir) / file.name
             with open(temp_path, 'wb') as f:
-                f.write(content)
+                f.write(file.content)
 
-        if temp_dir:
+        if temp_dir and os.listdir(temp_dir):
             try:
                 documents = SimpleDirectoryReader(
                     input_dir=temp_dir,
@@ -172,17 +165,11 @@ def get_documents(files: List[UploadFile]):
     return documents
 
 
-
-
-
 def get_nodes(documents: List[Document], is_code: bool,
               language: Optional[str] = None):
-
-
     if is_code:
 
         try:
-
 
             splitter = CodeSplitter(language=language)
             nodes = splitter.get_nodes_from_documents(documents)
@@ -205,8 +192,6 @@ def get_nodes(documents: List[Document], is_code: bool,
 
     else:
 
-
-
         pipeline = IngestionPipeline(transformations=[
             SemanticSplitterNodeParser(
                 buffer_size=1,
@@ -221,6 +206,7 @@ def get_nodes(documents: List[Document], is_code: bool,
 def get_repo_index_id(owner, repo, commit_sha):
     index_id = f"{owner}_{repo}_{commit_sha}_code"
     return index_id
+
 
 # THIS FUNCTION IS THE CORE FIX
 def get_or_build_index(nodes, is_code: bool, session_id: str, context_id: str, context_type: str):
@@ -247,15 +233,6 @@ def get_or_build_index(nodes, is_code: bool, session_id: str, context_id: str, c
 def get_embed_model(is_code: bool):
     return code_embed_model if is_code else notes_embed_model
 
-
-def get_retriever(index, embed_model):
-    return VectorIndexRetriever(
-        index=index,
-        embed_model=embed_model,
-        similarity_top_k=5,
-        node_postprocessors=[CohereRerank(top_n=3)],
-        verbose=True
-    )
 
 
 
@@ -320,7 +297,8 @@ def _get_repo_data(owner: str, repo: str, files: List[str]):
         docs.append(
             Document(
                 doc_id=content.sha,
-                text=content.decoded_content.decode('utf-8') if isinstance(content.decoded_content, bytes) else content.decoded_content,
+                text=content.decoded_content.decode('utf-8') if isinstance(content.decoded_content,
+                                                                           bytes) else content.decoded_content,
                 metadata={"path": fil, "size": content.size}
             )
         )
@@ -332,34 +310,7 @@ def _get_repo_data(owner: str, repo: str, files: List[str]):
     }
 
 
-
-# async def build_index(req: List[UploadFile], session_id, context_id, context_type):
-#     logger.info("Sending Docs to Simple Dir")
-#     documents = get_documents(req)
-#     logger.info("Got Docs")
-#     logger.info("getting nodes from docs")
-#     nodes = get_nodes(documents=documents, is_code=False)
-#     logger.info("Get nodes from docs")
-#
-#     logger.info("Building and persisting the index...")
-#
-#     # We call our corrected function with all the necessary IDs
-#     get_or_build_index(
-#         nodes=nodes,
-#         is_code=False,
-#         session_id=session_id,
-#         context_id=context_id,
-#         context_type=context_type
-#     )
-#
-#     # FIX: Use consistent key pattern
-#     collection_name = f"{session_id}_{context_id}_{context_type}"
-#     await redis_client.set(f"collection_name:{collection_name}:status", "ready")
-#     logger.info(f"Index ready for collection: {collection_name}")
-
-
-async def get_handler(background_tasks: BackgroundTasks, req: List[UploadFile], session_id, context_id, context_type):
-
+async def build_index(req: List[FileType], session_id, context_id, context_type):
     logger.info("Sending Docs to Simple Dir")
     documents = get_documents(req)
     logger.info("Got Docs")
@@ -379,14 +330,69 @@ async def get_handler(background_tasks: BackgroundTasks, req: List[UploadFile], 
     )
 
     # FIX: Use consistent key pattern
+    collection_name = f"{session_id}_{context_id}_{context_type}"
+    await redis_client.set(f"collection_name:{collection_name}:status", "ready")
+    logger.info(f"Index ready for collection: {collection_name}")
+
+
+async def to_files(files: List[UploadFile]):
+    converted = []
+
+    for file in files:
+
+        try:
+
+            content = await file.read()
+
+            if not content:
+                logger.error(f"File has no contents : {file.filename}")
+                continue
+
+            f = FileType(
+                name=file.filename,
+                content=content,
+                type=file.content_type
+            )
+
+            converted.append(f)
+
+            await file.seek(0)
+
+        except Exception as e:
+            logger.error(f"Error has occured some  : {e}")
+            continue
+
+    return converted
+
+
+async def get_handler(background_tasks: BackgroundTasks, req: List[UploadFile], session_id, context_id, context_type):
+    # logger.info("Sending Docs to Simple Dir")
+    # documents = get_documents(req)
+    # logger.info("Got Docs")
+    # logger.info("getting nodes from docs")
+    # nodes = get_nodes(documents=documents, is_code=False)
+    # logger.info("Get nodes from docs")
+    #
+    # logger.info("Building and persisting the index...")
+    #
+    # # We call our corrected function with all the necessary IDs
+    # get_or_build_index(
+    #     nodes=nodes,
+    #     is_code=False,
+    #     session_id=session_id,
+    #     context_id=context_id,
+    #     context_type=context_type
+    # )
+
+    # FIX: Use consistent key pattern
     # collection_name = f"{session_id}_{context_id}_{context_type}"
     # await redis_client.set(f"collection_name:{collection_name}:status", "ready")
     # logger.info(f"Index ready for collection: {collection_name}")
 
-
-    # collection_name = f"{session_id}_{context_id}_{context_type}"
-    # await redis_client.set(f"collection_name:{collection_name}:status", "indexing")
-    # background_tasks.add_task(build_index, req, session_id, context_id, context_type)
+    collection_name = f"{session_id}_{context_id}_{context_type}"
+    await redis_client.set(f"collection_name:{collection_name}:status", "indexing")
+    files = await to_files(req)
+    background_tasks.add_task(build_index, files, session_id, context_id, context_type)
 
     return JSONResponse(status_code=200, content={"message": "Documents are being indexed", "status": "indexing"})
 
@@ -411,8 +417,8 @@ async def git_handler(req: GitRequest, session_id, context_id, context_type):
         context_id=context_id
     )
 
-    # # FIX: Set status consistently
-    # collection_name = f"{session_id}_{context_id}_{context_type}"
-    # await redis_client.set(f"collection_name:{collection_name}:status", "ready")
+    # FIX: Set status consistently
+    collection_name = f"{session_id}_{context_id}_{context_type}"
+    await redis_client.set(f"collection_name:{collection_name}:status", "ready")
 
     return JSONResponse(status_code=200, content={"message": "Engine has been Set", "status": "ready"})

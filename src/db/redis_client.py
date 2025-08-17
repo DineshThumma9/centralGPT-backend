@@ -3,6 +3,7 @@
 import os
 import redis.asyncio as redis
 from llama_index.core import StorageContext
+from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.storage.docstore.redis import RedisDocumentStore
 from llama_index.storage.kvstore.redis import RedisKVStore
 from llama_index.core.storage.docstore.keyval_docstore import KVDocumentStore
@@ -60,7 +61,15 @@ def get_index_store(namespace):
 
 
 
+def get_memory(session_id):
+    memory = ChatMemoryBuffer.from_defaults(
+        chat_store=chat_store,
+        chat_store_key=session_id,
+        token_limit=2000
 
+    )
+
+    return memory
 
 
 
