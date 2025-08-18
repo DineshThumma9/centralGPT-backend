@@ -40,7 +40,7 @@ async def get_rag(
         req=files,
         session_id=session_id,
         context_id=context_id,
-        context_type=context_type  # use passed value
+        context_type=context_type
     )
     return res
 
@@ -58,7 +58,6 @@ async def get_tree(
 async def get_status(session_id: str, context_id: str, context_type: str):
     try:
         collection_name = f"{session_id}_{context_id}_{context_type}"
-        # FIX: Use consistent key pattern
         key = f"collection_name:{collection_name}:status"
         status = await redis_client.get(key)
 
@@ -71,7 +70,8 @@ async def get_status(session_id: str, context_id: str, context_type: str):
         if status is None:
             return {"status": "missing", "collection_name": collection_name}
 
-        # If status is already str, don't decode
+
+
         if isinstance(status, bytes):
             status = status.decode()
 

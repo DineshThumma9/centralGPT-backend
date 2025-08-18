@@ -15,11 +15,13 @@ from src.db.dbs import get_db
 from src.models.schema import User, RefreshToken, APIKEYS, Token
 
 load_dotenv()
-logger.info("In Auth")
 SECRET_KEY = os.getenv("SECRET_KEY", "YOUR_SECRET_KEY")
 ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRY_MIN = int(os.getenv("ACCESS_TOKEN_EXPIRY_MIN", "360"))
 REFRESH_TOKEN_EXPIRY_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRY_DAYS", "30"))
+
+
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
@@ -70,10 +72,9 @@ def create_tokens(data: dict, db: Session):
     try:
         db.add(db_token)
         db.commit()
-        logger.info(f"Refresh token stored for user: {email}")
     except Exception as e:
         db.rollback()
-        logger.exception("Failed to store refresh token in DB")
+        logger.exception(f"Failed to store refresh token in DB {e} {e.__class__}")
         return JSONResponse(content={"detail": "Database error"}, status_code=500)
 
     tokens = Token(access=access_token, refresh=refresh_token)

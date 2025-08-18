@@ -3,13 +3,7 @@ import os
 import chromadb
 from dotenv import load_dotenv
 from llama_index.vector_stores.chroma import ChromaVectorStore
-from qdrant_client import QdrantClient
 
-# qdrant_client =  AsyncQdrantClient(
-#              url=os.getenv("QDRANT_URL"),
-#            api_key=os.getenv("QDRANT_API_KEY")
-#      )
-#
 
 
 
