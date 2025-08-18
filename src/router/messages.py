@@ -69,7 +69,7 @@ async def streamresponse(engine, session_id, db, title, message, files, request)
 
     except Exception as e:
         logger.error(f"Streaming error: {e.__class__} {e.__cause__} {e.__context__} {e}")
-        yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+        yield f"data: {json.dumps({'type': 'error', 'content': str(e.__class__)})}\n\n"
 
 
 def handling_save_db(session_id, db, full_response, user_msg, files):
