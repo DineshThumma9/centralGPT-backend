@@ -62,12 +62,16 @@ EXT_MAP = {
 code_embed_model = HuggingFaceEmbedding(
     model_name="jinaai/jina-embeddings-v2-base-code",
     trust_remote_code=True,
-    show_progress_bar=True
+    show_progress_bar=True,
+    embed_batch_size=12,
+
 )
 notes_embed_model = HuggingFaceEmbedding(
     model_name="BAAI/bge-small-en-v1.5",
     trust_remote_code=True,
-    show_progress_bar=True
+    show_progress_bar=True,
+    embed_batch_size=16,
+
 )
 
 
