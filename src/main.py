@@ -25,16 +25,12 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "http://127.0.0.1:55000",
-        "http://localhost:55000",
         "https://central-gpt-frontend.vercel.app",
-        "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
-        "https://central-gpt-frontend-4svito8yj-ducts-projects.vercel.app",
-        "http://localhost:55001",
+        "https://central-gpt.vercel.app",
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:5176",
-        "http://localhost:55000",
+
     ],
    allow_origin_regex="https://central-gpt.*\.vercel\.app",
     allow_credentials=True,
