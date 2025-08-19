@@ -129,7 +129,7 @@ async def async_github_reader(owner, repo, dir_include, branch, commit):
                                                                       ".json", ".ipynb", ".lock", ".md"
                                                                   ], GithubRepositoryReader.FilterType.EXCLUDE),
                                           use_parser=False,
-                                          verbose=True,
+
                                           custom_folder=f"{owner}_{repo}_{branch}"
                                       ).load_data(branch=branch, commit_sha=commit)
                                       )

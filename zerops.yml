@@ -1,9 +1,0 @@
-zerops:
-  - setup: app
-    run:
-      prepareCommands:
-        - docker image pull centralgptacr.azurecr.io/centralgpt:latest   # Always use specific version tags
-      start: docker run --network=host centralgptacr.azurecr.io/centralgpt:latest
-      ports:
-        - port: 8000
-          httpSupport: true
