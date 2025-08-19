@@ -62,15 +62,13 @@ EXT_MAP = {
 code_embed_model = HuggingFaceEmbedding(
     model_name="jinaai/jina-embeddings-v2-base-code",
     trust_remote_code=True,
-    show_progress_bar=True,
-    embed_batch_size=12,
+    embed_batch_size=32,
 
 )
 notes_embed_model = HuggingFaceEmbedding(
     model_name="BAAI/bge-small-en-v1.5",
     trust_remote_code=True,
-    show_progress_bar=True,
-    embed_batch_size=16,
+    embed_batch_size=64,
 
 )
 
@@ -330,7 +328,7 @@ async def build_index(req: List[FileType], session_id, context_id, context_type)
     )
 
     collection_name = f"{session_id}_{context_id}_{context_type}"
-    await redis_client.set(f"collection_name:{collection_name}:status", "ready")
+    await redis_client.set(f"collection_name:{collection_name}:status", "ready",ex=600)
 
 
 async def to_files(files: List[UploadFile]):
@@ -365,7 +363,7 @@ async def to_files(files: List[UploadFile]):
 
 async def get_handler(background_tasks: BackgroundTasks, req: List[UploadFile], session_id, context_id, context_type):
     collection_name = f"{session_id}_{context_id}_{context_type}"
-    await redis_client.set(f"collection_name:{collection_name}:status", "indexing")
+    await redis_client.set(f"collection_name:{collection_name}:status", "indexing",ex=600)
     files = await to_files(req)
     background_tasks.add_task(build_index, files, session_id, context_id, context_type)
 
@@ -393,6 +391,6 @@ async def git_handler(req: GitRequest, session_id, context_id, context_type):
     )
 
     collection_name = f"{session_id}_{context_id}_{context_type}"
-    await redis_client.set(f"collection_name:{collection_name}:status", "ready")
+    await redis_client.set(f"collection_name:{collection_name}:status", "ready",ex=600)
 
     return JSONResponse(status_code=200, content={"message": "Engine has been Set", "status": "ready"})

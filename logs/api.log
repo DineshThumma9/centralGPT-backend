@@ -12,3 +12,384 @@
 2025-08-18 19:21:36.596 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (2.0ms)
 2025-08-18 19:21:36.600 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
 2025-08-18 19:21:36.600 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:21:48.469 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (11868.95ms)
+2025-08-18 19:21:48.469 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (11868.95ms)
+2025-08-18 19:22:02.528 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:22:02.528 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:22:03.753 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1224.85ms)
+2025-08-18 19:22:03.753 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1224.85ms)
+2025-08-18 19:22:03.791 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:22:03.791 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:22:03.792 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.09ms)
+2025-08-18 19:22:03.792 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.09ms)
+2025-08-18 19:22:03.797 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:22:03.797 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:22:07.846 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4049.14ms)
+2025-08-18 19:22:07.846 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (4049.14ms)
+2025-08-18 19:24:46.972 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:24:46.972 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:24:50.872 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3900.64ms)
+2025-08-18 19:24:50.872 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3900.64ms)
+2025-08-18 19:25:08.073 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:25:08.073 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:25:08.521 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (448.13ms)
+2025-08-18 19:25:08.521 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (448.13ms)
+2025-08-18 19:25:31.788 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:25:31.788 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:25:32.666 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (877.69ms)
+2025-08-18 19:25:32.666 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (877.69ms)
+2025-08-18 19:25:32.688 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:25:32.688 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:25:34.901 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2212.45ms)
+2025-08-18 19:25:34.901 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2212.45ms)
+2025-08-18 19:26:05.069 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:26:05.069 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:26:08.140 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3070.76ms)
+2025-08-18 19:26:08.140 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3070.76ms)
+2025-08-18 19:26:17.131 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:26:17.131 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:26:19.999 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2868.37ms)
+2025-08-18 19:26:19.999 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2868.37ms)
+2025-08-18 19:27:29.977 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:27:29.977 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:27:32.454 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2477.44ms)
+2025-08-18 19:27:32.454 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (2477.44ms)
+2025-08-18 19:27:32.457 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:27:32.457 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:27:33.574 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1116.51ms)
+2025-08-18 19:27:33.574 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1116.51ms)
+2025-08-18 19:27:47.304 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:27:47.304 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:27:47.752 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (448.42ms)
+2025-08-18 19:27:47.752 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (448.42ms)
+2025-08-18 19:28:27.194 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:28:27.194 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:28:27.634 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (439.98ms)
+2025-08-18 19:28:27.634 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (439.98ms)
+2025-08-18 19:28:27.666 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:28:27.666 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:28:30.288 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2622.4ms)
+2025-08-18 19:28:30.288 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2622.4ms)
+2025-08-18 19:30:55.871 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:30:55.871 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:30:55.872 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:30:55.872 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:30:55.873 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-08-18 19:30:55.873 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (2.01ms)
+2025-08-18 19:30:55.875 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.0ms)
+2025-08-18 19:30:55.875 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.0ms)
+2025-08-18 19:30:56.181 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:30:56.181 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:30:58.442 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:30:58.442 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:31:01.803 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (5621.61ms)
+2025-08-18 19:31:01.803 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (5621.61ms)
+2025-08-18 19:31:01.807 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:31:01.807 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:31:02.669 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4227.31ms)
+2025-08-18 19:31:02.669 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (4227.31ms)
+2025-08-18 19:31:02.882 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1074.66ms)
+2025-08-18 19:31:02.882 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1074.66ms)
+2025-08-18 19:32:00.313 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-18 19:32:00.313 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-18 19:32:00.314 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-08-18 19:32:00.314 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.0ms)
+2025-08-18 19:32:00.638 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:32:00.638 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:32:01.111 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (473.54ms)
+2025-08-18 19:32:01.111 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (473.54ms)
+2025-08-18 19:32:34.231 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:32:34.231 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:32:34.666 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (434.23ms)
+2025-08-18 19:32:34.666 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (434.23ms)
+2025-08-18 19:32:37.683 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:32:37.683 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:32:37.904 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (220.78ms)
+2025-08-18 19:32:37.904 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (220.78ms)
+2025-08-18 19:32:37.940 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:32:37.940 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:32:37.943 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.99ms)
+2025-08-18 19:32:37.943 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (2.99ms)
+2025-08-18 19:32:37.947 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:32:37.947 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:32:41.156 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3208.84ms)
+2025-08-18 19:32:41.156 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3208.84ms)
+2025-08-18 19:33:10.297 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:33:10.297 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:33:10.747 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (450.7ms)
+2025-08-18 19:33:10.747 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (450.7ms)
+2025-08-18 19:33:23.817 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:33:23.817 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:33:24.248 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (431.11ms)
+2025-08-18 19:33:24.248 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (431.11ms)
+2025-08-18 19:33:24.289 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:33:24.289 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:33:26.891 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2601.75ms)
+2025-08-18 19:33:26.891 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2601.75ms)
+2025-08-18 19:33:51.128 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:33:51.128 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:33:57.767 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (6639.58ms)
+2025-08-18 19:33:57.767 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (6639.58ms)
+2025-08-18 19:51:27.533 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:51:27.533 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:51:27.535 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:51:27.535 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 19:51:27.537 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (4.01ms)
+2025-08-18 19:51:27.537 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (4.01ms)
+2025-08-18 19:51:27.540 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (5.01ms)
+2025-08-18 19:51:27.540 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (5.01ms)
+2025-08-18 19:51:27.845 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:51:27.845 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:51:31.326 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3480.41ms)
+2025-08-18 19:51:31.326 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (3480.41ms)
+2025-08-18 19:51:31.337 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:51:31.337 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 19:51:32.780 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1442.64ms)
+2025-08-18 19:51:32.780 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1442.64ms)
+2025-08-18 19:51:35.751 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-18 19:51:35.751 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-18 19:51:35.751 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (0.0ms)
+2025-08-18 19:51:35.751 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (0.0ms)
+2025-08-18 19:51:35.754 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:51:35.754 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:51:38.183 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2428.21ms)
+2025-08-18 19:51:38.183 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2428.21ms)
+2025-08-18 19:51:40.365 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:40.365 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:40.367 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (1.49ms)
+2025-08-18 19:51:40.367 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (1.49ms)
+2025-08-18 19:51:40.370 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:40.370 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:41.540 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:41.540 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:41.542 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (1.25ms)
+2025-08-18 19:51:41.542 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (1.25ms)
+2025-08-18 19:51:41.545 | INFO     | src.main:log_requests:51 - Incoming request: DELETE /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:41.545 | INFO     | src.main:log_requests:51 - Incoming request: DELETE /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a
+2025-08-18 19:51:45.642 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.642 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.644 | INFO     | src.main:log_requests:54 - GET /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (5273.23ms)
+2025-08-18 19:51:45.644 | INFO     | src.main:log_requests:54 - GET /sessions/history/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (5273.23ms)
+2025-08-18 19:51:45.647 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (5.16ms)
+2025-08-18 19:51:45.647 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (5.16ms)
+2025-08-18 19:51:45.649 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.649 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.650 | INFO     | src.main:log_requests:54 - DELETE /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (4104.89ms)
+2025-08-18 19:51:45.650 | INFO     | src.main:log_requests:54 - DELETE /sessions/e56dde37-1367-4869-b9e2-bcb4111c0f6a → 200 (4104.89ms)
+2025-08-18 19:51:45.653 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (4.37ms)
+2025-08-18 19:51:45.653 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (4.37ms)
+2025-08-18 19:51:45.655 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.655 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.658 | INFO     | src.main:log_requests:51 - Incoming request: DELETE /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:45.658 | INFO     | src.main:log_requests:51 - Incoming request: DELETE /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57
+2025-08-18 19:51:50.333 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:51:50.333 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:51:50.337 | INFO     | src.main:log_requests:54 - DELETE /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (4678.72ms)
+2025-08-18 19:51:50.337 | INFO     | src.main:log_requests:54 - DELETE /sessions/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (4678.72ms)
+2025-08-18 19:51:52.389 | INFO     | src.main:log_requests:54 - GET /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (6733.69ms)
+2025-08-18 19:51:52.389 | INFO     | src.main:log_requests:54 - GET /sessions/history/88a91b42-fd94-4cc3-b065-5c3703d66e57 → 200 (6733.69ms)
+2025-08-18 19:51:52.634 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2300.33ms)
+2025-08-18 19:51:52.634 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2300.33ms)
+2025-08-18 19:52:09.381 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-18 19:52:09.381 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-18 19:52:09.382 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.21ms)
+2025-08-18 19:52:09.382 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (1.21ms)
+2025-08-18 19:52:09.690 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:52:09.690 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-18 19:52:10.412 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (721.91ms)
+2025-08-18 19:52:10.412 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (721.91ms)
+2025-08-18 19:52:14.367 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:52:14.367 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-18 19:52:14.922 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (555.51ms)
+2025-08-18 19:52:14.922 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (555.51ms)
+2025-08-18 19:52:14.952 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:52:14.952 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-18 19:52:14.954 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-18 19:52:14.954 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-18 19:52:14.958 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:52:14.958 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-18 19:52:17.929 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2970.58ms)
+2025-08-18 19:52:17.929 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (2970.58ms)
+2025-08-18 19:52:30.983 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:52:30.983 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-18 19:52:33.568 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2584.86ms)
+2025-08-18 19:52:33.568 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2584.86ms)
+2025-08-18 20:03:00.891 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-18 20:03:00.891 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-18 20:03:00.893 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.53ms)
+2025-08-18 20:03:00.893 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.53ms)
+2025-08-18 20:03:01.200 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-18 20:03:01.200 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-18 20:04:25.594 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (84394.52ms)
+2025-08-18 20:04:25.594 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (84394.52ms)
+2025-08-18 20:05:21.743 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 20:05:21.743 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 20:05:21.745 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 20:05:21.745 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-18 20:05:21.746 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.06ms)
+2025-08-18 20:05:21.746 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.06ms)
+2025-08-18 20:05:21.749 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.33ms)
+2025-08-18 20:05:21.749 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (3.33ms)
+2025-08-18 20:05:22.068 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 20:05:22.068 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 20:05:23.256 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1187.97ms)
+2025-08-18 20:05:23.256 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1187.97ms)
+2025-08-18 20:05:23.260 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 20:05:23.260 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-18 20:05:24.382 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1121.9ms)
+2025-08-18 20:05:24.382 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1121.9ms)
+2025-08-18 20:05:48.726 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-18 20:05:48.726 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-18 20:05:48.727 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-18 20:05:48.727 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (1.0ms)
+2025-08-18 20:05:48.730 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-18 20:05:48.730 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-18 20:07:58.245 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (129514.33ms)
+2025-08-18 20:07:58.245 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (129514.33ms)
+2025-08-19 06:38:03.784 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-19 06:38:25.965 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 06:38:25.965 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 06:38:25.996 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 06:38:25.996 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 06:38:35.114 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 06:38:35.114 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 06:41:03.986 | INFO     | src.main:log_requests:51 - Incoming request: GET /
+2025-08-19 06:41:03.986 | INFO     | src.main:log_requests:51 - Incoming request: GET /
+2025-08-19 06:41:03.988 | INFO     | src.main:log_requests:54 - GET / → 200 (2.0ms)
+2025-08-19 06:41:03.988 | INFO     | src.main:log_requests:54 - GET / → 200 (2.0ms)
+2025-08-19 06:41:04.158 | INFO     | src.main:log_requests:51 - Incoming request: GET /favicon.ico
+2025-08-19 06:41:04.158 | INFO     | src.main:log_requests:51 - Incoming request: GET /favicon.ico
+2025-08-19 06:41:04.159 | INFO     | src.main:log_requests:54 - GET /favicon.ico → 404 (0.7ms)
+2025-08-19 06:41:04.159 | INFO     | src.main:log_requests:54 - GET /favicon.ico → 404 (0.7ms)
+2025-08-19 06:41:47.525 | INFO     | src.main:log_requests:51 - Incoming request: GET /favicon.ico
+2025-08-19 06:41:47.525 | INFO     | src.main:log_requests:51 - Incoming request: GET /favicon.ico
+2025-08-19 06:41:47.526 | INFO     | src.main:log_requests:54 - GET /favicon.ico → 404 (1.66ms)
+2025-08-19 06:41:47.526 | INFO     | src.main:log_requests:54 - GET /favicon.ico → 404 (1.66ms)
+2025-08-19 06:41:47.648 | INFO     | src.main:log_requests:51 - Incoming request: GET /
+2025-08-19 06:41:47.648 | INFO     | src.main:log_requests:51 - Incoming request: GET /
+2025-08-19 06:41:47.650 | INFO     | src.main:log_requests:54 - GET / → 200 (2.12ms)
+2025-08-19 06:41:47.650 | INFO     | src.main:log_requests:54 - GET / → 200 (2.12ms)
+2025-08-19 21:09:22.023 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-19 21:09:40.134 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 21:09:40.134 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 21:09:40.169 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 21:09:40.169 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 21:09:46.783 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 21:09:46.783 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 21:13:49.513 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-19 21:13:49.513 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-19 21:13:49.514 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-19 21:13:49.514 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/getAll
+2025-08-19 21:13:49.514 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (1.05ms)
+2025-08-19 21:13:49.514 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (1.05ms)
+2025-08-19 21:13:49.515 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (0.95ms)
+2025-08-19 21:13:49.515 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/getAll → 200 (0.95ms)
+2025-08-19 21:13:49.823 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:13:49.823 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:13:49.846 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (23.58ms)
+2025-08-19 21:13:49.846 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (23.58ms)
+2025-08-19 21:13:49.850 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:13:49.850 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:13:49.856 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (6.01ms)
+2025-08-19 21:13:49.856 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 401 (6.01ms)
+2025-08-19 21:14:00.253 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-19 21:14:00.253 | INFO     | src.main:log_requests:51 - Incoming request: POST /auth/login
+2025-08-19 21:14:02.053 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (1799.55ms)
+2025-08-19 21:14:02.053 | INFO     | src.main:log_requests:54 - POST /auth/login → 200 (1799.55ms)
+2025-08-19 21:14:02.079 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-19 21:14:02.079 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-19 21:14:02.080 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.08ms)
+2025-08-19 21:14:02.080 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.08ms)
+2025-08-19 21:14:02.083 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-19 21:14:02.083 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-19 21:14:04.196 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2112.89ms)
+2025-08-19 21:14:04.196 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (2112.89ms)
+2025-08-19 21:14:05.126 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:14:05.126 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:14:06.275 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1150.18ms)
+2025-08-19 21:14:06.275 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1150.18ms)
+2025-08-19 21:14:06.277 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:14:06.277 | INFO     | src.main:log_requests:51 - Incoming request: GET /sessions/getAll
+2025-08-19 21:14:07.433 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1155.91ms)
+2025-08-19 21:14:07.433 | INFO     | src.main:log_requests:54 - GET /sessions/getAll → 200 (1155.91ms)
+2025-08-19 21:14:13.933 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-19 21:14:13.933 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/providers
+2025-08-19 21:14:13.938 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (5.04ms)
+2025-08-19 21:14:13.938 | INFO     | src.main:log_requests:54 - OPTIONS /setup/providers → 200 (5.04ms)
+2025-08-19 21:14:13.942 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-19 21:14:13.942 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/providers
+2025-08-19 21:14:15.093 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1150.52ms)
+2025-08-19 21:14:15.093 | INFO     | src.main:log_requests:54 - POST /setup/providers → 200 (1150.52ms)
+2025-08-19 21:14:15.568 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-19 21:14:15.568 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /setup/models
+2025-08-19 21:14:15.569 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (1.0ms)
+2025-08-19 21:14:15.569 | INFO     | src.main:log_requests:54 - OPTIONS /setup/models → 200 (1.0ms)
+2025-08-19 21:14:15.572 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-19 21:14:15.572 | INFO     | src.main:log_requests:51 - Incoming request: POST /setup/models
+2025-08-19 21:14:16.713 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1141.0ms)
+2025-08-19 21:14:16.713 | INFO     | src.main:log_requests:54 - POST /setup/models → 200 (1141.0ms)
+2025-08-19 21:14:27.444 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-19 21:14:27.444 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/upload
+2025-08-19 21:14:27.447 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (3.0ms)
+2025-08-19 21:14:27.447 | INFO     | src.main:log_requests:54 - OPTIONS /rag/upload → 200 (3.0ms)
+2025-08-19 21:14:27.759 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-19 21:14:27.759 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/upload
+2025-08-19 21:14:29.286 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (1527.15ms)
+2025-08-19 21:14:29.286 | INFO     | src.main:log_requests:54 - POST /rag/upload → 200 (1527.15ms)
+2025-08-19 21:14:43.464 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-19 21:14:43.464 | INFO     | src.main:log_requests:51 - Incoming request: GET /rag/status
+2025-08-19 21:14:44.697 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1233.34ms)
+2025-08-19 21:14:44.697 | INFO     | src.main:log_requests:54 - GET /rag/status → 200 (1233.34ms)
+2025-08-19 21:14:44.740 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-19 21:14:44.740 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-19 21:14:44.741 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-19 21:14:44.741 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (1.0ms)
+2025-08-19 21:14:44.745 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-19 21:14:44.745 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-19 21:14:48.132 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3387.83ms)
+2025-08-19 21:14:48.132 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (3387.83ms)
+2025-08-19 21:26:54.019 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-19 21:26:54.019 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/new
+2025-08-19 21:26:54.020 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.05ms)
+2025-08-19 21:26:54.020 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/new → 200 (1.05ms)
+2025-08-19 21:26:54.330 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-19 21:26:54.330 | INFO     | src.main:log_requests:51 - Incoming request: POST /sessions/new
+2025-08-19 21:26:58.253 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3922.54ms)
+2025-08-19 21:26:58.253 | INFO     | src.main:log_requests:54 - POST /sessions/new → 200 (3922.54ms)
+2025-08-19 22:01:12.164 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-19 22:01:12.164 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /rag/git
+2025-08-19 22:01:12.164 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (0.0ms)
+2025-08-19 22:01:12.164 | INFO     | src.main:log_requests:54 - OPTIONS /rag/git → 200 (0.0ms)
+2025-08-19 22:01:12.475 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-19 22:01:12.475 | INFO     | src.main:log_requests:51 - Incoming request: POST /rag/git
+2025-08-19 22:02:46.296 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (93821.55ms)
+2025-08-19 22:02:46.296 | INFO     | src.main:log_requests:54 - POST /rag/git → 200 (93821.55ms)
+2025-08-19 22:03:16.711 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-19 22:03:16.711 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /messages/simple-stream
+2025-08-19 22:03:16.712 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.97ms)
+2025-08-19 22:03:16.712 | INFO     | src.main:log_requests:54 - OPTIONS /messages/simple-stream → 200 (0.97ms)
+2025-08-19 22:03:16.716 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-19 22:03:16.716 | INFO     | src.main:log_requests:51 - Incoming request: POST /messages/simple-stream
+2025-08-19 22:03:24.419 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7703.58ms)
+2025-08-19 22:03:24.419 | INFO     | src.main:log_requests:54 - POST /messages/simple-stream → 200 (7703.58ms)
+2025-08-19 22:03:42.984 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title
+2025-08-19 22:03:42.984 | INFO     | src.main:log_requests:51 - Incoming request: OPTIONS /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title
+2025-08-19 22:03:42.984 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title → 200 (0.0ms)
+2025-08-19 22:03:42.984 | INFO     | src.main:log_requests:54 - OPTIONS /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title → 200 (0.0ms)
+2025-08-19 22:03:43.293 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title
+2025-08-19 22:03:43.293 | INFO     | src.main:log_requests:51 - Incoming request: PATCH /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title
+2025-08-19 22:03:45.417 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session f76ed176-c733-433d-a97b-aeb525e74364: Codebase Learning and Improvement Discussion
+2025-08-19 22:03:45.417 | INFO     | src.router.sessions:update_session_title:96 - Updated title for session f76ed176-c733-433d-a97b-aeb525e74364: Codebase Learning and Improvement Discussion
+2025-08-19 22:03:45.636 | INFO     | src.main:log_requests:54 - PATCH /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title → 200 (2342.78ms)
+2025-08-19 22:03:45.636 | INFO     | src.main:log_requests:54 - PATCH /sessions/f76ed176-c733-433d-a97b-aeb525e74364/title → 200 (2342.78ms)
+2025-08-19 22:27:27.156 | INFO     | src.main:lifespan:84 - Shutting down...
+2025-08-19 22:27:27.156 | INFO     | src.main:lifespan:84 - Shutting down...
+2025-08-19 22:27:47.276 | INFO     | src.router.sessions:<module>:19 - Server started
+2025-08-19 22:28:04.178 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 22:28:04.178 | INFO     | src.main:<module>:20 - Server started
+2025-08-19 22:28:04.217 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 22:28:04.217 | INFO     | src.main:lifespan:77 - Starting up...
+2025-08-19 22:28:09.852 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 22:28:09.852 | INFO     | src.main:lifespan:80 - Database tables created successfully
+2025-08-19 22:57:23.234 | INFO     | src.main:lifespan:84 - Shutting down...
+2025-08-19 22:57:23.234 | INFO     | src.main:lifespan:84 - Shutting down...

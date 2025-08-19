@@ -3,17 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: fastapi_app
+    container_name: centralgpt_app
     ports:
       - "8000:8000"
     env_file:
-      - .env.example
+      - .env
     volumes:
-      - .:app  # Only mount for development
+      - .:/app  #
     command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
