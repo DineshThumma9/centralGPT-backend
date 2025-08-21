@@ -46,18 +46,19 @@ logging.basicConfig(
 
 
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "http://127.0.0.1:5173",
         "https://central-gpt.vercel.app",
-        "https://central-gpt-frontend.vercel.app",  # if you really use this too
+        "https://central-gpt-frontend.vercel.app",
     ],
-    allow_credentials=False,   # ✅ since you’re not using cookies
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 import time
 @app.middleware("http")
