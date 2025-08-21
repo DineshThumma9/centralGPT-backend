@@ -52,28 +52,20 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-logger = logging.getLogger("datadog_example")
+logger = logging.getLogger("datadog")
 logger.info("My backend app has started 🚀")
-
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://central-gpt-frontend.vercel.app",
         "https://central-gpt.vercel.app",
-        "http://localhost:5174",
-        "http://localhost:5175",
-        "http://localhost:5176",
-
+        "https://central-gpt-frontend.vercel.app",  # if you really use this too
     ],
-   allow_origin_regex="https://central-gpt.*\.vercel\.app",
-    allow_credentials=True,
+    allow_credentials=False,   # ✅ since you’re not using cookies
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 
 import time
 @app.middleware("http")
