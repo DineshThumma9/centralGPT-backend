@@ -30,30 +30,22 @@ options = {
 
 initialize(**options)
 
-logger = logging.getLogger('datadog_example')
-logger.setLevel(logging.INFO)
-
-# Example log line
-logger.info("My backend app has started 🚀")
 
 import os
 import logging
-from logging.handlers import RotatingFileHandler
 
-import logging
-import os
-
-log_dir = "/var/log/myapp"
-os.makedirs(log_dir, exist_ok=True)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG_DIR = os.path.join(BASE_DIR, "../logs")
+os.makedirs(LOG_DIR, exist_ok=True)
 
 logging.basicConfig(
-    filename=f"{log_dir}/app.log",
-    format="%(asctime)s %(levelname)s %(message)s",
-    level=logging.INFO
+    filename=os.path.join(LOG_DIR, "app.log"),
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
-logger = logging.getLogger("datadog")
-logger.info("My backend app has started 🚀")
+
+
 
 app.add_middleware(
     CORSMiddleware,
