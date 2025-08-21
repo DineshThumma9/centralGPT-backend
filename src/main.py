@@ -20,6 +20,41 @@ logger.add("logs/api.log", rotation="1 MB", retention="10 days", level="INFO")
 logger.info("Server started")
 
 
+import logging
+from datadog import initialize
+
+options = {
+    'api_key': os.getenv("DD_API_KEY"),
+    'app_key': os.getenv("DD_APP_KEY")
+}
+
+initialize(**options)
+
+logger = logging.getLogger('datadog_example')
+logger.setLevel(logging.INFO)
+
+# Example log line
+logger.info("My backend app has started 🚀")
+
+import os
+import logging
+from logging.handlers import RotatingFileHandler
+
+import logging
+import os
+
+log_dir = "/var/log/myapp"
+os.makedirs(log_dir, exist_ok=True)
+
+logging.basicConfig(
+    filename=f"{log_dir}/app.log",
+    format="%(asctime)s %(levelname)s %(message)s",
+    level=logging.INFO
+)
+
+logger = logging.getLogger("datadog_example")
+logger.info("My backend app has started 🚀")
+
 
 app.add_middleware(
     CORSMiddleware,
