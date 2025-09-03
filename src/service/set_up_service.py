@@ -3,9 +3,12 @@ import logging
 from cryptography.fernet import Fernet;
 from fastapi import Depends
 from fastapi import HTTPException
+from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.llms.groq import Groq
 from llama_index.llms.mistralai import MistralAI
 from llama_index.llms.ollama import Ollama
+from llama_index.llms.openai import OpenAI
+from llama_index.llms.openrouter import OpenRouter
 from llama_index.llms.together import TogetherLLM
 from src.db import get_db
 from src.models.schema import APIKEYS, UserLLMConfig
@@ -17,17 +20,19 @@ from src.router.auth import get_current_user
 llm_instances = {}
 
 llm_providers = {
-    "ollama": Ollama,
     "groq": Groq,
     "mistral": MistralAI,
     "together": TogetherLLM,
+    "gemini":GoogleGenAI,
+    "openai":OpenAI,
+    "openrouter":OpenRouter
 
 }
 
 api_providers = {
     "GROQ",
     "OPENAI",
-    "GROK",
+    "GEMINI",
     "TOGETHER",
     "DEEPSEEK",
     "OPENROUTER",
@@ -54,15 +59,19 @@ def decrypt(key: str) -> str:
     return fernet.decrypt(key.encode()).decode()
 
 
+
+
 def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user)):
     api_key = db.query(APIKEYS).filter_by(user_id=user.userid, provider=provider).first()
     if not api_key:
         raise HTTPException(status_code=404, detail="API KEY NOT FOUND")
     return decrypt(api_key.encrypted_key)
 
-
 def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
     config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
+
+
+
 
     logger.info(config)
 
@@ -70,6 +79,8 @@ def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
         raise HTTPException(status_code=404, detail="Config is'nt Setup")
 
     api_record = db.query(APIKEYS).filter_by(user_id=user.userid, provider=config.provider.upper()).first()
+
+    logger.info(f"Config : {config.model} Provider:{config.provider}")
 
     if not api_record:
         raise HTTPException(status_code=404, detail="API KEY ISNT SET")

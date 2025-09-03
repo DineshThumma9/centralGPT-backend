@@ -25,6 +25,10 @@ def set_api_provider(
     api_key = req.api_key.strip()
 
 
+    logger.info(f"API PROVIDER:{req.api_prov}")
+    logger.info(f"API KEY:{req.api_key}")
+
+
 
     if api_provider not in api_providers:
         raise HTTPException(status_code=404, detail="api provider doesnt exists")
