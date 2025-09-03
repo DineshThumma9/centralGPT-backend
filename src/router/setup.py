@@ -15,7 +15,7 @@ load_dotenv()
 router = APIRouter()
 
 
-@router.post("/init/")
+@router.post("/init")
 def set_api_provider(
         req: API_KEY_REQUEST,
         current_user=Depends(get_current_user),
@@ -26,7 +26,9 @@ def set_api_provider(
 
 
     logger.info(f"API PROVIDER:{req.api_prov}")
+    print(f"API PROVIDER:{req.api_prov}")
     logger.info(f"API KEY:{req.api_key}")
+    print(f"API KEY:{req.api_key}")
 
 
 

@@ -67,6 +67,9 @@ def get_api_key(provider: str, db=Depends(get_db), user=Depends(get_current_user
         raise HTTPException(status_code=404, detail="API KEY NOT FOUND")
     return decrypt(api_key.encrypted_key)
 
+
+
+
 def get_llm_instance(db=Depends(get_db), user=Depends(get_current_user)):
     config = db.query(UserLLMConfig).filter_by(user_id=user.userid).first()
 
