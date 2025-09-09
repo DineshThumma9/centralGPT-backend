@@ -15,7 +15,13 @@ from src.db.dbs import get_db
 from src.models.schema import User, RefreshToken, APIKEYS, Token
 
 load_dotenv()
-SECRET_KEY = os.getenv("SECRET_KEY", "YOUR_SECRET_KEY")
+
+# Security configuration with validation
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY or SECRET_KEY == "YOUR_SECRET_KEY":
+    logger.warning("Using default SECRET_KEY - this is not secure for production!")
+    SECRET_KEY = "YOUR_SECRET_KEY"
+
 ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRY_MIN = int(os.getenv("ACCESS_TOKEN_EXPIRY_MIN", "360"))
 REFRESH_TOKEN_EXPIRY_DAYS = int(os.getenv("REFRESH_TOKEN_EXPIRY_DAYS", "30"))

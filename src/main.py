@@ -1,51 +1,54 @@
 import contextlib
+import logging
 import os
-
-import uvicorn
+import time
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from loguru import logger
 from starlette.requests import Request
+import uvicorn
 
 from src.db.dbs import create_all_tables
-from src.router import auth_router, basic_router, session_router,message_router,rag_router
+from src.router import auth_router, basic_router, session_router, message_router, rag_router
 
-app = FastAPI(
-    title="FastAPI App",
-    description="Simple FastAPI Application",
-    version="1.0.0"
-)
+# Load environment variables
+load_dotenv()
 
-logger.add("logs/api.log", rotation="1 MB", retention="10 days", level="INFO")
-logger.info("Server started")
-
-
-import logging
-from datadog import initialize
-
-options = {
-    'api_key': os.getenv("DD_API_KEY"),
-    'app_key': os.getenv("DD_APP_KEY")
-}
-
-initialize(**options)
-
-
-import os
-import logging
-
+# Configure logging
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_DIR = os.path.join(BASE_DIR, "../logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
+logger.add("logs/api.log", rotation="1 MB", retention="10 days", level="INFO")
 logging.basicConfig(
     filename=os.path.join(LOG_DIR, "app.log"),
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
+# Initialize DataDog (if available and configured)
+try:
+    from datadog import initialize
+    datadog_options = {
+        'api_key': os.getenv("DD_API_KEY"),
+        'app_key': os.getenv("DD_APP_KEY")
+    }
+    if datadog_options['api_key']:
+        initialize(**datadog_options)
+        logger.info("DataDog monitoring initialized")
+except ImportError:
+    logger.debug("DataDog not available - skipping monitoring setup")
 
+app = FastAPI(
+    title="CentralGPT Backend API",
+    description="Multi-LLM Provider Chat API with RAG capabilities",
+    version="1.0.0"
+)
 
+logger.info("Server started")
+
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -60,8 +63,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-import time
+# Request logging middleware
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     start = time.time()

@@ -181,9 +181,3 @@ class UserLLMConfig(SQLModel,table=True):
     user_id :UUID = Field(foreign_key="users.userid",primary_key=True)
     provider:str=Field(primary_key=True,index=True)
     model:str
-
-
-
-class API_KEY_REQUEST(BaseModel):
-    api_prov: str
-    api_key: str
